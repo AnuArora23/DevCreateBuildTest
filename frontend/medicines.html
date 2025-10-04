@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-en="Medicines — Plant Doctor" data-hi="दवाइयाँ — प्लांट डॉक्टर">Medicines — Plant Doctor</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header glass" role="banner">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><i class="fa-solid fa-seedling"></i>&nbsp;Plant Doctor</a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link" data-en="Home" data-hi="होम">Home</a>
+                <a href="index.html#scan" class="nav-link" data-en="Scan" data-hi="स्कैन">Scan</a>
+                <!-- Removed Features ✅ -->
+                <a href="medicines.html" class="nav-link" data-en="Medicines" data-hi="दवाइयाँ">Medicines</a>
+                <a href="gallery.html" class="nav-link" data-en="Gallery" data-hi="गैलरी">Gallery</a>
+                <a href="soil-guide.html" class="nav-link" data-en="Soil Guide" data-hi="मृदा गाइड">Soil Guide</a>
+                <a href="weather.html" class="nav-link" data-en="Weather" data-hi="मौसम">Weather</a>
+                <a href="crop_calender.html" class="nav-link" data-en="Crop Calendar" data-hi="फसल कैलेंडर">Crop
+                    Calendar</a>
+
+                <!-- ✅ New Market link -->
+                <a href="market.html" class="nav-link" data-en="Market" data-hi="बाज़ार">Market</a>
+
+                <a href="admin.html" class="nav-link" data-en="Admin" data-hi="एडमिन">Admin</a>
+
+                <div class="nav-extra">
+                    <div id="navTime" class="nav-time">--:--</div>
+                    <div id="navTemp" class="nav-temp">🌡️ --°C</div>
+                    <button id="langToggle" class="chip">हिंदी</button>
+                    <button id="modeToggle" class="chip">🌙</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Watermark -->
+    <section class="hero page-watermark hero-watermark" style="height:36vh;">
+        <div class="hero-overlay"></div>
+
+        <!-- Decorative watermark leaves/flowers will come via CSS -->
+
+        <div class="floating-subtitle" data-en="Curated, effective & safe" data-hi="चयनित, प्रभावी और सुरक्षित">
+            Curated, effective & safe
+        </div>
+
+        <div class="hero-content glass rise">
+            <h1 data-en="Plant Medicines" data-hi="पौधों की दवाइयाँ">Plant Medicines</h1>
+            <p data-en="Premium treatments recommended by our AI for healthier crops."
+                data-hi="स्वस्थ फसल के लिए हमारी एआई द्वारा अनुशंसित प्रीमियम उपचार।">
+                Premium treatments recommended by our AI for healthier crops.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- Filter/Search -->
+    <section class="section glass reveal" style="margin-top:-4rem">
+        <h2 data-en="Find the Right Treatment" data-hi="सही उपचार खोजें">Find the Right Treatment</h2>
+        <div class="card-grid" style="align-items:start">
+            <div class="card tilt" style="grid-column:1/-1">
+                <div style="display:flex;flex-wrap:wrap;gap:.8rem;align-items:center">
+                    <input id="searchBox" type="search" placeholder="Search… / खोजें…"
+                        style="flex:1;min-width:240px;padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:inherit" />
+                    <select id="categoryFilter"
+                        style="padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:inherit">
+                        <option value="" data-en="All Categories" data-hi="सभी श्रेणियाँ">All Categories</option>
+                        <option value="fungicide" data-en="Fungicide" data-hi="फफूंदनाशी">Fungicide</option>
+                        <option value="insecticide" data-en="Insecticide" data-hi="कीटनाशी">Insecticide</option>
+                        <option value="nutrient" data-en="Nutrients" data-hi="पोषक">Nutrients</option>
+                    </select>
+                    <select id="usageFilter"
+                        style="padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:inherit">
+                        <option value="" data-en="All Uses" data-hi="सभी उपयोग">All Uses</option>
+                        <option value="leaf" data-en="Leaf" data-hi="पत्तियाँ">Leaf</option>
+                        <option value="root" data-en="Root" data-hi="जड़">Root</option>
+                        <option value="soil" data-en="Soil" data-hi="मिट्टी">Soil</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Medicines Grid -->
+    <section class="section glass reveal" style="margin-top:2rem">
+        <h2 data-en="Recommended Medicines" data-hi="अनुशंसित दवाइयाँ">Recommended Medicines</h2>
+
+        <div id="medGrid" class="card-grid">
+
+            <!-- Add more medicine cards here... -->
+            <!-- Medicine 1 -->
+            <article class="card tilt med" data-name="BioNeem Shield" data-category="insecticide"
+                data-usage="leaf soil">
+                <img src="Medicine Photo/BioNeem Shield.jpg" alt="BioNeem Shield"
+                    style="width:100%;height:160px;object-fit:cover;border-radius:14px;margin-bottom:12px;border:1px solid rgba(255,255,255,.2)" />
+                <h3>BioNeem Shield</h3>
+                <p>
+                    A neem-based bio-insecticide highly effective against aphids, mites, caterpillars, and whiteflies.
+                    It reduces feeding, disrupts reproduction, and supports eco-friendly farming without harming
+                    pollinators.
+                </p>
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.6rem 0;">
+                    <span class="chip">Insecticide</span><span class="chip">Leaf</span><span class="chip">Soil</span>
+                </div>
+                <a href="#" class="cta small"><span>View Details</span></a>
+            </article>
+
+            <!-- Medicine 2 -->
+            <article class="card tilt med" data-name="TrichoMax Bio" data-category="fungicide" data-usage="soil root">
+                <img src="Medicine Photo/TrichoMax Bio.jpg" alt="TrichoMax Bio"
+                    style="width:100%;height:160px;object-fit:cover;border-radius:14px;margin-bottom:12px;border:1px solid rgba(255,255,255,.2)" />
+                <h3>TrichoMax Bio</h3>
+                <p>
+                    A bio-fungicide containing Trichoderma species that naturally protect roots and soil from
+                    damping-off,
+                    root rot, and wilt diseases. Enhances soil health and boosts plant immunity.
+                </p>
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.6rem 0;">
+                    <span class="chip">Fungicide</span><span class="chip">Root</span><span class="chip">Soil</span>
+                </div>
+                <a href="#" class="cta small"><span>View Details</span></a>
+            </article>
+
+            <!-- Medicine 3 -->
+            <article class="card tilt med" data-name="CopperGuard Plus" data-category="fungicide" data-usage="leaf">
+                <img src="Medicine Photo/CopperGuard Plus.jpg" alt="CopperGuard Plus"
+                    style="width:100%;height:160px;object-fit:cover;border-radius:14px;margin-bottom:12px;border:1px solid rgba(255,255,255,.2)" />
+                <h3>CopperGuard Plus</h3>
+                <p>
+                    A powerful copper-based fungicide used to control blights, leaf spots, and mildew infections.
+                    It forms a protective shield on foliage, ensuring long-lasting disease resistance.
+                </p>
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.6rem 0;">
+                    <span class="chip">Fungicide</span><span class="chip">Leaf</span>
+                </div>
+                <a href="#" class="cta small"><span>View Details</span></a>
+            </article>
+
+            <!-- Medicine 4 -->
+            <article class="card tilt med" data-name="GrowMax NPK" data-category="nutrient" data-usage="root soil">
+                <img src="Medicine Photo/GrowMax NPK.jpg" alt="GrowMax NPK"
+                    style="width:100%;height:160px;object-fit:cover;border-radius:14px;margin-bottom:12px;border:1px solid rgba(255,255,255,.2)" />
+                <h3>GrowMax NPK</h3>
+                <p>
+                    A balanced nutrient mix providing Nitrogen, Phosphorus, and Potassium in an optimized ratio.
+                    Improves root development, flowering, and fruiting while boosting overall crop yield.
+                </p>
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.6rem 0;">
+                    <span class="chip">Nutrient</span><span class="chip">Root</span><span class="chip">Soil</span>
+                </div>
+                <a href="#" class="cta small"><span>View Details</span></a>
+            </article>
+
+            <!-- Medicine 5 -->
+            <article class="card tilt med" data-name="BioPhos Activator" data-category="nutrient"
+                data-usage="root soil">
+                <img src="Medicine Photo/BioPhos Activator.jpg" alt="BioPhos Activator"
+                    style="width:100%;height:160px;object-fit:cover;border-radius:14px;margin-bottom:12px;border:1px solid rgba(255,255,255,.2)" />
+                <h3>BioPhos Activator</h3>
+                <p>
+                    A phosphorus-solubilizing bio-fertilizer that increases the availability of phosphorus in soil.
+                    It enhances root growth, flowering, and helps plants achieve stronger resistance to diseases.
+                </p>
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.6rem 0;">
+                    <span class="chip">Nutrient</span><span class="chip">Root</span><span class="chip">Soil</span>
+                </div>
+                <a href="#" class="cta small"><span>View Details</span></a>
+            </article>
+
+            <!-- Medicine 6 -->
+            <article class="card tilt med" data-name="NeemX Pro" data-category="insecticide" data-usage="leaf">
+                <img src="Medicine Photo/NeemX Pro.jpg" alt="NeemX Pro"
+                    style="width:100%;height:160px;object-fit:cover;border-radius:14px;margin-bottom:12px;border:1px solid rgba(255,255,255,.2)" />
+                <h3>NeemX Pro</h3>
+                <p>
+                    A concentrated neem extract designed to repel and kill soft-bodied insects like aphids, thrips,
+                    and mealybugs. Safe for organic farming and leaves no harmful chemical residues.
+                </p>
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.6rem 0;">
+                    <span class="chip">Insecticide</span><span class="chip">Leaf</span>
+                </div>
+                <a href="#" class="cta small"><span>View Details</span></a>
+            </article>
+
+            <!-- Medicine 7 -->
+            <article class="card tilt med" data-name="Sulphur Dust" data-category="fungicide" data-usage="leaf soil">
+                <img src="Medicine Photo/Sulphur Dust.jpg" alt="Sulphur Dust"
+                    style="width:100%;height:160px;object-fit:cover;border-radius:14px;margin-bottom:12px;border:1px solid rgba(255,255,255,.2)" />
+                <h3>Sulphur Dust</h3>
+                <p>
+                    A classic fungicide widely used for powdery mildew, scab, and rust diseases.
+                    It also acts as a secondary nutrient source, supplying essential sulphur to plants.
+                </p>
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.6rem 0;">
+                    <span class="chip">Fungicide</span><span class="chip">Leaf</span><span class="chip">Soil</span>
+                </div>
+                <a href="#" class="cta small"><span>View Details</span></a>
+            </article>
+
+            <!-- Medicine 8 -->
+            <article class="card tilt med" data-name="Bacillus BioGuard" data-category="fungicide"
+                data-usage="root soil">
+                <img src="Medicine Photo/Bacillus BioGuard.jpg" alt="Bacillus BioGuard"
+                    style="width:100%;height:160px;object-fit:cover;border-radius:14px;margin-bottom:12px;border:1px solid rgba(255,255,255,.2)" />
+                <h3>Bacillus BioGuard</h3>
+                <p>
+                    A microbial fungicide formulated with Bacillus subtilis strains that suppress harmful pathogens in
+                    soil.
+                    It promotes root vigor, improves soil biodiversity, and strengthens crop defense mechanisms.
+                </p>
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.6rem 0;">
+                    <span class="chip">Fungicide</span><span class="chip">Root</span><span class="chip">Soil</span>
+                </div>
+                <a href="#" class="cta small"><span>View Details</span></a>
+            </article>
+
+            <!-- Medicine 9 -->
+            <article class="card tilt med" data-name="Potash Booster" data-category="nutrient" data-usage="root soil">
+                <img src="Medicine Photo/Potash Booster.jpg" alt="Potash Booster"
+                    style="width:100%;height:160px;object-fit:cover;border-radius:14px;margin-bottom:12px;border:1px solid rgba(255,255,255,.2)" />
+                <h3>Potash Booster</h3>
+                <p>
+                    A potassium-rich fertilizer that enhances fruit size, sweetness, and color.
+                    It helps plants withstand drought and improves water regulation within plant tissues.
+                </p>
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.6rem 0;">
+                    <span class="chip">Nutrient</span><span class="chip">Root</span><span class="chip">Soil</span>
+                </div>
+                <a href="#" class="cta small"><span>View Details</span></a>
+            </article>
+
+            <!-- Medicine 10 -->
+            <article class="card tilt med" data-name="PestAway Herbal" data-category="insecticide" data-usage="leaf">
+                <img src="Medicine Photo/PestAway Herbal.jpg" alt="PestAway Herbal"
+                    style="width:100%;height:160px;object-fit:cover;border-radius:14px;margin-bottom:12px;border:1px solid rgba(255,255,255,.2)" />
+                <h3>PestAway Herbal</h3>
+                <p>
+                    A herbal insecticide made from garlic, chili, and plant oils.
+                    It effectively repels caterpillars, beetles, and leaf miners without leaving chemical residues on
+                    crops.
+                </p>
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.6rem 0;">
+                    <span class="chip">Insecticide</span><span class="chip">Leaf</span>
+                </div>
+                <a href="#" class="cta small"><span>View Details</span></a>
+            </article>
+            <!-- Medicine 11 -->
+            <article class="card tilt med" data-name="RootShield Bio" data-category="fungicide" data-usage="root soil">
+                <img src="Medicine Photo/RootShield Bio.jpg" alt="RootShield Bio"
+                    style="width:100%;height:160px;object-fit:cover;border-radius:14px;margin-bottom:12px;border:1px solid rgba(255,255,255,.2)" />
+                <h3>RootShield Bio</h3>
+                <p>
+                    A microbial fungicide that colonizes the root system, protecting plants from soil-borne pathogens
+                    like Fusarium and Pythium.
+                    Improves root architecture and enhances plant vigor naturally.
+                </p>
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.6rem 0;">
+                    <span class="chip">Fungicide</span><span class="chip">Root</span><span class="chip">Soil</span>
+                </div>
+                <a href="#" class="cta small"><span>View Details</span></a>
+            </article>
+
+            <!-- Medicine 12 -->
+            <article class="card tilt med" data-name="MegaZinc" data-category="nutrient" data-usage="leaf root">
+                <img src="Medicine Photo/MegaZinc.jpg" alt="MegaZinc"
+                    style="width:100%;height:160px;object-fit:cover;border-radius:14px;margin-bottom:12px;border:1px solid rgba(255,255,255,.2)" />
+                <h3>MegaZinc</h3>
+                <p>
+                    A chelated zinc fertilizer designed for foliar and soil applications.
+                    Corrects zinc deficiency, improves chlorophyll formation, and enhances crop maturity and yield
+                    quality.
+                </p>
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.6rem 0;">
+                    <span class="chip">Nutrient</span><span class="chip">Leaf</span><span class="chip">Root</span>
+                </div>
+                <a href="#" class="cta small"><span>View Details</span></a>
+            </article>
+
+            <!-- Medicine 13 -->
+            <article class="card tilt med" data-name="Seaweed Extract Pro" data-category="nutrient"
+                data-usage="leaf root soil">
+                <img src="Medicine Photo/Seaweed Extract Pro.jpg" alt="Seaweed Extract Pro"
+                    style="width:100%;height:160px;object-fit:cover;border-radius:14px;margin-bottom:12px;border:1px solid rgba(255,255,255,.2)" />
+                <h3>Seaweed Extract Pro</h3>
+                <p>
+                    An organic biostimulant derived from marine algae. Improves root growth, enhances nutrient
+                    absorption,
+                    increases stress tolerance, and boosts crop quality and yield naturally.
+                </p>
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.6rem 0;">
+                    <span class="chip">Nutrient</span><span class="chip">Leaf</span><span class="chip">Root</span><span
+                        class="chip">Soil</span>
+                </div>
+                <a href="#" class="cta small"><span>View Details</span></a>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3><i class="fa-solid fa-seedling"></i> Plant Doctor</h3>
+                <p>Helping farmers with AI powered solutions for better crops.</p>
+            </div>
+
+            <div class="footer-contact">
+                <h4>📞 Helpline</h4>
+                <p><a href="tel:+918228858145">+91 8228858145</a></p>
+                <h4>📧 Email</h4>
+                <p><a href="mailto:support@plantdoctor.com">support@plantdoctor.com</a></p>
+            </div>
+
+            <div class="footer-links">
+                <h4>📘 Quick Links</h4>
+                <p><a href="index.html">Home</a> | <a href="medicines.html">Medicines</a> | <a
+                        href="gallery.html">Gallery</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 <span>Plant Doctor</span> | Made with <span class="heart">❤️</span> for Farmers</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
