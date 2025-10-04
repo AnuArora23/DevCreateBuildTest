@@ -1,0 +1,46 @@
+{
+  "subs": [
+    {
+      "phone": "8228858145",
+      "commodity": "tamato",
+      "threshold": 20.0,
+      "direction": "below"
+    },
+    {
+      "phone": "8228858145",
+      "commodity": "Tomato",
+      "threshold": 45.0,
+      "direction": "above"
+    },
+    {
+      "phone": "+14019925370",
+      "commodity": "tamato",
+      "threshold": 22.0,
+      "direction": "below"
+    },
+    {
+      "phone": "+91 82288 58145",
+      "commodity": "tomato",
+      "threshold": 16.0,
+      "direction": "below"
+    },
+    {
+      "phone": "+918228858145",
+      "commodity": "Potato",
+      "threshold": 16.0,
+      "direction": "below"
+    },
+    {
+      "phone": "+918228858145",
+      "commodity": "Tomato",
+      "threshold": 17.0,
+      "direction": "below"
+    },
+    {
+      "phone": "+918228858145",
+      "commodity": "Tomato",
+      "threshold": 25.0,
+      "direction": "below"
+    }
+  ]
+}

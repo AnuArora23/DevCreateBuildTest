@@ -1,0 +1,37 @@
+{
+    "commodities": [
+        {
+            "commodity_en": "Wheat",
+            "commodity_hi": "गेहूं",
+            "unit": "₹/quintal",
+            "price": 2300,
+            "change": 0,
+            "mandi": "Khanna Mandi",
+            "city": "Ludhiana",
+            "source": "Manual",
+            "updated_at": "2025-10-03T10:00:00"
+        },
+        {
+            "commodity_en": "Tomato",
+            "commodity_hi": "टमाटर",
+            "unit": "₹/kg",
+            "price": 24.5,
+            "change": -1,
+            "mandi": "Jalandhar Mandi",
+            "city": "Jalandhar",
+            "source": "Manual",
+            "updated_at": "2025-10-03T10:00:00"
+        },
+        {
+            "commodity_en": "Potato",
+            "commodity_hi": "आलू",
+            "unit": "₹/kg",
+            "price": 16.0,
+            "change": 5,
+            "mandi": "Azadpur Mandi",
+            "city": "Delhi",
+            "source": "Manual",
+            "updated_at": "2025-10-03T10:00:00"
+        }
+    ]
+}

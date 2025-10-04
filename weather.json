@@ -1,0 +1,102 @@
+{
+    "Delhi": {
+        "city": "Delhi",
+        "current_temp": 30,
+        "rain_probability": 40,
+        "humidity": 60,
+        "wind": 15,
+        "alerts": [],
+        "forecast": [
+            {
+                "day": 0,
+                "temp": 30,
+                "rain_prob": 40,
+                "humidity": 60,
+                "wind": 15
+            },
+            {
+                "day": 1,
+                "temp": 32,
+                "rain_prob": 25,
+                "humidity": 58,
+                "wind": 12
+            },
+            {
+                "day": 2,
+                "temp": 33,
+                "rain_prob": 10,
+                "humidity": 55,
+                "wind": 10
+            }
+        ]
+    },
+    "Ludhiana": {
+        "city": "Ludhiana",
+        "current_temp": 29,
+        "rain_probability": 62,
+        "humidity": 72,
+        "wind": 18,
+        "alerts": [
+            {
+                "type": "Rain Alert",
+                "icon": "🌧️",
+                "suggestion_en": "Rain chance 62%. Avoid spraying pesticides today.",
+                "suggestion_hi": "बारिश की संभावना 62%. आज दवाई का छिड़काव न करें।"
+            }
+        ],
+        "forecast": [
+            {
+                "day": 0,
+                "temp": 29,
+                "rain_prob": 62,
+                "humidity": 72,
+                "wind": 18
+            },
+            {
+                "day": 1,
+                "temp": 31,
+                "rain_prob": 20,
+                "humidity": 65,
+                "wind": 20
+            },
+            {
+                "day": 2,
+                "temp": 34,
+                "rain_prob": 10,
+                "humidity": 55,
+                "wind": 25
+            }
+        ]
+    },
+    "Patna": {
+        "city": "Patna",
+        "current_temp": 33,
+        "rain_probability": 30,
+        "humidity": 65,
+        "wind": 12,
+        "alerts": [],
+        "forecast": [
+            {
+                "day": 0,
+                "temp": 33,
+                "rain_prob": 30,
+                "humidity": 65,
+                "wind": 12
+            },
+            {
+                "day": 1,
+                "temp": 35,
+                "rain_prob": 15,
+                "humidity": 60,
+                "wind": 14
+            },
+            {
+                "day": 2,
+                "temp": 36,
+                "rain_prob": 5,
+                "humidity": 55,
+                "wind": 16
+            }
+        ]
+    }
+}
