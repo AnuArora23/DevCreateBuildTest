@@ -1,0 +1,329 @@
+/* Styles for check.html */
+.survey-wrapper {
+  font-family: sans-serif;
+  width: 300px;
+  margin: auto;
+  background-color: #fff;
+}
+
+.survey-header {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.progress-bar-container {
+  height: 4px;
+  background-color: #ddd;
+  margin: 10px 0;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%; /* default width, updated inline in HTML */
+  background-color: #000;
+  transition: width 0.5s ease-in-out; /* smooth animation */
+}
+
+.question-block {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.age-options button,
+.gender-options button,
+.profession-options button {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  cursor: pointer;
+}
+
+/* .age-options button:hover,
+.gender-options button:hover,
+.profession-options button:hover,
+.continue-btn:hover {
+  background-color: #ddd;
+} */
+
+.age-options,
+.gender-options,
+.profession-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.continue-btn {
+  width: 100%;
+  padding: 15px;
+  /* background-color: #f7f7f7; */
+  /* border: 1px solid #ddd; */
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Styles for body.html */
+.body-measurements-wrapper {
+  font-family: sans-serif;
+  width: 300px;
+  margin: auto;
+  background-color: #fff;
+}
+
+.body-shape-section,
+.body-size-section,
+.skin-tone-section {
+  margin-bottom: 20px;
+}
+
+h3 {
+  margin-bottom: 10px;
+}
+
+.body-shape-options,
+.body-size-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.body-shape-btn,
+.body-size-btn {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  cursor: pointer;
+}
+
+.body-shape-btn:hover,
+.body-size-btn:hover {
+  background-color: #ddd;
+}
+
+.skin-tone-options {
+  display: flex;
+  gap: 10px;
+}
+
+.skin-tone-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.skin-tone-btn:hover {
+  border: 2px solid #000;
+}
+
+.continue-btn:hover {
+  background-color: #ddd;
+}
+
+.style-preference-wrapper {
+  font-family: sans-serif;
+  width: 300px;
+  margin: auto;
+  background-color: #fff;
+}
+
+.style-preference-header {
+  background-color: #000;
+  padding: 10px;
+  text-align: center;
+  color: #666;
+}
+
+.question-section {
+  margin-bottom: 20px;
+  padding: 10px;
+  color: #666;
+}
+
+.outfit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.outfit-option img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.wardrobe-items-wrapper {
+  font-family: sans-serif;
+  width: 300px;
+  margin: auto;
+  background-color: #fff;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.item-option {
+  position: relative;
+  text-align: center;
+}
+
+.item-option img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.item-option p {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.red-x {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 18px;
+  color: #ff0000;
+  font-weight: bold;
+}
+
+.okay-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.thank-you-wrapper {
+  font-family: sans-serif;
+  width: 300px;
+  margin: auto;
+  background-color: #fff;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f7f7f7;
+}
+
+.status-bar {
+  font-size: 12px;
+}
+
+.re-take-btn {
+  background-color: #ccc;
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.content-section {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.checkmark-container {
+  margin-bottom: 20px;
+}
+
+.checkmark-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #34c759;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkmark {
+  font-size: 24px;
+  color: #fff;
+}
+
+.continue-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+/* made by mee */
+#tag {
+  font-size: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.outfit-option.selected-outfit {
+  border: 3px solid #34c759; /* Green border for selected outfit */
+  border-radius: 10px;
+  opacity: 0.9; /* Slight visual effect */
+}
+
+.selected {
+  position: relative;
+  border: 0.5cm solid #1a1818;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Selected state for all options */
+.selected {
+  border: 3px solid #000; /* Black border */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional glow */
+  opacity: 1; /* Fully opaque */
+}
+
+/* Skin tone buttons */
+.skin-tone-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    cursor: pointer;
+    margin: 5px;
+    border: 2px solid #080808;       /* Default light border */
+    opacity: 1;                   /* Fully opaque */
+}
+
+/* Hover effect for all buttons */
+.body-shape-btn:hover,
+.body-size-btn:hover,
+.skin-tone-btn:hover {
+  border: 2px solid #000; /* Black border on hover */
+}
+.selected {
+  border: 3px solid black !important;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) !important;
+  opacity: 1 !important;
+}
+
+.skin-tone-section {
+  margin-bottom: 20px;
+  width:180%;
+}

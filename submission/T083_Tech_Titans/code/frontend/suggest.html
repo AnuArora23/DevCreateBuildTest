@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Closet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      text-align: center;
+      padding: 20px;
+    }
+    #closet {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    #closet img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      margin: 10px;
+      border-radius: 10px;
+      border: 2px solid #333;
+    }
+    #suggestion-box {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #222;
+      padding: 10px;
+      background: #fff;
+      border: 2px solid #333;
+      border-radius: 10px;
+      display: inline-block;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #444;
+    }
+  </style>
+</head>
+<body>
+  <h1> Virtual Closet</h1>
+  <input type="file" id="upload" multiple accept="image/*">
+  <div id="closet"></div>
+  <button onclick="getSuggestion()">Suggest Outfit</button>
+  <div id="suggestion-box"></div>
+
+  <script>
+    const closet = document.getElementById("closet");
+    const upload = document.getElementById("upload");
+    let clothes = [];
+
+    // Upload clothes
+    upload.addEventListener("change", (event) => {
+      const files = event.target.files;
+      for (let file of files) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const img = document.createElement("img");
+          img.src = e.target.result;
+          closet.appendChild(img);
+          clothes.push(file.name);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    async function getSuggestion() {
+      if (clothes.length < 2) {
+        document.getElementById("suggestion-box").innerText =
+          "⚠️ Please upload at least 2 clothes!";
+        return;
+      }
+
+      try {
+        // Try backend API
+        const response = await fetch("http://localhost:5000/suggest", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ clothes: clothes }),
+        });
+
+        if (!response.ok) throw new Error("Backend not available");
+
+        const data = await response.json();
+        document.getElementById("suggestion-box").innerText =
+          "👔 Suggested Outfit: " + data.suggestion;
+
+      } catch (error) {
+        // Fallback: Random suggestion in frontend
+        let top = clothes[Math.floor(Math.random() * clothes.length)];
+        let bottom = clothes[Math.floor(Math.random() * clothes.length)];
+        document.getElementById("suggestion-box").innerText =
+          "✨ Demo Suggestion: " + top + " + " + bottom;
+      }
+    }
+  </script>
+</body>
+</html>

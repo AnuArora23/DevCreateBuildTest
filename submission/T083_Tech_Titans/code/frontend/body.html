@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Measurements</title>
+    <link rel="stylesheet" href="check.css" />
+</head>
+<body>
+    <div class="survey-wrapper">
+        <div class="survey-header">
+            <h2>Tell Us About Yourself</h2>
+        </div>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill" style="width: 40%;"></div>
+        </div>
+
+        <div class="body-shape-section">
+            <h3>Body Shape</h3>
+            <div class="body-shape-options bodyShape-options">
+                <button class="body-shape-btn" data-value="Hourglass" onclick="toggleSelection(this, 'bodyShape')">Hourglass</button>
+                <button class="body-shape-btn" data-value="Pear" onclick="toggleSelection(this, 'bodyShape')">Pear</button>
+                <button class="body-shape-btn" data-value="Triangle" onclick="toggleSelection(this, 'bodyShape')">Triangle</button>
+                <button class="body-shape-btn" data-value="Rectangle" onclick="toggleSelection(this, 'bodyShape')">Rectangle</button>
+            </div>
+        </div>
+
+        <div class="body-size-section">
+            <h3>Body Size</h3>
+            <div class="body-size-options bodySize-options">
+                <button class="body-size-btn" data-value="Petite" onclick="toggleSelection(this, 'bodySize')">Petite</button>
+                <button class="body-size-btn" data-value="Skinny" onclick="toggleSelection(this, 'bodySize')">Skinny</button>
+                <button class="body-size-btn" data-value="Average" onclick="toggleSelection(this, 'bodySize')">Average</button>
+                <button class="body-size-btn" data-value="Athletic" onclick="toggleSelection(this, 'bodySize')">Athletic</button>
+                <button class="body-size-btn" data-value="Plus-size" onclick="toggleSelection(this, 'bodySize')">Plus-size</button>
+            </div>
+        </div>
+
+        <div class="skin-tone-section">
+            <h3>Skin Tone</h3>
+            <div class="skin-tone-options skinTone-options">
+                <div class="skin-tone-btn" data-value="Very Light" style="background-color: #FBE8EB;" onclick="toggleSelection(this, 'skinTone')"></div>
+                <div class="skin-tone-btn" data-value="Light" style="background-color: #FFD4C1;" onclick="toggleSelection(this, 'skinTone')"></div>
+                <div class="skin-tone-btn" data-value="Light Medium" style="background-color: #F1C3A3;" onclick="toggleSelection(this, 'skinTone')"></div>
+                <div class="skin-tone-btn" data-value="Medium Light" style="background-color: #E1A98B;" onclick="toggleSelection(this, 'skinTone')"></div>
+                <div class="skin-tone-btn" data-value="Medium" style="background-color: #C97E43;" onclick="toggleSelection(this, 'skinTone')"></div>
+                <div class="skin-tone-btn" data-value="Medium Dark" style="background-color: #AB673A;" onclick="toggleSelection(this, 'skinTone')"></div>
+                <div class="skin-tone-btn" data-value="Dark" style="background-color: #83451C;" onclick="toggleSelection(this, 'skinTone')"></div>
+                <div class="skin-tone-btn" data-value="Very Dark" style="background-color: #5A2E1A;" onclick="toggleSelection(this, 'skinTone')"></div>
+                <div class="skin-tone-btn" data-value="Deep Dark" style="background-color: #3B1E0B;" onclick="toggleSelection(this, 'skinTone')"></div>
+            </div>
+        </div>
+
+        <!-- Continue button -->
+        <a href="style.html">
+            <button class="continue-btn">Continue</button>
+        </a>
+    </div>
+
+    <script>
+        // Restore selection on page load
+        window.onload = () => {
+            ['bodyShape','bodySize','skinTone'].forEach(key => {
+                const saved = localStorage.getItem(key);
+                if(saved){
+                    const btn = document.querySelector(`[data-value="${saved}"]`);
+                    if(btn) btn.classList.add('selected');
+                }
+            });
+        }
+
+        // Toggle selection function
+        function toggleSelection(btn, key){
+            const value = btn.getAttribute('data-value');
+            if(btn.classList.contains('selected')){
+                btn.classList.remove('selected');
+                localStorage.removeItem(key);
+            } else {
+                // Remove 'selected' class from all selected elements inside the category container
+                document.querySelectorAll(`.${key} .selected`).forEach(el => el.classList.remove('selected'));
+                btn.classList.add('selected');
+                localStorage.setItem(key, value);
+            }
+        }
+
+        // ✅ Select only one item at a time, no duplicate popup
+function setupSelectableOptions(className) {
+  const options = document.querySelectorAll("." + className);
+
+  options.forEach(option => {
+    option.addEventListener("click", () => {
+      // If this option is already selected → do nothing
+      if (option.classList.contains("selected")) {
+        return;
+      }
+
+      // Remove 'selected' from all in this group
+      options.forEach(o => o.classList.remove("selected"));
+
+      // Add 'selected' to clicked item
+      option.classList.add("selected");
+
+      // Show message popup (only first time)
+      alert("You selected: " + option.getAttribute("data-name"));
+    });
+  });
+}
+
+// ✅ Apply to different groups
+setupSelectableOptions("shape-option"); 
+setupSelectableOptions("size-option");  
+setupSelectableOptions("skin-tone-btn");
+
+    </script>
+</body>
+</html>

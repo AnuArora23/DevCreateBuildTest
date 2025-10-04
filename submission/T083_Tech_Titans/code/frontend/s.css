@@ -1,0 +1,176 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fafafa;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 500px; /* bigger container */
+  margin: 20px auto 80px;
+  padding: 15px;
+}
+
+/* Sections */
+.section {
+  display: none;
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.section.active {
+  display: block;
+}
+
+/* Profile Header */
+.profile-header {
+  text-align: center;
+}
+
+.profile img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  background: #ddd;
+  margin-bottom: 10px;
+}
+
+/* Edit Headers */
+.edit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.pencil-icon {
+  cursor: pointer;
+  font-size: 20px;
+  color: #191b1a;
+  transition: color 0.3s;
+}
+
+.pencil-icon:hover {
+  color: #45a049;
+}
+
+/* Editable fields */
+.editable {
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.editable:hover {
+  background: #e3f2fd;
+}
+
+.edit-mode .edit-input {
+  width: 100%;
+  padding: 6px;
+  border: 2px solid #e2ece2; /* wider border */
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* Orders panel */
+.orders-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+  background: #f0f0f0;
+  padding: 0 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.orders-panel.active {
+  max-height: 500px;
+  padding: 10px;
+}
+
+.orders-panel p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+/* Order Arrow */
+#orderArrow {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+#orderArrow.open {
+  transform: rotate(90deg);
+}
+
+/* Info Fields */
+.info p {
+  margin: 8px 0;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Save/Cancel Buttons */
+.save-cancel {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.save-btn, .cancel-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.save-btn { background: #4CAF50; color: white; }
+.cancel-btn { background: #f44336; color: white; }
+
+/* Bottom Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.bottom-nav a {
+  text-align: center;
+  flex: 1;
+  color: #444;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.bottom-nav a.active {
+  color: #141414;
+  font-weight: bold;
+}
+
+.bottom-nav i {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+#imageUpload {
+  display: none;
+}
+

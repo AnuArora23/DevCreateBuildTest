@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wardrobe Preferences</title>
+    <link rel="stylesheet" href="check.css" />
+</head>
+<body>
+    <div class="wardrobe-items-wrapper">
+        <div class="survey-wrapper">
+            <div class="survey-header">
+                <h2>Tell Us About Yourself</h2>
+            </div>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: 80%;"></div>
+            </div>
+
+            <h3>Which items do you never keep in your wardrobe?</h3>
+
+            <div class="items-grid">
+                <div class="item-option" onclick="toggleItem('Off-shoulder', this)">
+                    <img src="https://www.only.in/cdn/shop/files/901066701_g0.jpg?v=1745912151&width=2048" alt="Off-shoulder">
+                    <p>Off-shoulder</p>
+                </div>
+                <div class="item-option" onclick="toggleItem('Skirts', this)">
+                    <img src="https://0fee2893dc2e6411d489-f35deb979fe84c94dadc2a6300b5f3da.ssl.cf2.rackcdn.com/product-hugerect-3288392-438139-1652340326-1c62e18bbf690269f284ce54e996f5b6.jpg" alt="Skirts">
+                    <p>Skirts</p>
+                    <span class="red-x">X</span>
+                </div>
+                <div class="item-option" onclick="toggleItem('Oversized', this)">
+                    <img src="https://img.joomcdn.net/2658299835bc88457f5b7524761699993df509a7_original.jpeg" alt="Oversized">
+                    <p>Oversized</p>
+                </div>
+                <div class="item-option" onclick="toggleItem('Glittery', this)">
+                    <img src="https://i.pinimg.com/736x/78/84/9a/78849a34e861fa1f8fbe64c7b90d1d39.jpg" alt="Glittery">
+                    <p>Glittery</p>
+                </div>
+                <div class="item-option" onclick="toggleItem('Tube-tops', this)">
+                    <img src="https://lh6.googleusercontent.com/fP4e32I7aXANxKoxVluOf6UpoQ07CmT8NHjER41WJdKNWQrTcxKXsBFLpvv7FT-BBCZw8qFan-2oxD8GNbnuoqVw3j0pDdx0Q0tRs2hZWAngbLxmA0UgXJjBNdlCwMBBoDVswuox" alt="Tube-tops">
+                    <p>Tube-tops</p>
+                </div>
+                <div class="item-option" onclick="toggleItem('Tight-fit Jeans', this)">
+                    <img src="https://m.media-amazon.com/images/I/91Lx4lfJt-L._UY1100_.jpg" alt="Tight-fit Jeans">
+                    <p>Tight-fit Jeans</p>
+                </div>
+                <div class="item-option" onclick="toggleItem('Short dresses', this)">
+                    <img src="https://www.urbansuburban.in/image/catalog/women-aw-24-nov/drop1/dresses/AW24-DRS-39-KX/1.jpg" alt="Short dresses">
+                    <p>Short dresses</p>
+                </div>
+                <div class="item-option" onclick="toggleItem('Low-rise jeans', this)">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2023/5/306593425/TE/FR/UL/188404551/trendy-low-waist-jeans-grey-for-women-s.jpg" alt="Low-rise jeans">
+                    <p>Low-rise jeans</p>
+                </div>
+                <div class="item-option" onclick="toggleItem('Baggy', this)">
+                    <img src="https://techwearcanada.ca/cdn/shop/files/women-wearing-darkwear-baggy-pants-women-front-side-view-canada.jpg?v=1723443121&width=1946" alt="Baggy">
+                    <p>Baggy</p>
+                </div>
+            </div>
+
+            <a href="thnakyou.html">
+                <button class="okay-btn" style="padding: 20px; font-size: 18px; width: 100%;">Okay With All</button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Load wardrobe selections from localStorage
+        const storedItems = JSON.parse(localStorage.getItem('wardrobeSelections')) || [];
+
+        function toggleItem(itemName, element) {
+            const index = storedItems.indexOf(itemName);
+
+            if (index === -1) {
+                storedItems.push(itemName);
+                element.style.border = "2px solid #000"; // highlight
+            } else {
+                storedItems.splice(index, 1);
+                element.style.border = "1px solid #ddd"; // remove highlight
+            }
+
+            localStorage.setItem('wardrobeSelections', JSON.stringify(storedItems));
+        }
+
+        // Restore highlights on page load
+        window.onload = () => {
+            const allItems = document.querySelectorAll('.item-option');
+            allItems.forEach(item => {
+                const name = item.querySelector('p').innerText;
+                if (storedItems.includes(name)) {
+                    item.style.border = "2px solid #000";
+                }
+            });
+        };
+    </script>
+</body>
+</html>
+
+  

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fashion Store</title>
+  <link rel="stylesheet" href="profile.css" />
+  <style>
+    /* Enhanced styles for file display columns */
+    .file-columns {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 15px;
+      margin-top: 20px;
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      scroll-snap-type: x mandatory;
+    }
+    .file-column {
+      flex: 0 0 auto;
+      width: 120px;
+      height: 120px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 10px;
+      word-break: break-word;
+      background-color: white;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      scroll-snap-align: start;
+      margin-right: 20px;
+    }
+    .file-column:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .file-column img {
+      border-radius: 8px;
+      margin-bottom: 8px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- File Selection Section -->
+  <section>
+    <h2>Select Files</h2>
+    <input type="file" id="fileInput" multiple />
+    <button id="saveFilesBtn">Save Selected Files</button>
+  </section>
+
+  <!-- Display Selected Files in Columns -->
+  <section>
+    <h2>Selected Files</h2>
+    <div id="fileColumns" class="file-columns"></div>
+  </section>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="profile.html" >Home</a>
+    <a href="#">LuvoBot</a>
+    <a href="#" class="active">Closet</a>
+    <a href="#">Wishlist</a>
+    <a href="#">Profile</a>
+  </nav>
+
+  <script>
+    // Store selected files in memory
+    let savedFiles = [];
+
+    const fileInput = document.getElementById('fileInput');
+    const saveFilesBtn = document.getElementById('saveFilesBtn');
+    const fileColumns = document.getElementById('fileColumns');
+
+    // Function to render saved files in columns
+    function renderFiles() {
+      fileColumns.innerHTML = '';
+      savedFiles.forEach(file => {
+        const col = document.createElement('div');
+        col.className = 'file-column';
+
+        // Only display image preview if file is an image
+        if (file.type.startsWith('image/')) {
+          const img = document.createElement('img');
+          img.src = URL.createObjectURL(file);
+          img.style.maxWidth = '80px';
+          img.style.height = '80px';
+          img.alt = file.name;
+          col.appendChild(img);
+        } else {
+          // Do not display non-image files
+          // col.textContent = file.name;
+        }
+
+        fileColumns.appendChild(col);
+      });
+    }
+
+    // Save selected files on button click
+    saveFilesBtn.addEventListener('click', () => {
+      const files = Array.from(fileInput.files);
+      if (files.length === 0) {
+        alert('Please select one or more files first.');
+        return;
+      }
+      // Add new files to savedFiles array
+      savedFiles = savedFiles.concat(files);
+      renderFiles();
+      // Clear file input
+      fileInput.value = '';
+    });
+  </script>
+
+</body>
+</html>

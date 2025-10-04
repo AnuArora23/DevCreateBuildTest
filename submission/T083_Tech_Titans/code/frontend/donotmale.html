@@ -1,0 +1,96 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wardrobe Preferences</title>
+    <link rel="stylesheet" href="check.css" />
+</head>
+<body>
+    <div class="wardrobe-items-wrapper">
+
+       <div class="survey-wrapper">
+        <div class="survey-header">
+            <h2>Tell Us About Yourself</h2>
+        </div>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill" style="width: 80%;"></div>
+        </div>
+          
+        <h3>Which items do you never keep in your wardrobe?</h3>
+
+        <div class="items-grid">
+            <div class="item-option" onclick="toggleItem(this)">
+                <img src="https://www.themodestman.com/wp-content/uploads/2021/07/Casual-4-David-wearing-floral-print-and-denim.jpg" alt="Hawaiian Shirt">
+                <p>Hawaiian Shirt</p>
+            </div>
+            <div class="item-option" onclick="toggleItem(this)">
+                <img src="https://images-cdn.ubuy.co.in/63516eb977cba86f241200cb-lhx-men-deep-v-neck-t-shirt-low-cut-v.jpg" alt="Deep V-neck T-shirt">
+                <p>Deep V-neck T-shirt</p>
+            </div>
+            <div class="item-option" onclick="toggleItem(this)">
+                <img src="https://www.suitsexpert.com/wp-content/uploads/2017/01/too-many-accessories-on-suit.jpg" alt="Oversized Blazer">
+                <p>Oversized Blazer with Accessories</p>
+            </div>
+            <div class="item-option" onclick="toggleItem(this)">
+                <img src="https://i.pinimg.com/550x/8e/59/38/8e59387821145d33a92d0428bbfe6bd3.jpg" alt="Brightly Colored Suit">
+                <p>Brightly Colored Suit</p>
+            </div>
+            <div class="item-option" onclick="toggleItem(this)">
+                <img src="https://www.opposuits.co.uk/cdn/shop/files/OppoSuits-Men-Suits-Flaminguy1.jpg?v=1688571267" alt="Tropical Print Blazer">
+                <p>Tropical Print Blazer</p>
+            </div>
+            <div class="item-option" onclick="toggleItem(this)">
+                <img src="https://www.gingtto.com/cdn/shop/files/4_29f0567b-3741-412d-b30d-cdfae2401bdf.jpg?v=1735607750&width=1445" alt="Skinny Jeans">
+                <p>Skinny Jeans</p>
+            </div>
+            <div class="item-option" onclick="toggleItem(this)">
+                <img src="https://i.pinimg.com/564x/a7/f3/67/a7f367da69ba5de13fedeee297ce339f.jpg" alt="Denim Jacket">
+                <p>Denim Jacket over Hoodie</p>
+            </div>
+            <div class="item-option" onclick="toggleItem(this)">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyg13ERKCoLMzG7ncQGARafHK_wtlgUOPy67rUHSj8KB5hSNhFjSVVhLr1DsUlYYeSZEU&usqp=CAU" alt="Pinstripe Suit">
+                <p>Pinstripe Suit with Tie Clip</p>
+            </div>
+            <div class="item-option" onclick="toggleItem(this)">
+                <img src="https://m.media-amazon.com/images/I/61IIKSH7SxL._UY1100_.jpg" alt="Baggy Jeans">
+                <p>Baggy Jeans</p>
+            </div>
+        </div>
+
+        <!-- Larger Okay Button -->
+        <a href="thnakyou.html">
+            <button class="okay-btn" style="padding: 20px; font-size: 18px; width: 100%; border-radius: 0.5 rem;">Okay With All</button>
+        </a>
+
+    </div>
+
+    <script>
+        // Store selected items in memory using localStorage
+        const items = document.querySelectorAll('.item-option');
+
+        items.forEach(item => {
+            const itemName = item.querySelector('p').innerText;
+
+            // Restore selection from memory
+            if (localStorage.getItem(itemName)) {
+                item.classList.add('selected');
+            }
+
+            // Toggle selection on click
+            item.addEventListener('click', () => {
+                if (item.classList.contains('selected')) {
+                    item.classList.remove('selected');
+                    localStorage.removeItem(itemName);
+                } else {
+                    item.classList.add('selected');
+                    localStorage.setItem(itemName, 'true');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+

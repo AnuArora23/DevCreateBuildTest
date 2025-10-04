@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wishlist Scraper and Saver</title>
+  <style>
+    body {
+      background: #f4f6fa;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .main-container {
+      max-width: 600px;
+      margin: 38px auto;
+      padding: 28px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px #b5b6b6;
+    }
+
+    h1 {
+      font-family: 'Georgia', serif;
+      color: #314478;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .user-row {
+      margin-bottom: 14px;
+    }
+
+    .user-row label {
+      margin-right: 8px;
+      font-weight: bold;
+    }
+
+    input[type=text] {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0 18px 0;
+      border: 1px solid #c0c6dd;
+      border-radius: 6px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px 22px;
+      border-radius: 7px;
+      border: none;
+      background: #207ad9;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-right: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background: #165ebf;
+    }
+
+    .product-list {
+      margin-top: 24px;
+    }
+
+    .card {
+      background: #f8f9ff;
+      margin-bottom: 13px;
+      border-radius: 8px;
+      box-shadow: 0 1px 6px #dde2ef5c;
+      padding: 13px 12px;
+      display: flex;
+      gap: 13px;
+      align-items: center;
+    }
+
+    .card img {
+      width: 75px;
+      height: 75px;
+      border-radius: 5px;
+      object-fit: cover;
+    }
+
+    .info {
+      flex: 1;
+    }
+
+    .name {
+      font-weight: bold;
+      color: #234088;
+      margin-bottom: 5px;
+    }
+
+    .desc {
+      font-size: 0.96rem;
+      color: #444;
+      margin-bottom: 7px;
+    }
+
+    .price {
+      font-size: 1.07rem;
+      font-weight: 600;
+      color: #19985c;
+    }
+
+    .error {
+      color: #b53e3e;
+      background: #fee;
+      padding: 11px;
+      border-radius: 7px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <h1>Wishlist Scraper & Saver</h1>
+    <div class="user-row">
+      <label for="username">Username:</label>
+      <input type="text" id="username" value="demo" placeholder="Enter your username" />
+    </div>
+    <input type="text" id="url" placeholder="Enter wishlist page URL..." />
+    <button onclick="scrapeAndSave()">Scrape & Save Wishlist</button>
+    <div id="error" class="error" style="display:none"></div>
+    <div>
+      <button onclick="loadWishlist()">Load Wishlist</button>
+    </div>
+    <div class="product-list" id="products"></div>
+  </div>
+
+  <script>
+    const API_BASE = "http://127.0.0.1:8000";
+
+    function getUsername() {
+      return document.getElementById("username").value.trim() || "demo";
+    }
+
+    async function scrapeAndSave() {
+      document.getElementById("error").style.display = "none";
+      document.getElementById("products").innerHTML = "<div>Loading...</div>";
+      const url = document.getElementById("url").value.trim();
+      const username = getUsername();
+
+      if (!/^https?:\/\//.test(url)) {
+        showErr("Enter a valid URL starting with http:// or https://");
+        return;
+      }
+
+      try {
+        const resp = await fetch(`${API_BASE}/wishlist/scrape`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ url })
+        });
+        if (!resp.ok) throw new Error(await resp.text());
+        const data = await resp.json();
+
+        for (const prod of data) {
+          await fetch(`${API_BASE}/wishlist/add`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              username,
+              product_name: prod.product_name,
+              description: prod.description,
+              price: prod.price,
+              image_url: prod.image_url,
+            })
+          });
+        }
+        loadWishlist();
+      } catch(e) {
+        showErr("Scraping or saving failed: " + e.message);
+      }
+    }
+
+    async function loadWishlist() {
+      document.getElementById("error").style.display = "none";
+      document.getElementById("products").innerHTML = "Loading...";
+      const username = getUsername();
+      try {
+        const resp = await fetch(`${API_BASE}/wishlist/list/${encodeURIComponent(username)}`);
+        if (!resp.ok) throw new Error(await resp.text());
+        const items = await resp.json();
+        showProducts(items);
+      } catch(e) {
+        showErr("Could not load wishlist: " + e.message);
+      }
+    }
+
+    function showProducts(items) {
+      const box = document.getElementById("products");
+      box.innerHTML = "";
+      if (!items.length) {
+        box.innerHTML = "<div>No products found in wishlist.</div>";
+        return;
+      }
+      for (const prod of items) {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerHTML = `
+          <img src="${prod.image_url}" onerror="this.src='https://via.placeholder.com/75?text=No+Image'" />
+          <div class="info">
+            <div class="name">${prod.product_name}</div>
+            <div class="desc">${prod.description}</div>
+            <div class="price">₹${prod.price}</div>
+          </div>`;
+        box.appendChild(div);
+      }
+    }
+
+    function showErr(t) {
+      document.getElementById("error").textContent = t;
+      document.getElementById("error").style.display = "block";
+      document.getElementById("products").innerHTML = "";
+    }
+
+    window.onload = loadWishlist;
+  </script>
+</body>
+</html>

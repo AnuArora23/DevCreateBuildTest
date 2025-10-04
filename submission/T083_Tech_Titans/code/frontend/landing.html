@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Runway Lookbook — Carousel Fixed</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <style>
+      :root {
+        --bg: linear-gradient(to right, #d9d2f6, #a7b3f6);
+        --dark: #1a1a1a;
+        --muted: #717783;
+        --accent: #6c63ff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding-top: 60px;
+        font-family: "serif", Poppins, sans-serif;
+        background: var(--bg);
+        color: var(--dark);
+        overflow-x: hidden;
+      }
+
+      img,
+      video,
+      picture {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Navbar */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 15px;
+        height: 3.6rem;
+        background: transparent;
+        z-index: 30;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .logo span {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 1.4rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 18px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--dark);
+      }
+
+      /* Lookbook / model area */
+      .lookbook-outer {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0;
+        height: calc(100vh - 60px);
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .model-area {
+        flex: 1;
+        position: relative;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .left-content {
+        flex: 1;
+        max-width: 420px;
+      }
+
+      .left-content h1 {
+        font-family: "Playfair Display";
+        font-size: 2.4rem;
+        margin: 0;
+        color: var(--dark);
+      }
+
+      .left-content p {
+        font-size: 1.1rem;
+        color: var(--muted);
+      }
+
+      .auth-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .auth-buttons button {
+        padding: 9px 18px;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        background: transparent;
+        cursor: pointer;
+      }
+
+      .auth-buttons button:hover {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .model-image {
+        height: 480px;
+        object-fit: contain;
+      }
+
+      .look-number {
+        position: absolute;
+        top: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "Playfair Display";
+        font-size: 4.2rem;
+        color: rgba(0, 0, 0, 0.75);
+      }
+
+      .nav-buttons {
+        position: absolute;
+        right: 16px;
+        bottom: 12px;
+        display: flex;
+        gap: 8px;
+      }
+
+      .nav-buttons button {
+        padding: 9px 12px;
+        border-radius: 8px;
+        border: none;
+        background: transparent;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      /* Section three */
+      .three {
+        padding: 30px 40px;
+        display: flex;
+        flex-direction: row;
+        margin: 40px auto;
+        max-width: 1400px;
+        gap: 40px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .ask {
+        flex: 1;
+        max-width: 400px;
+      }
+
+      .right-side {
+        flex: 1;
+        max-width: 400px;
+      }
+
+      .ask h2 {
+        font-family: "Playfair Display";
+        font-size: 3rem;
+        margin: 0;
+        color: var(--dark);
+      }
+
+      .ask p {
+        color: var(--muted);
+        font-size: 1.5rem;
+      }
+
+      .input {
+        padding: 8px;
+        max-width: 200px;
+      }
+
+      .slay img {
+        max-width: 320px;
+        border-radius: 8px;
+        border: 3px solid var(--accent);
+        padding: 4px;
+      }
+
+      .slay {
+        margin-left: auto;
+      }
+
+      /* Section four - text left, carousel right */
+      .four {
+        padding: 30px 40px;
+        margin: 40px auto;
+        max-width: 1400px;
+      }
+
+      .four .container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 36px;
+      }
+
+      .four .text-content {
+        flex: 1;
+        max-width: 600px;
+      }
+
+      .four .text-content h1 {
+        font-size: 2.6rem;
+        font-family: "Playfair Display";
+        margin: 0 0 12px;
+      }
+
+      .four .text-content p {
+        font-size: 1.05rem;
+        color: var(--muted);
+        max-width: 480px;
+      }
+
+      .four .image-assembly {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 8px;
+      }
+
+      /* Carousel container (controls spacing and size) */
+      .carousel {
+        position: relative;
+        width: 460px;
+        height: 420px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px; /* reduced gap between images */
+        /* allow visible overflow so small images can overlap nicely */
+        overflow: visible;
+      }
+
+      /* Each image is given a white framed container by using background + padding.
+       object-fit: contain prevents cropping of the image inside the frame. */
+      .carousel img {
+        position: relative; /* changed from absolute to relative to respect gap */
+        width: 150px; /* visual size for small images */
+        height: 210px;
+        /* padding: 10px; /* restored white frame around actual photo */
+        /* background: #fff; /* restored frame so corner radius looks clean */
+        border-radius: 14px;
+        object-fit: contain; /* show the full image inside */
+        cursor: pointer;
+        transition: transform 420ms cubic-bezier(0.2, 0.9, 0.2, 1),
+          box-shadow 320ms;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+        transform-origin: center center;
+        z-index: 2;
+        animation-name: autoChange;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-direction: alternate;
+        animation-play-state: running;
+      }
+
+      @keyframes popUp {
+        0% {
+          transform: scale(1) translate(0, 0);
+          box-shadow: none;
+        }
+        50% {
+          transform: scale(1.1) translate(0, -10px);
+          box-shadow: 0 18px 34px rgba(0, 0, 0, 0.22);
+        }
+        100% {
+          transform: scale(1) translate(0, 0);
+          box-shadow: none;
+        }
+      }
+
+      /* Center image larger and elevated */
+      .carousel img.center {
+        width: 240px;
+        height: 320px;
+        padding: 12px;
+        border-radius: 16px;
+        z-index: 20;
+        box-shadow: 0 28px 48px rgba(0, 0, 0, 0.28);
+        transform: translate(0, 0) scale(1.02);
+        animation: autoChange 10s infinite;
+      }
+
+      @keyframes autoChange {
+        0%,
+        20% {
+          transform: translate(0, 0) scale(1.02);
+        }
+        25%,
+        45% {
+          transform: translate(20px, 0) scale(1.05);
+        }
+        50%,
+        70% {
+          transform: translate(-20px, 0) scale(1.05);
+        }
+        75%,
+        100% {
+          transform: translate(0, 0) scale(1.02);
+        }
+      }
+
+      /* small images style */
+      .carousel img.small {
+        width: 140px;
+        height: 200px;
+        padding: 8px;
+        opacity: 1;
+        z-index: 5;
+      }
+
+      /* subtle hover: bring forward and slightly scale */
+      .carousel img.small:hover {
+        transform: translate(0, 0) scale(1.06);
+        z-index: 30;
+        box-shadow: 0 18px 34px rgba(0, 0, 0, 0.22);
+        animation-play-state: paused;
+      }
+
+      /* Pop up animation class */
+      .popUp {
+        animation: popUp 1.2s ease-in-out;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 1100px) {
+        .carousel {
+          width: 380px;
+          height: 340px;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .four .container {
+          flex-direction: column-reverse;
+          align-items: center;
+        }
+        .four .image-assembly {
+          justify-content: center;
+        }
+        .carousel {
+          width: 320px;
+          height: 300px;
+        }
+        .carousel img.center {
+          width: 200px;
+          height: 280px;
+        }
+        .carousel img.small {
+          width: 110px;
+          height: 160px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .carousel {
+          width: 230px;
+          height: 230px;
+        }
+        .carousel img.center {
+          width: 140px;
+          height: 200px;
+        }
+        .carousel img.small {
+          width: 80px;
+          height: 120px;
+        }
+        .four .text-content h1 {
+          font-size: 1.4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="one">
+      <nav class="navbar">
+        <div class="logo">
+          <img src="logoo.png" alt="avatar" />
+        </div>
+        <div class="nav-links">
+          <a href="about.html">About</a><a href="contact.html">Contact Us</a>
+        </div>
+        <div class="auth-buttons">
+          <button onclick="window.location.href='sign.html'">Login/SignUp</button
+          >
+        </div>
+      </nav>
+
+      <div class="lookbook-outer">
+        <div class="model-area">
+          <div class="left-content">
+            <h1>Heyy I’m luvora!</h1>
+            <p>
+              Your personal AI stylist
+              <br />
+              “Our AI Stylist is a next-gen fashion platform that combines
+              technology with style. With a virtual closet, AI try-on, and
+              personalized outfit recommendations, it helps users instantly find
+              looks that fit their personality. Plus, with smart deals, trend
+              insights, and interactive tools, fashion becomes intelligent, fun,
+              and effortless.”
+            </p>
+          </div>
+          <img
+            id="modelImage"
+            class="model-image"
+            src="neev-removebg-preview.png"
+            alt="Model"
+          />
+          <h2 id="lookNumber" class="look-number">NEEV</h2>
+          <div class="nav-buttons">
+            <button id="prevLook">← PREV</button
+            ><button id="nextLook">NEXT →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="three">
+      <div class="ask">
+        <h2>Ask Luvora</h2>
+        <p>Not sure if your fit's bussin or a straight-up flop</p>
+        <p>Need a quick drip check or style advice?</p>
+      </div>
+      <div class="right-side">
+        <div class="input"><p>Is this fit a slay?</p></div>
+        <div class="slay">
+          <img
+            src="https://i.pinimg.com/originals/6d/9d/fe/6d9dfea44cd9c6fd1e398d7c7e963b22.jpg"
+            alt="avatar"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="four">
+      <div class="container">
+        <div class="text-content">
+          <h1>Personalised Outfits & Styling Ideas</h1>
+          <p>
+            Not sure how to style it? Alle’s got you. From full fits to trending
+            looks, get inspo that matches your vibe.
+          </p>
+        </div>
+
+        <div class="image-assembly">
+          <div class="carousel" aria-hidden="false">
+            <img
+              src="https://images.summitmedia-digital.com/candy/images/2023/01/31/288272419_823547761944737_4557254031055090729_n%20(1).jpg"
+              class="center"
+              alt="Main Outfit"
+            />
+            <img
+              src="https://i.pinimg.com/originals/67/9c/1b/679c1bb523aeb7eb3c69413e3cc09b09.jpg"
+              class="small"
+              alt="Outfit 2"
+            />
+            <img
+              src="https://i.pinimg.com/236x/02/d6/1a/02d61a629eb9fab80064aa1ebd428514.jpg"
+              class="small"
+              alt="Outfit 1"
+            />
+
+            <img
+              src="https://i.pinimg.com/originals/87/dd/54/87dd54c4b6bca9b7dda3713b90498a88.jpg"
+              class="small"
+              alt="Outfit 3"
+            />
+            <img
+            src="https://i.pinimg.com/originals/22/5b/5e/225b5efa8baa9bce30a73779dabf8e65.jpg"
+            class="small" alt="Outfit 4" function initialLoad(){
+            modelImageEl.src = runwayLooks[currentLookIndex].modelImage;
+            lookNumberEl.textContent = ''; gsap.fromTo([modelImageEl,
+            lookNumberEl], { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration:
+            0.9, stagger: 0.08, ease: 'power3.out' }); startAutoPlay(); }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="five">
+      <div class="footer">
+        <h3>Meet Our Team</h3>
+        <ul>
+          <li>
+            <strong>Dolly</strong> - Frontend Developer<br /><a
+              href="mailto:deepalisandhu160@gmail.com"
+              >deepalisandhu160@gmail.com</a
+            >
+          </li>
+          <li>
+            <strong>Deepali</strong> - Frontend Developer<br /><a
+              href="mailto:gurleenkaur11106@gmail.com"
+              >gurleenkaur11106@gmail.com</a
+            >
+          </li>
+          <li>
+            <strong>Gurleen Kaur</strong> - Frontend Developer<br /><a
+              href="mailto:neevkalra545@gmail.com"
+              >neevkalra545@gmail.com</a
+            >
+          </li>
+          <li>
+            <strong>Nimit</strong> - Backend Developer<br /><a
+              href="mailto:Rahulsodhi2007@gmail.com"
+              >Rahulsodhi2007@gmail.com</a
+            >
+          </li>
+          <li>
+            <strong>Neev</strong> - Backend Developer<br /><a
+              href="mailto:dolly010623@gmail.com"
+              >dolly010623@gmail.com</a
+            >
+          </li>
+        </ul>
+        <p>&copy; 2025 Luvora. All rights reserved.</p>
+      </div>
+    </section>
+
+    <script>
+      // ---------- model look logic (keeps original GSAP nav) ----------
+      const runwayLooks = [
+        { modelImage: "../nnimit.png", width: 300, height: 420 },
+        { modelImage: "../gurleeen.png", width: 300, height: 420 },
+        { modelImage: "../nnimit.png", width: 300, height: 420 },
+        { modelImage: "../image.png", width: 300, height: 420 },
+        { modelImage: "../Doolly.png", width: 300, height: 420 },
+      ];
+      const modelImageEl = document.getElementById("modelImage");
+      const lookNumberEl = document.getElementById("lookNumber");
+      const prevButton = document.getElementById("prevLook");
+      const nextButton = document.getElementById("nextLook");
+      let currentLookIndex = 2;
+      let autoPlayInterval = null;
+      const autoPlayDelay = 3000;
+      function renderLook(index, direction = 1) {
+        const look = runwayLooks[index];
+        const isForward = direction === 1;
+        const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
+        tl.to([modelImageEl, lookNumberEl], {
+          opacity: 0,
+          y: isForward ? -20 : 20,
+          duration: 0.35,
+        });
+        tl.add(() => {
+          if (look && look.modelImage) modelImageEl.src = look.modelImage;
+          lookNumberEl.textContent = "";
+        });
+        tl.fromTo(
+          modelImageEl,
+          { opacity: 0, y: -30 },
+          { opacity: 1, y: 0, duration: 0.5 },
+          "+=0"
+        );
+        tl.fromTo(
+          lookNumberEl,
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.35 },
+          "-=0.4"
+        );
+      }
+      function gotoIndex(index, direction = 1, { restartAuto = true } = {}) {
+        currentLookIndex = (index + runwayLooks.length) % runwayLooks.length;
+        renderLook(currentLookIndex, direction);
+        if (restartAuto) {
+          stopAutoPlay();
+          startAutoPlay();
+        }
+      }
+      function navigate(direction) {
+        stopAutoPlay();
+        const nextIndex =
+          (currentLookIndex + direction + runwayLooks.length) %
+          runwayLooks.length;
+        gotoIndex(nextIndex, direction, { restartAuto: true });
+      }
+      function startAutoPlay() {
+        if (autoPlayInterval) clearInterval(autoPlayInterval);
+        autoPlayInterval = setInterval(() => {
+          if (document.visibilityState === "visible") {
+            const nextIndex = (currentLookIndex + 1) % runwayLooks.length;
+            gotoIndex(nextIndex, 1, { restartAuto: false });
+          }
+        }, autoPlayDelay);
+      }
+      function stopAutoPlay() {
+        if (autoPlayInterval) {
+          clearInterval(autoPlayInterval);
+          autoPlayInterval = null;
+        }
+      }
+      prevButton.addEventListener("click", () => navigate(-1));
+      nextButton.addEventListener("click", () => navigate(1));
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState !== "visible") stopAutoPlay();
+        else startAutoPlay();
+      });
+      function initialLoad() {
+        modelImageEl.src = runwayLooks[currentLookIndex].modelImage;
+        lookNumberEl.textContent = runwayLooks[currentLookIndex].name;
+        gsap.fromTo(
+          [modelImageEl, lookNumberEl],
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.9, stagger: 0.08, ease: "power3.out" }
+        );
+        startAutoPlay();
+      }
+      initialLoad();
+
+      // ---------- Circular carousel: bigger radius, contain images, gap + click-to-center ----------
+      (function initCarousel() {
+        const carousel = document.querySelector(".four .carousel");
+        if (!carousel) return;
+        const images = Array.from(carousel.querySelectorAll("img"));
+
+        // ensure center exists
+        if (!images.some((i) => i.classList.contains("center"))) {
+          images[0].classList.add("center");
+          images.slice(1).forEach((i) => i.classList.add("small"));
+        }
+
+        function arrange() {
+          const center = images.find((img) => img.classList.contains("center"));
+          const others = images.filter((img) => img !== center);
+          // bigger radius for more gap (use 0.42 of smallest carousel dimension)
+          const base = Math.min(carousel.clientWidth, carousel.clientHeight);
+          const radius = Math.round(base * 0.42);
+          const angleStep = (2 * Math.PI) / Math.max(1, others.length);
+
+          others.forEach((img, i) => {
+            // offset start so one sits top-center
+            const angle = i * angleStep - Math.PI / 2;
+            const x = Math.round(radius * Math.cos(angle));
+            const y = Math.round(radius * Math.sin(angle));
+            // translate (x,y) — keep scale 1 so image frame remains full
+            img.style.transform = `translate(${x}px, ${y}px) scale(1)`;
+          });
+
+          // center image exactly at center
+          center.style.transform = "translate(0,0) scale(1.02)";
+        }
+
+        // initial arrange (wait a tick so layout sizes are accurate)
+        setTimeout(arrange, 40);
+        // rearrange on resize (debounced-ish)
+        let rsTimer = null;
+        window.addEventListener("resize", () => {
+          clearTimeout(rsTimer);
+          rsTimer = setTimeout(arrange, 60);
+        });
+
+        // click-to-center: also leave a little gap by re-arranging
+        images.forEach((img) => {
+          img.addEventListener("click", () => {
+            if (img.classList.contains("center")) return;
+            images.forEach((i) => i.classList.remove("center", "small"));
+            img.classList.add("center");
+            images
+              .filter((i) => i !== img)
+              .forEach((i) => i.classList.add("small"));
+            arrange();
+          });
+
+          // optionally let clicking a small image update the main model (uncomment if desired)
+          // img.addEventListener('click', ()=> { if(img.src) { modelImageEl.src = img.src; lookNumberEl.textContent = ''; } });
+        });
+      })();
+
+      // ---------- Auto hover pop-up effect for carousel images ----------
+      (function startAutoHover() {
+        const carousel = document.querySelector(".four .carousel");
+        if (!carousel) return;
+        const images = Array.from(carousel.querySelectorAll("img"));
+        let currentIndex = 0;
+        const delay = 2000; // 2 seconds between each pop-up
+
+        function triggerPopUp(index) {
+          const img = images[index];
+          if (!img) return;
+          img.classList.add("popUp");
+          setTimeout(() => {
+            img.classList.remove("popUp");
+          }, 1200); // animation duration
+        }
+
+        function nextPopUp() {
+          triggerPopUp(currentIndex);
+          currentIndex = (currentIndex + 1) % images.length;
+        }
+
+        // Start the auto hover loop
+        setInterval(nextPopUp, delay);
+        // Trigger first one immediately
+        nextPopUp();
+      })();
+
+      // ---------- Auto movement animation for carousel images ----------
+      (function startAutoMovement() {
+        const carousel = document.querySelector(".four .carousel");
+        if (!carousel) return;
+        const images = Array.from(carousel.querySelectorAll("img"));
+        let currentIndex = 0;
+        const delay = 3000; // 3 seconds between each movement
+
+        function moveImage(index) {
+          const img = images[index];
+          if (!img) return;
+          img.style.transition = "transform 1.5s ease-in-out";
+          img.style.transform += " translateY(-10px)";
+          setTimeout(() => {
+            img.style.transform = img.style.transform.replace(
+              " translateY(-10px)",
+              ""
+            );
+          }, 1500);
+        }
+
+        function nextMove() {
+          moveImage(currentIndex);
+          currentIndex = (currentIndex + 1) % images.length;
+        }
+
+        setInterval(nextMove, delay);
+        nextMove();
+      })();
+    </script>
+
+    <style>
+      .five {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px 40px;
+        text-align: center;
+        color: var(--dark);
+        font-family: "Poppins", sans-serif;
+        margin-top: 40px;
+      }
+      .five .footer h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+      .five .footer ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 20px 0;
+      }
+      .five .footer ul li {
+        margin-bottom: 10px;
+        font-size: 1rem;
+      }
+      .five .footer ul li a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .five .footer p {
+        font-size: 0.9rem;
+        color: var(--muted);
+        margin: 0;
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tell Us About Your Style</title>
+    <link rel="stylesheet" href="check.css" />
+</head>
+<body>
+    <div class="style-preference-wrapper">
+
+       <div class="survey-wrapper">
+        <div class="survey-header">
+            <h2>Tell Us About Yourself</h2>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill" style="width: 60%;"></div>
+        </div>
+
+        <!-- Question Section -->
+        <div class="question-section">
+            <p>What do you prefer for casual outings?</p>
+        </div>
+
+        <!-- Outfit Grid -->
+        <div class="outfit-grid">
+            <div class="outfit-option" onclick="toggleOutfit(this)">
+                <img src="https://i.pinimg.com/736x/85/75/55/8575554d20358c2f57fca2fe9f963901.jpg" alt="Outfit 1">
+            </div>
+            <div class="outfit-option" onclick="toggleOutfit(this)">
+                <img src="https://i.pinimg.com/564x/9a/21/4f/9a214ff63c65167e803023057915c97f.jpg" alt="Outfit 2">
+            </div>
+            <div class="outfit-option" onclick="toggleOutfit(this)">
+                <img src="https://i.etsystatic.com/36064523/r/il/b2ab44/4062688707/il_570xN.4062688707_fnmh.jpg" alt="Outfit 3">
+            </div>
+            <div class="outfit-option" onclick="toggleOutfit(this)">
+                <img src="https://i.pinimg.com/474x/89/d9/20/89d9202ca81e5cf7e80a37555b62b128.jpg" alt="Outfit 4">
+            </div>
+            <div class="outfit-option" onclick="toggleOutfit(this)">
+                <img src="https://cdn.africanvibes.com/wp-content/uploads/2021/03/14050124/all-black-mens-design-outfit.png" alt="Outfit 5">
+            </div>
+            <div class="outfit-option" onclick="toggleOutfit(this)">
+                <img src="https://www.staedterstyle.com/wp-content/uploads/2024/11/Casual-Outfits-for-men-429x1024.jpeg" alt="Outfit 6">
+            </div>
+            <div class="outfit-option" onclick="toggleOutfit(this)">
+                <img src="https://i.pinimg.com/736x/8c/5b/c1/8c5bc168c4371a408f1ef98497cbae9d.jpg" alt="Outfit 7">
+            </div>
+            <div class="outfit-option" onclick="toggleOutfit(this)">
+                <img src="https://i.pinimg.com/236x/d7/5a/b9/d75ab9b71f28461b61af4723b29e5130.jpg" alt="Outfit 8">
+            </div>
+            <div class="outfit-option" onclick="toggleOutfit(this)">
+                <img src="https://cdn.lookastic.com/looks/long-sleeve-shirt-shorts-loafers-large-103852.jpg" alt="Outfit 9">
+            </div>
+        </div>
+
+        <!-- Continue Button -->
+        <a href="donotmale.html">
+            <button class="continue-btn">Continue</button>
+        </a>
+
+    </div>
+
+    <script>
+        const outfits = document.querySelectorAll('.outfit-option');
+
+        outfits.forEach(outfit => {
+            const outfitName = outfit.querySelector('img').alt;
+
+            // Restore selection from memory
+            if(localStorage.getItem(outfitName)) {
+                outfit.classList.add('selected');
+            }
+
+            outfit.addEventListener('click', () => {
+                if(outfit.classList.contains('selected')) {
+                    outfit.classList.remove('selected');
+                    localStorage.removeItem(outfitName);
+                } else {
+                    outfit.classList.add('selected');
+                    localStorage.setItem(outfitName, 'true');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

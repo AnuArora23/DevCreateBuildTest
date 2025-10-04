@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Demo Online Store - Products</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      background: #f5f6fa;
+      margin: 0; padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .container {
+      max-width: 950px; margin: 30px auto; background: #fff;
+      padding: 36px; border-radius: 11px; box-shadow: 0 2px 20px #b6bbc826;
+    }
+    h1 {
+      color: #213a72; text-align: center; letter-spacing: 1px;
+      font-size: 2.3rem; margin-bottom: 25px;
+    }
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+    }
+    .product-card {
+      background: #f8faff;
+      border: 1.5px solid #dde2ef;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px #c5cadd33;
+      padding: 24px 18px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .product-card img {
+      width: 120px; height: 120px; object-fit: cover;
+      background: #e9edf6; border-radius: 7px;
+      margin-bottom: 15px;
+    }
+    .product-name {
+      color: #234388;
+      font-weight: bold; font-size: 1.07rem; margin-bottom: 7px;
+      text-align: center;
+    }
+    .desc {
+      color: #6d6c78;
+      font-size: 0.98rem; margin-bottom: 14px; text-align: center;
+      min-height: 34px;
+    }
+    .price {
+      font-size: 1.13rem;
+      color: #179c56;
+      font-weight: bold;
+      margin-top: auto;
+    }
+    @media (max-width:650px) {
+      .container { padding: 10px; }
+      .product-card { padding: 12px 6px 10px 6px; }
+      .product-card img { width:90px;height:90px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Demo Store - Product List</h1>
+    <div class="product-list">
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=300&q=80" alt="Basic T-Shirt" />
+        <div class="product-name">Classic Blue T-Shirt</div>
+        <div class="desc">100% Cotton, Unisex, Comfortable fit. Ride the classic fashion wave!</div>
+        <div class="price">₹399.00</div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=300&q=80" alt="Denim" />
+        <div class="product-name">Denim Jacket</div>
+        <div class="desc">Trendy blue washed denim. All-season, with button-up style.</div>
+        <div class="price">₹1399.00</div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1503602642458-232111445657?w=300&q=80" alt="Sneakers" />
+        <div class="product-name">White Sneakers</div>
+        <div class="desc">Cushioned, lightweight, and versatile for every walk of life.</div>
+        <div class="price">₹999.99</div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=300&q=80" alt="Sling Bag" />
+        <div class="product-name">Utility Sling Bag</div>
+        <div class="desc">Handy for short trips. Water-resistant and stylish.</div>
+        <div class="price">₹549.50</div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1454023492550-5696f8ff10e1?w=300&q=80" alt="Watch" />
+        <div class="product-name">Minimalist Wristwatch</div>
+        <div class="desc">Matte black, analog, 2-year warranty and quick-strap fit.</div>
+        <div class="price">₹1299.00</div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=300&q=80" alt="Red Heels" />
+        <div class="product-name">Red Heels</div>
+        <div class="desc">Chic design, extra padding, confidence with every step.</div>
+        <div class="price">₹749.00</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

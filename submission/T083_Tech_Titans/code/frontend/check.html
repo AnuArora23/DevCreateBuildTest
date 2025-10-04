@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tell Us About Yourself</title>
+    <link rel="stylesheet" href="check.css">
+
+    
+</head>
+<body>
+    <div class="survey-wrapper">
+        <div class="survey-header">
+            <h2>Tell Us About Yourself</h2>
+        </div>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill" style="width: 20%;"></div>
+        </div>
+
+        <div class="survey-content">
+            <div class="question-block" data-category="age">
+                <label>AGE</label>
+                <div class="age-options">
+                  <button data-value=" <18">&lt;12</button>
+                  <button data-value="45+">13-18</button>
+                    <button data-value="18-25">18-25</button>
+                    <button data-value="26-35">26-35</button>
+                    <button data-value="36-45">36-45</button>
+                </div>
+            </div>
+
+            <div class="question-block" data-category="gender">
+                <label>GENDER</label>
+                <div class="gender-options">
+                    <button data-value="Female">Female</button>
+                    <button data-value="Male">Male</button>
+                </div>
+            </div>
+
+            <div class="question-block" data-category="profession">
+                <label>WHAT DO YOU DO?</label>
+                <div class="profession-options">
+                    <button data-value="College Student">College Student</button>
+                    <button data-value="Working Professional">Working Professional</button>
+                    <button data-value="School Student">School Student</button>
+                    <button data-value="Other">Other</button>
+                </div>
+            </div>
+        </div>
+
+    <button class="continue-btn" disabled>Continue</button>
+    </div>
+
+    <script>
+
+document.addEventListener("DOMContentLoaded", function() {
+  console.log("Script loaded");
+  const categories = ["age", "gender", "profession"];
+  const continueBtn = document.querySelector(".continue-btn");
+
+  function updateContinueButtonState() {
+    const allSelected = categories.every(category => {
+      const container = document.querySelector(`[data-category="${category}"]`);
+      return container && container.querySelector(".selected");
+    });
+    continueBtn.disabled = !allSelected;
+  }
+
+  categories.forEach(category => {
+    const container = document.querySelector(`[data-category="${category}"]`);
+    if (container) {
+      const buttons = container.querySelectorAll("button");
+      buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const currentlySelected = container.querySelector(".selected");
+          // If clicking the already selected button, deselect
+          if (btn === currentlySelected) {
+            btn.classList.remove("selected");
+          } else {
+            // Remove previous selection
+            if (currentlySelected) currentlySelected.classList.remove("selected");
+            // Add new selection
+            btn.classList.add("selected");
+            // Redirect to different page based on gender selection
+            if (category === "gender") {
+              const genderValue = btn.dataset.value;
+              console.log("Gender selected: " + genderValue);
+              localStorage.setItem('gender', genderValue);
+              if (continueBtn) {
+                const continueLink = continueBtn.parentElement;
+                if (genderValue === "Female") {
+                  continueLink.href = "body.html";
+                  console.log("Set href to body.html");
+                } else if (genderValue === "Male") {
+                  continueLink.href = "bodymale.html";
+                  console.log("Set href to bodymale.html");
+                }
+              } else {
+                console.log("Continue button not found");
+              }
+            }
+          }
+          updateContinueButtonState();
+        });
+      });
+    } else {
+      console.log(`Container for ${category} not found`);
+    }
+  });
+
+  continueBtn.addEventListener("click", () => {
+    if (!continueBtn.disabled) {
+      const gender = localStorage.getItem('gender');
+      if (gender === 'Female') {
+        window.location.href = 'body.html';
+      } else if (gender === 'Male') {
+        window.location.href = 'bodymale.html';
+      } else {
+        alert('Please select a gender before continuing.');
+      }
+    }
+  });
+
+  updateContinueButtonState();
+});
+
+
+
+    </script>
+</body>
+</html
+
