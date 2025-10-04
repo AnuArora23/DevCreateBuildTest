@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link rel="stylesheet" href="check.css" />
+</head>
+<body>
+    <div class="thank-you-wrapper">
+
+        <!-- Progress Bar -->
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill" style="width: 100%;"></div>
+        </div>
+
+        <div class="top-bar">
+            <div class="status-bar">
+                <!-- Optional: visual progress indicator -->
+            </div>
+            <button class="re-take-btn">Re-take</button>
+        </div>
+
+        <div class="content-section">
+            <div class="checkmark-container">
+                <div class="checkmark-circle">
+                    <span class="checkmark">&#10004;</span>
+                </div>
+            </div>
+            <p>Thank you for filling this form</p>
+            <div id ="tag">
+            <p>Luvora is ready to Unlock Your Perfect Fit — Smart Style, Hot Discounts & Comfort All in One Place!</p>
+        </div>
+        </div>
+        
+
+        <a href="next.html"> 
+            <button class="continue-btn">Continue</button>
+        </a>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const gender = localStorage.getItem('gender');
+            const continueLink = document.querySelector('a[href="next.html"]');
+            if (gender === 'Female') {
+                continueLink.href = 'profile.html';
+            } else if (gender === 'Male') {
+                continueLink.href = 'profilemael.html';
+            }
+        });
+    </script>
+</body>
+</html>

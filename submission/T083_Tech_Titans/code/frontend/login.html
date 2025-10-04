@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luvora - Login & Signup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: center;
+      display: none;
+    }
+    .container.active { display: block; }
+    h1 {
+      font-family: 'Georgia', serif;
+      font-size: 40px;
+      margin-bottom: 1px;
+      color: #333;
+      font-weight: 500;
+    }
+    input[type="email"], input[type="password"], button {
+      width: 100%;
+      max-width: 280px;
+      padding: 12px;
+      margin: 10px auto;
+      border-radius: 8px;
+      font-size: 15px;
+      display: block;
+    }
+    input[type="email"], input[type="password"] { border: 1px solid #ccc; }
+    button { border: none; cursor: pointer; }
+    .btn-primary { background-color: #7eaada; color: white; }
+    .btn-google {
+      background-color: #f0b8e6; color: white;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-google img { width: 18px; height: 18px; }
+    .small-text { margin-top: 12px; font-size: 14px; color: #555; }
+    .small-text a { color: #92b3d4; text-decoration: none; cursor: pointer; }
+    .small-text a:hover { text-decoration: underline; }
+    p { font-size: 10px; margin: 5px 0 22px; color: #333232a9; }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN PAGE -->
+  <div class="container active" id="login-page">
+    <h1>Luvora</h1>
+    <p>Luvora is ready to Unlock Your Perfect Fit — Smart Style, Hot Discounts & Comfort All in One Place!</p>
+    <input id="login-email" type="email" placeholder="Enter your email address" required />
+    <input id="login-pass"  type="password" placeholder="password" required />
+    <a href="check.html">
+            <button id="login-btn" class="btn-primary">Continue</button>
+        </a>
+    <h4>or</h4>
+    <button class="btn-google">
+      <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" /> Continue with Google
+    </button>
+    <p class="small-text">Don’t have an account? <a id="show-signup">Sign up</a></p>
+  </div>
+
+  <!-- SIGNUP PAGE -->
+  <div class="container" id="signup-page">
+    <h1>Luvora</h1>
+    <p>Create your account & stay 24/7</p>
+    <input id="su-email" type="email" placeholder="Enter your email address" required />
+    <input id="su-pass"  type="password" placeholder="password" required />
+    <button id="su-btn" class="btn-primary">Continue</button>
+    <p>or</p>
+    <button class="btn-google">
+      <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" /> Continue with Google
+    </button>
+    <p class="small-text">Already have an account? <a id="show-login">Login</a></p>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const loginPage  = document.getElementById("login-page");
+      const signupPage = document.getElementById("signup-page");
+      const showSignup = document.getElementById("show-signup");
+      const showLogin  = document.getElementById("show-login");
+
+      showSignup.addEventListener("click", () => {
+        loginPage.classList.remove("active");
+        signupPage.classList.add("active");
+      });
+
+      showLogin.addEventListener("click", () => {
+        signupPage.classList.remove("active");
+        loginPage.classList.add("active");
+      });
+
+      // Login button redirect to landing.html
+      document.getElementById("login-btn").addEventListener("click", () => {
+        window.location.href = "landing.html";
+      });
+
+      // Default: show login
+      signupPage.classList.remove("active");
+      loginPage.classList.add("active");
+    });
+  </script>
+</body>
+</html>

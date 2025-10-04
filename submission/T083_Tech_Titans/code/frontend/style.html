@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tell Us About Your Style</title>
+    <link rel="stylesheet" href="check.css" />
+</head>
+<body>
+    <div class="style-preference-wrapper">
+
+       <div class="survey-wrapper">
+        <div class="survey-header">
+            <h2>Tell Us About Yourself</h2>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill" style="width: 60%;"></div>
+        </div>
+
+        <!-- Question Section -->
+        <div class="question-section">
+            <p>What do you prefer for casual outings?</p>
+        </div>
+
+        <!-- Outfit Grid -->
+        <div class="outfit-grid">
+            <div class="outfit-option" onclick="toggleOutfit(this)">
+                <img src="https://www.instyle.com/thmb/VXiG_k6KLy9ydoEcZvx8oTbfip0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/14.GettyImages-1611726120-dd0e5de0ff52458498c282c5f5068dba.jpg" alt="Outfit 1">
+            </div>
+            <div class="outfit-option" onclick="toggleOutfit(this)">
+                <img src="https://i.pinimg.com/236x/10/f5/a7/10f5a73b4082f8c9161e53e1699ac55c.jpg" alt="Outfit 2">
+            </div>
+            <div class="outfit-option" onclick="toggleOutfit(this)">
+                <img src="https://images.squarespace-cdn.com/content/v1/5b4d499589c172c35e3b63cc/d83d4aaf-4dc1-4570-bc12-cbd53acbfbf3/Cute-Casual-Spring-Outfits-Ideas-Neutrally-Nicole-02.jpg" alt="Outfit 3">
+            </div>
+            <div class="outfit-option" onclick="toggleOutfit(this)">
+                <img src="https://www.newforestsafari.com/wp-content/uploads/2024/09/Old-Money-Aesthetic-Outfits-Women-71.webp" alt="Outfit 4">
+            </div>
+            <div class="outfit-option" onclick="toggleOutfit(this)">
+                <img src="https://thechikanlabel.com/cdn/shop/files/34c_4ef6bc3c-69da-4a3c-b0ec-e9158baed811.jpg?v=1690631414&width=1045" alt="Outfit 5">
+            </div>
+            <div class="outfit-option" onclick="toggleOutfit(this)">
+                <img src="https://i.pinimg.com/736x/38/c7/bb/38c7bb53ee7ac9a0755f87e0fe4fca2a.jpg" alt="Outfit 6">
+            </div>
+            <div class="outfit-option" onclick="toggleOutfit(this)">
+                <img src="https://media.cntraveler.com/photos/68879bc7a8f98693a19be2d5/1:1/w_1374,h_1374,c_limit/072825-Long-Haul-Travel-Outfits-ecomm-00-Lede.jpg" alt="Outfit 7">
+            </div>
+            <div class="outfit-option" onclick="toggleOutfit(this)">
+                <img src="https://lh3.googleusercontent.com/13hDaDG4msUqXgVk3ublRiIzBIX8McSNt2kmshy-n54wMqgtFvipKVoi3CSIq3OK2Yfqh1QVFhrDFu8VUKeETtZbPRlgklIC139vCbU=w360-rw" alt="Outfit 8">
+            </div>
+            <div class="outfit-option" onclick="toggleOutfit(this)">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgG5-nYo1weYGLdOkjyHds1VoQfuiRoNX10eRW23eBrsBbqKQx2Z5B2X4tXVMbga53YbJWpP-QCEcUIfkm1f0ndQmJX2R5L0S4MWFErJ-BfCo00iJMw75oPgTP-EL3TyBcHDwBwsToDnAzA4_PIzWlklNyhBaRHeN1C6SMR4yIBBJKc_D9nOV9yrpIr2g" alt="Outfit 9">
+            </div>
+        </div>
+
+        <!-- Continue Button -->
+        <a href="donot.html">
+            <button class="continue-btn">Continue</button>
+        </a>
+
+    </div>
+
+    <script>
+        const outfits = document.querySelectorAll('.outfit-option');
+
+        outfits.forEach(outfit => {
+            const outfitName = outfit.querySelector('img').alt;
+
+            // Restore selection from memory
+            if(localStorage.getItem(outfitName)) {
+                outfit.classList.add('selected');
+            }
+
+            outfit.addEventListener('click', () => {
+                if(outfit.classList.contains('selected')) {
+                    outfit.classList.remove('selected');
+                    localStorage.removeItem(outfitName);
+                } else {
+                    outfit.classList.add('selected');
+                    localStorage.setItem(outfitName, 'true');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

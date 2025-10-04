@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Measurements</title>
+    <link rel="stylesheet" href="check.css" />
+    <style>
+        .selected {
+            border: 2px solid #000;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="survey-wrapper">
+        <div class="survey-header">
+            <h2>Tell Us About Yourself</h2>
+        </div>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill" style="width: 40%;"></div>
+        </div>
+
+        <div class="body-shape-section">
+            <h3>Body Shape</h3>
+            <div class="body-shape-options bodyShape-options">
+                <button class="body-shape-btn" data-value="Rectangle" onclick="toggleSelection(this, 'bodyShape')">Rectangle</button>
+                <button class="body-shape-btn" data-value="Oval" onclick="toggleSelection(this, 'bodyShape')">Oval</button>
+                <button class="body-shape-btn" data-value="Triangle" onclick="toggleSelection(this, 'bodyShape')">Triangle</button>
+                <button class="body-shape-btn" data-value="Trapezoid" onclick="toggleSelection(this, 'bodyShape')">Trapezoid</button>
+                <button class="body-shape-btn" data-value="V-shape" onclick="toggleSelection(this, 'bodyShape')">V-shape</button>
+            </div>
+        </div>
+
+        <div class="body-size-section">
+            <h3>Body Size</h3>
+            <div class="body-size-options bodySize-options">
+                <button class="body-size-btn" data-value="Skinny" onclick="toggleSelection(this, 'bodySize')">Skinny</button>
+                <button class="body-size-btn" data-value="Average" onclick="toggleSelection(this, 'bodySize')">Average</button>
+                <button class="body-size-btn" data-value="Plus-size" onclick="toggleSelection(this, 'bodySize')">Plus-size</button>
+            </div>
+        </div>
+
+        <div class="skin-tone-section">
+            <h3>Skin Tone</h3>
+            <div class="skin-tone-options skinTone-options">
+                <div class="skin-tone-btn" data-value="Very Light" style="background-color: #F9D5B4;" onclick="toggleSelection(this, 'skinTone')"></div>
+                <div class="skin-tone-btn" data-value="Light" style="background-color: #E6B892;" onclick="toggleSelection(this, 'skinTone')"></div>
+                <div class="skin-tone-btn" data-value="Light Medium" style="background-color: #C68642;" onclick="toggleSelection(this, 'skinTone')"></div>
+                <div class="skin-tone-btn" data-value="Medium Light" style="background-color: #8D5524;" onclick="toggleSelection(this, 'skinTone')"></div>
+                <div class="skin-tone-btn" data-value="Medium" style="background-color:  #5C3A21;" onclick="toggleSelection(this, 'skinTone')"></div>
+            </div>
+        </div>
+
+        <!-- Continue button -->
+        <button class="continue-btn" disabled>Continue</button>
+    </div>
+
+    <script>
+        // Restore selection on page load
+        window.onload = () => {
+            ['bodyShape','bodySize','skinTone'].forEach(key => {
+                const saved = localStorage.getItem(key);
+                if(saved){
+                    const btn = document.querySelector(`[data-value="${saved}"]`);
+                    if(btn) btn.classList.add('selected');
+                }
+            });
+            updateContinueButtonState();
+        }
+
+        // Toggle selection function
+        function toggleSelection(btn, key){
+            const value = btn.getAttribute('data-value');
+            if(btn.classList.contains('selected')){
+                btn.classList.remove('selected');
+                localStorage.removeItem(key);
+            } else {
+                // Remove selected from options only in the same category
+                document.querySelectorAll(`.${key}-btn`).forEach(el => el.classList.remove('selected'));
+                // Remove only the localStorage key for this category
+                localStorage.removeItem(key);
+                btn.classList.add('selected');
+                localStorage.setItem(key, value);
+            }
+            updateContinueButtonState();
+        }
+
+        function updateContinueButtonState() {
+            const bodyShapeSelected = localStorage.getItem('bodyShape') !== null;
+            const bodySizeSelected = localStorage.getItem('bodySize') !== null;
+            const skinToneSelected = localStorage.getItem('skinTone') !== null;
+            const continueBtn = document.querySelector('.continue-btn');
+            if(bodyShapeSelected && bodySizeSelected && skinToneSelected) {
+                continueBtn.disabled = false;
+            } else {
+                continueBtn.disabled = true;
+            }
+        }
+
+        // Continue button click handler
+        document.querySelector('.continue-btn').addEventListener('click', () => {
+            if(!document.querySelector('.continue-btn').disabled) {
+                window.location.href = 'stylemale.html';
+            }
+        });
+    </script>
+</body>
+</html>

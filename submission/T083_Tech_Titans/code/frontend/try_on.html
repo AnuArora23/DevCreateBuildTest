@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Virtual Try-On Workflow</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 10px;
+      min-height: 100vh;
+    }
+    h1 {
+      margin-bottom: 24px;
+      font-weight: 600;
+      color: #222433;
+    }
+    .step {
+      background: white;
+      border-radius: 12px;
+      padding: 24px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      width: 350px;
+      max-width: 90vw;
+      text-align: center;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      text-align: left;
+      color: #444;
+    }
+    input[type="file"] {
+      margin-bottom: 10px;
+      width: 100%;
+    }
+    button {
+      background-color: #4178ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+    }
+    button:disabled {
+      background-color: #a0a0a0;
+      cursor: not-allowed;
+    }
+    #result {
+      max-width: 400px;
+      margin-top: 30px;
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      display: none;
+    }
+    .error-message {
+      color: #d32f2f;
+      margin-top: 20px;
+      font-weight: 600;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Virtual AI Try-On</h1>
+
+  <div class="step" id="step-face">
+    <label for="faceInput">Step 1: Upload Your Face Image</label>
+    <input type="file" id="faceInput" accept="image/*" />
+  </div>
+
+  <div class="step" id="step-body">
+    <label for="bodyInput">Step 2: Upload Your Full Body Image</label>
+    <input type="file" id="bodyInput" accept="image/*" />
+  </div>
+
+  <div class="step" id="step-dress">
+    <label for="dressInput">Step 3: Upload Dress Image</label>
+    <input type="file" id="dressInput" accept="image/*" />
+  </div>
+
+  <button id="btnSubmit" disabled>Generate Try-On</button>
+
+  <img id="result" alt="Try-On Result Image" />
+  <div class="error-message" id="errorMsg"></div>
+
+  <script>
+    const faceInput = document.getElementById('faceInput');
+    const bodyInput = document.getElementById('bodyInput');
+    const dressInput = document.getElementById('dressInput');
+    const btnSubmit = document.getElementById('btnSubmit');
+    const resultImg = document.getElementById('result');
+    const errorMsg = document.getElementById('errorMsg');
+
+    let faceFile, bodyFile, dressFile;
+
+    function updateButtonState() {
+      btnSubmit.disabled = !(faceFile && bodyFile && dressFile);
+      resultImg.style.display = 'none';
+      errorMsg.textContent = '';
+    }
+
+    faceInput.addEventListener('change', (e) => {
+      faceFile = e.target.files[0];
+      updateButtonState();
+    });
+
+    bodyInput.addEventListener('change', (e) => {
+      bodyFile = e.target.files[0];
+      updateButtonState();
+    });
+
+    dressInput.addEventListener('change', (e) => {
+      dressFile = e.target.files[0];
+      updateButtonState();
+    });
+
+    btnSubmit.addEventListener('click', async () => {
+      errorMsg.textContent = '';
+      resultImg.style.display = 'none';
+
+      if (!faceFile || !bodyFile || !dressFile) return;
+
+      btnSubmit.disabled = true;
+
+      const formData = new FormData();
+      formData.append('face_image', faceFile);
+      formData.append('body_image', bodyFile);
+      formData.append('dress_image', dressFile);
+
+      try {
+        // CORRECT endpoint path here
+        const response = await fetch('http://127.0.0.1:8000/virtual-tryon', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          let errorDetail = '';
+          try {
+            const errJSON = await response.json();
+            if (errJSON && errJSON.detail) errorDetail = errJSON.detail;
+          } catch {}
+          throw new Error(errorDetail || 'Try-on generation failed.');
+        }
+
+        const blob = await response.blob();
+        resultImg.src = URL.createObjectURL(blob);
+        resultImg.style.display = 'block';
+      } catch (err) {
+        errorMsg.textContent = err.message;
+      } finally {
+        btnSubmit.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

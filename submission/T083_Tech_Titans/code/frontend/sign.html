@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luvora - Login & Signup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: center;
+      display: none;
+    }
+    .container.active { display: block; }
+    h1 {
+      font-family: 'Georgia', serif;
+      font-size: 40px;
+      margin-bottom: 1px;
+      color: #333;
+      font-weight: 500;
+    }
+    input[type="email"], input[type="password"], button {
+      width: 100%;
+      max-width: 280px;
+      padding: 12px;
+      margin: 10px auto;
+      border-radius: 8px;
+      font-size: 15px;
+      display: block;
+    }
+    input[type="email"], input[type="password"] { border: 1px solid #ccc; }
+    button { border: none; cursor: pointer; }
+    .btn-primary { background-color: #7eaada; color: white; }
+    .btn-google {
+      background-color: #f0b8e6; color: white;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-google img { width: 18px; height: 18px; }
+    .small-text { margin-top: 12px; font-size: 14px; color: #555; }
+    .small-text a { color: #92b3d4; text-decoration: none; cursor: pointer; }
+    .small-text a:hover { text-decoration: underline; }
+    p { font-size: 10px; margin: 5px 0 22px; color: #333232a9; }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN PAGE -->
+  <div class="container active" id="login-page">
+    <h1>Luvora</h1>
+    <p>Luvora is ready to Unlock Your Perfect Fit — Smart Style, Hot Discounts & Comfort All in One Place!</p>
+    <input id="login-email" type="email" placeholder="Enter your email address" required />
+    <input id="login-pass"  type="password" placeholder="password" required />
+    <button id="login-btn" class="btn-primary">Continue</button>
+    <p>or</p>
+    <button class="btn-google">
+      <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" /> Continue with Google
+    </button>
+    <p class="small-text">Don’t have an account? <a id="show-signup">Sign up</a></p>
+  </div>
+
+  <!-- SIGNUP PAGE -->
+  <div class="container" id="signup-page">
+    <h1>Luvora</h1>
+    <p>Create your account & stay 24/7</p>
+    <input id="su-email" type="email" placeholder="Enter your email address" required />
+    <input id="su-pass"  type="password" placeholder="password" required />
+    <button id="su-btn" class="btn-primary">Continue</button>
+    <p>or</p>
+    <button class="btn-google">
+      <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" /> Continue with Google
+    </button>
+    <p class="small-text">Already have an account? <a id="show-login">Login</a></p>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const API_BASE = "http://127.0.0.1:8000"; // Adjust according to your setup
+
+  const loginPage  = document.getElementById("login-page");
+  const signupPage = document.getElementById("signup-page");
+  const showSignup = document.getElementById("show-signup");
+  const showLogin  = document.getElementById("show-login");
+
+  const loginEmail = document.getElementById("login-email");
+  const loginPass  = document.getElementById("login-pass");
+  const loginBtn   = document.getElementById("login-btn");
+
+  const suEmail = document.getElementById("su-email");
+  const suPass  = document.getElementById("su-pass");
+  const suBtn   = document.getElementById("su-btn");
+
+  function setBusy(btn, busy, label = "Continue") {
+    btn.disabled = !!busy;
+    btn.textContent = busy ? "Please wait…" : label;
+  }
+
+  function isEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  }
+
+  function toast(msg) {
+    alert(msg);
+  }
+
+  showSignup.addEventListener("click", () => {
+    console.log("Switching to signup page");
+    loginPage.classList.remove("active");
+    signupPage.classList.add("active");
+  });
+
+  showLogin.addEventListener("click", () => {
+    console.log("Switching to login page");
+    signupPage.classList.remove("active");
+    loginPage.classList.add("active");
+  });
+
+  async function postJSON(path, body) {
+    try {
+      const resp = await fetch(`${API_BASE}${path}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(body),
+      });
+      const ct = resp.headers.get("content-type") || "";
+      const data = ct.includes("application/json") ? await resp.json() : { detail: await resp.text() };
+      if (!resp.ok) {
+        const msg = data?.detail || `HTTP ${resp.status}`;
+        throw new Error(msg);
+      }
+      return data;
+    } catch (error) {
+      console.error("postJSON error:", error);
+      throw error;
+    }
+  }
+
+  async function postForm(path, formData) {
+    try {
+      const resp = await fetch(`${API_BASE}${path}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData),
+      });
+      const ct = resp.headers.get("content-type") || "";
+      const data = ct.includes("application/json") ? await resp.json() : { detail: await resp.text() };
+      if (!resp.ok) {
+        const msg = data?.detail || `HTTP ${resp.status}`;
+        throw new Error(msg);
+      }
+      return data;
+    } catch (error) {
+      console.error("postForm error:", error);
+      throw error;
+    }
+  }
+
+  async function doLogin() {
+    console.log("Login button clicked");
+    const username = (loginEmail.value || "").trim();
+    const password = loginPass.value || "";
+
+    if (!username) {
+      toast("Email cannot be empty.");
+      return;
+    }
+    if (!isEmail(username)) {
+      toast("Enter a valid email.");
+      return;
+    }
+    if (!password) {
+      toast("Password cannot be empty.");
+      return;
+    }
+    if (password.length < 6) {
+      toast("Password must be at least 6 characters.");
+      return;
+    }
+
+    try {
+      setBusy(loginBtn, true);
+      const tok = await postForm("/auth/login", { username, password });
+      localStorage.setItem("luvora_access_token", tok.access_token);
+      localStorage.setItem("luvora_user_email", username);
+      window.location.href = "check.html";
+    } catch (e) {
+      toast(`Login failed: ${e.message}`);
+    } finally {
+      setBusy(loginBtn, false);
+    }
+  }
+
+  async function doSignup() {
+    console.log("Signup button clicked");
+    const username = (suEmail.value || "").trim();
+    const password = suPass.value || "";
+
+    if (!username) {
+      toast("Email cannot be empty.");
+      return;
+    }
+    if (!isEmail(username)) {
+      toast("Enter a valid email.");
+      return;
+    }
+    if (!password) {
+      toast("Password cannot be empty.");
+      return;
+    }
+    if (password.length < 6) {
+      toast("Password must be at least 6 characters.");
+      return;
+    }
+
+    try {
+      setBusy(suBtn, true);
+      await postJSON("/auth/signup", { username, password });
+      alert("Signup successful! Please login.");
+      loginPage.classList.add("active");
+      signupPage.classList.remove("active");
+    } catch (e) {
+      toast(`Signup failed: ${e.message}`);
+    } finally {
+      setBusy(suBtn, false);
+    }
+  }
+
+  loginBtn.addEventListener("click", doLogin);
+  suBtn.addEventListener("click", doSignup);
+
+  [loginEmail, loginPass].forEach((el) => el.addEventListener("keydown", (e) => { if (e.key === "Enter") doLogin(); }));
+  [suEmail, suPass].forEach((el) => el.addEventListener("keydown", (e) => { if (e.key === "Enter") doSignup(); }));
+
+  (async () => {
+    try {
+      await fetch(`${API_BASE}/health`, { cache: "no-store" });
+    } catch {}
+  })();
+
+  (function checkModeFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const mode = params.get("mode");
+    if (mode === "signup") {
+      loginPage.classList.remove("active");
+      signupPage.classList.add("active");
+    } else {
+      signupPage.classList.remove("active");
+      loginPage.classList.add("active");
+    }
+  })();
+});
+
+  </script>
+</body>
+</html>

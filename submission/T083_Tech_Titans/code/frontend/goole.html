@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fashion AI Stylist</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: url("https://images.unsplash.com/photo-1600185365483-26d7a4f65c15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80") no-repeat center center;
+      background-size: cover;
+      background-attachment: scroll; /* Not fixed */
+      animation: floatbg 25s infinite linear;
+    }
+
+    /* Smooth background float effect */
+    @keyframes floatbg {
+      0% { background-position: 0 0; }
+      50% { background-position: 50px 80px; }
+      100% { background-position: 0 0; }
+    }
+
+    header {
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(8px);
+    }
+
+    header h1 {
+      font-size: 24px;
+      color: #111;
+      font-weight: bold;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff4081;
+    }
+
+    .hero {
+      text-align: center;
+      color: #fff;
+      padding: 120px 20px;
+      text-shadow: 0 3px 6px rgba(0,0,0,0.4);
+    }
+
+    .hero h2 {
+      font-size: 52px;
+      font-weight: bold;
+    }
+
+    .hero h2 span {
+      color: #ff4081;
+      font-style: italic;
+    }
+
+    .hero p {
+      font-size: 24px;
+      margin-top: 15px;
+      font-weight: 300;
+    }
+
+    .cta-btn {
+      margin-top: 30px;
+      padding: 14px 36px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      background: #ff4081;
+      color: white;
+      transition: 0.3s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .cta-btn:hover {
+      background: #e2336b;
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.7);
+      margin: 30px auto;
+      border-radius: 15px;
+      width: 80%;
+    }
+
+    section h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FashionAI</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Closet</a>
+      <a href="#">Wishlist</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Hey 👋 I'm <span>Alle!</span></h2>
+    <p>Your Personal AI Stylist</p>
+    <button class="cta-btn">Ask Alle</button>
+  </section>
+
+  <section>
+    <h2>Virtual Closet</h2>
+    <p>Try outfits virtually and style yourself with ease.</p>
+  </section>
+
+  <section>
+    <h2>Wishlist Alerts</h2>
+    <p>Get notified when your saved items drop in price!</p>
+  </section>
+
+  <footer>
+    <p>© 2025 FashionAI Project</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Page</title>
+  <link rel="stylesheet" href="s.css">
+<body>
+  <script defer src="s.js"></script>
+
+  <div class="container">
+
+    <!-- Profile Section -->
+    <div id="profile" class="section">
+
+      <!-- Profile Header -->
+      <div class="profile-header">
+        <div class="profile">
+          <img src="default-profile.png" alt="Profile Image" id="profileImage">
+          <input type="file" id="imageUpload" accept="image/*">
+        </div>
+        <h2 id="username" class="editable">John Doe</h2>
+        <p>Joined: Aug 03 2024</p>
+      </div>
+
+      <!-- Orders Section -->
+      <div class="edit-header">
+        <span>📦 Orders</span>
+        <span class="Order" id="orderArrow"><strong>></strong></span>
+      </div>
+      <div class="orders-panel" id="ordersPanel">
+        <p><strong>Total Orders Made:</strong> 12</p>
+        <p><strong>Pending Orders:</strong> 3</p>
+        <p><strong>Delivered Orders:</strong> 9</p>
+      </div>
+
+      <!-- Edit Profile Section -->
+      <div class="edit-header">
+        <span>Edit Profile</span>
+        <span class="pencil-icon">✏️</span>
+      </div>
+
+      <!-- Profile Info -->
+      <div class="info">
+        <p><strong>Age:</strong> <span id="age" class="editable">18-25</span></p>
+        <p><strong>Occupation:</strong> <span id="occupation" class="editable">College Student</span></p>
+        <p><strong>Gender:</strong> <span id="gender" class="editable">Male</span></p>
+        <p><strong>Body Shape:</strong> <span id="bodyShape" class="editable">Rectangle</span></p>
+        <p><strong>Skin Tone:</strong> <span id="skinTone" class="editable">Medium</span></p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <div class="bottom-nav">
+    <nav class="bottom-nav">
+    <a href="profile.html" >Home</a>
+    <a href="#">LuvoBot</a>
+    <a href="closet.html">Closet</a>
+    <a href="#">Wishlist</a>
+    <a href="#" onclick="showSection('profile', this)" class = "active" >Profile</a>
+      </nav>
+  </div>
+
+</body>
+</html>

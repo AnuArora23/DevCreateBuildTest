@@ -1,0 +1,38 @@
+# Virtual Try-On & Closet API
+
+An AI-powered backend API built with FastAPI for user authentication, wishlist management, virtual try-on, and closet outfit suggestions.
+
+---
+
+## Features
+
+### Login / Authentication
+- User registration and login endpoints.
+- Secure authentication management (JWT or session-based).
+- User data stored in `users` table.
+
+### Wishlist
+- Add, view, and manage wishlist items.
+- Each wishlist item stores product info like name, description, price, image URL.
+- Items linked to users by `username`.
+- Data stored in `wishlist` table.
+
+### Virtual Try-On
+- Upload face, body, and dress images.
+- Performs face swapping using MediaPipe.
+- Background removal and garment overlay with Rembg and Pillow.
+- Returns a composited try-on image.
+
+### Virtual Closet & Outfit Suggestion
+- Upload closet items with image and AI-simulated metadata (category and color).
+- Closet items linked to users.
+- Suggests outfit combinations based on color compatibility.
+- Uses `closet_items` table for items storage.
+
+---
+
+## Installation
+
+1. Clone repository and go to project folder.
+
+2. Create and activate virtual environment:

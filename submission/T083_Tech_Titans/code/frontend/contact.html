@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact Us - Luvora</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: linear-gradient(to right, #D9D2F6, #A7B3F6);
+      --dark: #1a1a1a;
+      --muted: #6b7280;
+      --accent: #6c63ff;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--dark);overflow-x:hidden;}
+    img,video,picture{display:block;max-width:100%;height:auto;}
+
+    /* Navbar */
+    .navbar{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:10px 32px;background:transparent;z-index:30;border-bottom:1px solid rgba(0,0,0,0.06)}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+    .logo span{font-family:'Playfair Display',serif;font-weight:700;font-size:1.4rem}
+    .nav-links{display:flex;gap:18px}
+    .nav-links a{text-decoration:none;color:var(--dark)}
+
+    /* Contact section */
+    .contact-section{max-width:800px;margin:0 auto;padding:100px 40px 40px;text-align:center;}
+    .contact-section h1{font-family:'Playfair Display';font-size:3rem;margin:0 0 20px;color:var(--dark)}
+    .contact-section p{font-size:1.2rem;color:var(--muted);margin:0 0 40px;line-height:1.6}
+    .contact-form{background:rgba(255,255,255,0.1);padding:30px;border-radius:10px;text-align:left;}
+    .form-group{margin-bottom:20px}
+    .form-group label{display:block;font-weight:600;margin-bottom:5px}
+    .form-group input,.form-group textarea{width:100%;padding:10px;border:1px solid rgba(0,0,0,0.1);border-radius:5px;font-family:'Poppins';font-size:1rem}
+    .form-group textarea{resize:vertical;min-height:100px}
+    .submit-btn{background:var(--accent);color:#fff;border:none;padding:12px 24px;border-radius:5px;font-size:1rem;cursor:pointer}
+    .submit-btn:hover{background:#5a52d6}
+  </style>
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">
+      <img src="WhatsApp Image 2025-10-02 at 12.17.57_56836665.jpg" alt="avatar">
+      <span>Luvora</span>
+    </div>
+    <div class="nav-links"><a href="landing.html">Home</a><a href="about.html">About</a></div>
+  </nav>
+
+  <section class="contact-section">
+    <h1>Contact Us</h1>
+    <p>Have a question, suggestion, or need help with your style? We'd love to hear from you! Fill out the form below and we'll get back to you as soon as possible.</p>
+
+    <form class="contact-form" action="#" method="post">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+  </section>
+</body>
+</html>
