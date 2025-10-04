@@ -1,0 +1,15 @@
+{
+  "classes": [
+    "corn",
+    "tomato",
+    "grape",
+    "mango",
+    "peanut"
+  ],
+  "description": "Crop types that can be detected",
+  "input_shape": [
+    224,
+    224,
+    3
+  ]
+}

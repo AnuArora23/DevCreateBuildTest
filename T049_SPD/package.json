@@ -1,0 +1,35 @@
+{
+  "name": "agrieco",
+  "version": "1.0.0",
+  "description": "Smart Crop Advisory System for Small and Marginal Farmers",
+  "keywords": [
+    "Smart",
+    "AgriTech"
+  ],
+  "license": "ISC",
+  "author": "Subodh Rana",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "@genkit-ai/googleai": "^1.20.0",
+    "@google/genai": "^1.22.0",
+    "@google/generative-ai": "^0.24.1",
+    "axios": "^1.12.2",
+    "bcrypt": "^6.0.0",
+    "brcypt": "^1.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-openid-connect": "^2.19.2",
+    "firebase-admin": "^13.5.0",
+    "genkit": "^1.20.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.0",
+    "nodemon": "^3.1.10",
+    "wav": "^1.0.2",
+    "zod": "^3.25.76"
+  }
+}

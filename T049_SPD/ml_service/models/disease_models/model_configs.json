@@ -1,0 +1,60 @@
+{
+  "corn": {
+    "classes": [
+      "Corn_Blight",
+      "Corn_Common_Rust",
+      "Corn_Gray_Leaf_Spot",
+      "Corn_Healthy"
+    ],
+    "input_shape": [224, 224, 3],
+    "preprocessing": "standard"
+  },
+  "tomato": {
+    "classes": [
+      "Tomato___Bacterial_spot",
+      "Tomato___Early_blight",
+      "Tomato___Late_blight",
+      "Tomato___Leaf_Mold",
+      "Tomato___Septoria_leaf_spot",
+      "Tomato___Spider_mites Two-spotted_spider_mite",
+      "Tomato___Target_Spot",
+      "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "Tomato___Tomato_mosaic_virus",
+      "Tomato___healthy"
+    ],
+    "input_shape": [224, 224, 3],
+    "preprocessing": "standard"
+  },
+  "grape": {
+    "classes": [
+      "Grape_Healthy",
+      "Grape_Leaf_Blight",
+      "Grape_Esca",
+      "Grape_Black_Rot"
+    ],
+    "input_shape": [224, 224, 3],
+    "preprocessing": "standard"
+  },
+  "mango": {
+    "classes": [
+      "Mango__Gall_Midge",
+      "Mango__Healthy",
+      "Mango__Powdery_Mildew",
+      "Mango__Sooty_Mould"
+    ],
+    "input_shape": [224, 224, 3],
+    "preprocessing": "standard"
+  },
+  "peanut": {
+    "classes": [
+      "Peanut__early_leaf_spot",
+      "Peanut__rust",
+      "Peanut__healthy_leaf",
+      "Peanut__late_leaf_spot",
+      "Peanut__nutrition_deficiency",
+      "Peanut__early_rust"
+    ],
+    "input_shape": [224, 224, 3],
+    "preprocessing": "standard"
+  }
+}

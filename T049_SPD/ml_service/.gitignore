@@ -1,0 +1,109 @@
+# Byte-compiled / cached files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+pip-wheel-metadata/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+.pytest_cache/
+
+# Virtual environments
+venv/
+ENV/
+env/
+.env
+.venv/
+venv.bak/
+
+# Jupyter
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs and databases
+logs/
+*.log
+*.sqlite3
+*.db
+
+# Models and large artifacts
+# Ignore common ML model weight formats and model folders
+*.h5
+*.hdf5
+*.keras
+*.pt
+*.pth
+models/**/*.keras
+models/**/*.h5
+models/**/*.hdf5
+models/**/*.pt
+models/**/*.pth
+
+# Sensitive files and config
+*.pem
+*.key
+credentials/
+secrets.*
+
+# Temporary files
+temp/
+tmp/
+.cache/
+*.tmp
+
+# Python typing / tooling caches
+.mypy_cache/
+.pyre/
+pytype_output/
+
+# Docker / Compose overrides
+docker-compose.override.yml
+.env.*
+
+# Misc
+*.bak
+*.swp
