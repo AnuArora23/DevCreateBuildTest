@@ -1,0 +1,81 @@
+name: gosip
+description: GOSIP - Interactive Intelligence Dashboard for Personal Safety
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # State Management
+  flutter_riverpod: ^2.4.9
+  riverpod_annotation: ^2.3.3
+  
+  # Database
+  sqflite: ^2.3.0
+  path_provider: ^2.1.1
+  path: ^1.8.3
+  
+  # Maps - Removed Google Maps to avoid API key complexity
+  # google_maps_flutter: ^2.5.0
+  location: ^5.0.3
+  permission_handler: ^11.1.0
+  
+  # Map alternative - use OpenStreetMap
+  flutter_map: ^6.1.0
+  latlong2: ^0.9.1
+  
+  # UI Components & Icons
+  feather_icons: ^1.2.0
+  flutter_staggered_animations: ^1.1.1
+  
+  # Utilities
+  uuid: ^4.1.0
+  intl: ^0.19.0
+  
+  # Material Design
+  cupertino_icons: ^1.0.2
+  image_picker: ^1.0.4
+  
+  # Networking
+  http: ^1.1.0
+  json_annotation: ^4.9.0
+  graphview: ^1.2.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.13.1
+  build_runner: ^2.4.7
+  riverpod_generator: ^2.3.9
+  json_serializable: ^6.7.1
+  
+  # Linting
+  flutter_lints: ^3.0.0
+
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: assets/gosip-logo.png
+  android_12:
+    image: assets/gosip-logo.png
+    color: "#FFFFFF"
+  android_gravity: fill
+  ios_content_mode: scaleAspectFill
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/gosip-logo.png"
+  remove_alpha_ios: true
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/
+    - assets/gosip-logo.png
