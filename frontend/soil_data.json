@@ -1,0 +1,130 @@
+{
+    "Alluvial": {
+        "desc_en": "Fertile soil found in river plains. Good for crops with high water needs.",
+        "desc_hi": "उपजाऊ मिट्टी, नदी के मैदानों में पाई जाती है। पानी ज्यादा चाहने वाली फसलों के लिए अच्छी।",
+        "crops_en": [
+            "Rice",
+            "Wheat",
+            "Sugarcane",
+            "Pulses"
+        ],
+        "crops_hi": [
+            "धान",
+            "गेहूं",
+            "गन्ना",
+            "दालें"
+        ],
+        "fertilizers_en": [
+            "Organic manure",
+            "NPK fertilizers"
+        ],
+        "fertilizers_hi": [
+            "जैविक खाद",
+            "एनपीके उर्वरक"
+        ],
+        "advice_en": "Maintain water balance and avoid over-irrigation.",
+        "advice_hi": "पानी का संतुलन बनाए रखें और अधिक सिंचाई से बचें।"
+    },
+    "Black": {
+        "desc_en": "Moisture-retentive soil rich in clay. Ideal for cotton cultivation.",
+        "desc_hi": "काली मिट्टी नमी रोकने वाली और चिकनी होती है। कपास की खेती के लिए आदर्श।",
+        "crops_en": [
+            "Cotton",
+            "Soybean",
+            "Sunflower",
+            "Pulses"
+        ],
+        "crops_hi": [
+            "कपास",
+            "सोयाबीन",
+            "सूरजमुखी",
+            "दालें"
+        ],
+        "fertilizers_en": [
+            "Phosphatic fertilizers",
+            "Organic compost"
+        ],
+        "fertilizers_hi": [
+            "फॉस्फोरस युक्त खाद",
+            "जैविक कम्पोस्ट"
+        ],
+        "advice_en": "Avoid water logging. Good for dry crops.",
+        "advice_hi": "पानी भराव से बचाएँ। शुष्क फसलों के लिए अच्छी।"
+    },
+    "Red": {
+        "desc_en": "Soil low in nutrients but suitable with proper fertilizers.",
+        "desc_hi": "कम पोषक तत्व वाली मिट्टी, पर सही खाद डालने पर उपयोगी।",
+        "crops_en": [
+            "Groundnut",
+            "Millets",
+            "Potato",
+            "Tobacco"
+        ],
+        "crops_hi": [
+            "मूंगफली",
+            "बाजरा",
+            "आलू",
+            "तंबाकू"
+        ],
+        "fertilizers_en": [
+            "Lime",
+            "Organic manure"
+        ],
+        "fertilizers_hi": [
+            "चूना",
+            "जैविक खाद"
+        ],
+        "advice_en": "Use fertilizers regularly to balance nutrients.",
+        "advice_hi": "पोषक तत्व संतुलित रखने के लिए खाद का नियमित प्रयोग करें।"
+    },
+    "Laterite": {
+        "desc_en": "Acidic soil found in hilly areas. Needs fertilizers for productivity.",
+        "desc_hi": "अम्लीय मिट्टी, पहाड़ी क्षेत्रों में पाई जाती है। उपजाऊ बनाने के लिए खाद जरूरी।",
+        "crops_en": [
+            "Tea",
+            "Coffee",
+            "Cashew",
+            "Rubber"
+        ],
+        "crops_hi": [
+            "चाय",
+            "कॉफी",
+            "काजू",
+            "रबर"
+        ],
+        "fertilizers_en": [
+            "Nitrogen fertilizers",
+            "Compost"
+        ],
+        "fertilizers_hi": [
+            "नाइट्रोजन खाद",
+            "कम्पोस्ट"
+        ],
+        "advice_en": "Best for plantation crops. Ensure proper irrigation.",
+        "advice_hi": "बागवानी फसलों के लिए उत्तम। उचित सिंचाई करें।"
+    },
+    "Desert": {
+        "desc_en": "Sandy soil with low fertility. Needs irrigation for crops.",
+        "desc_hi": "रेतीली मिट्टी, उपजाऊ कम। खेती के लिए सिंचाई जरूरी।",
+        "crops_en": [
+            "Barley",
+            "Millets",
+            "Cactus fruits"
+        ],
+        "crops_hi": [
+            "जौ",
+            "बाजरा",
+            "कैक्टस फल"
+        ],
+        "fertilizers_en": [
+            "Organic manure",
+            "Nitrogen fertilizers"
+        ],
+        "fertilizers_hi": [
+            "जैविक खाद",
+            "नाइट्रोजन खाद"
+        ],
+        "advice_en": "Grow drought-resistant crops with drip irrigation.",
+        "advice_hi": "सूखा सहन करने वाली फसलें टपक सिंचाई से उगाएँ।"
+    }
+}

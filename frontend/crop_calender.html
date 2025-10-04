@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-en="Crop Calendar — Plant Doctor" data-hi="फसल कैलेंडर — प्लांट डॉक्टर">
+        Crop Calendar — Plant Doctor
+    </title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body data-page="crop">
+    <!-- Header -->
+    <!-- Header -->
+    <header class="header glass" role="banner">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><i class="fa-solid fa-seedling"></i>&nbsp;Plant Doctor</a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link" data-en="Home" data-hi="होम">Home</a>
+                <a href="index.html#scan" class="nav-link" data-en="Scan" data-hi="स्कैन">Scan</a>
+                <!-- Removed Features ✅ -->
+                <a href="medicines.html" class="nav-link" data-en="Medicines" data-hi="दवाइयाँ">Medicines</a>
+                <a href="gallery.html" class="nav-link" data-en="Gallery" data-hi="गैलरी">Gallery</a>
+                <a href="soil-guide.html" class="nav-link" data-en="Soil Guide" data-hi="मृदा गाइड">Soil Guide</a>
+                <a href="weather.html" class="nav-link" data-en="Weather" data-hi="मौसम">Weather</a>
+                <a href="crop_calender.html" class="nav-link" data-en="Crop Calendar" data-hi="फसल कैलेंडर">Crop
+                    Calendar</a>
+
+                <!-- ✅ New Market link -->
+                <a href="market.html" class="nav-link" data-en="Market" data-hi="बाज़ार">Market</a>
+
+                <a href="admin.html" class="nav-link" data-en="Admin" data-hi="एडमिन">Admin</a>
+
+                <div class="nav-extra">
+                    <div id="navTime" class="nav-time">--:--</div>
+                    <div id="navTemp" class="nav-temp">🌡️ --°C</div>
+                    <button id="langToggle" class="chip">हिंदी</button>
+                    <button id="modeToggle" class="chip">🌙</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" style="height:40vh;">
+        <video autoplay muted loop playsinline preload="metadata" class="hero-video">
+            <source src="./8134590-uhd_4096_2160_25fps.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content glass rise">
+            <h1 data-en="Crop Calendar" data-hi="फसल कैलेंडर">Crop Calendar</h1>
+            <p data-en="Plan sowing & harvesting with seasonal insights."
+                data-hi="मौसमी जानकारी के साथ बुवाई और कटाई की योजना बनाएं।">
+                Plan sowing & harvesting with seasonal insights.
+            </p>
+        </div>
+    </section>
+
+    <!-- Seasonal Cards -->
+    <section class="section glass reveal" style="margin: -3rem auto 2rem auto;">
+        <h2 data-en="📅 Seasonal Crop Calendar" data-hi="📅 मौसमी फसल कैलेंडर">📅 Seasonal Crop Calendar</h2>
+        <div id="seasonGrid" class="card-grid">
+            <article class="card tilt premium">
+                <div class="icon">🌾</div>
+                <h3 data-en="Kharif (June - October)" data-hi="खरीफ (जून - अक्टूबर)">Kharif (June - October)</h3>
+                <p data-en="Best Crops: Rice, Maize, Cotton, Bajra, Soybean"
+                    data-hi="सर्वश्रेष्ठ फसलें: धान, मक्का, कपास, बाजरा, सोयाबीन">
+                    Best Crops: Rice, Maize, Cotton, Bajra, Soybean
+                </p>
+            </article>
+            <article class="card tilt premium">
+                <div class="icon">🌽</div>
+                <h3 data-en="Rabi (November - March)" data-hi="रबी (नवंबर - मार्च)">Rabi (November - March)</h3>
+                <p data-en="Best Crops: Wheat, Barley, Mustard, Peas"
+                    data-hi="सर्वश्रेष्ठ फसलें: गेहूं, जौ, सरसों, मटर">
+                    Best Crops: Wheat, Barley, Mustard, Peas
+                </p>
+            </article>
+            <article class="card tilt premium">
+                <div class="icon">🍉</div>
+                <h3 data-en="Zaid (April - June)" data-hi="जायद (अप्रैल - जून)">Zaid (April - June)</h3>
+                <p data-en="Best Crops: Watermelon, Cucumber, Moong, Pumpkin"
+                    data-hi="सर्वश्रेष्ठ फसलें: तरबूज, खीरा, मूंग, कद्दू">
+                    Best Crops: Watermelon, Cucumber, Moong, Pumpkin
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Month-wise dynamic -->
+    <section class="section glass reveal">
+        <h2 data-en="📊 Month-wise Crop Actions" data-hi="📊 माहवार फसल कार्य">📊 Month-wise Crop Actions</h2>
+        <table id="cropTable" border="1" cellpadding="8">
+            <thead>
+                <tr>
+                    <th data-en="Month" data-hi="महीना">Month</th>
+                    <th data-en="Crop" data-hi="फसल">Crop</th>
+                    <th data-en="Action" data-hi="कार्य">Action</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <!-- Smart Tips -->
+    <section class="section glass reveal">
+        <h2 data-en="💡 Smart Recommendations" data-hi="💡 स्मार्ट सुझाव">💡 Smart Recommendations</h2>
+        <div class="card-grid">
+            <article class="card tilt premium">
+                <div class="icon">💧</div>
+                <h3 data-en="Water Needs" data-hi="जल की आवश्यकता">Water Needs</h3>
+                <p data-en="Check soil moisture before sowing for max yield."
+                    data-hi="अधिक उपज के लिए बुवाई से पहले मिट्टी की नमी जांचें।">
+                    Check soil moisture before sowing for max yield.
+                </p>
+            </article>
+            <article class="card tilt premium">
+                <div class="icon">🌡️</div>
+                <h3 data-en="Temperature Alerts" data-hi="तापमान चेतावनी">Temperature Alerts</h3>
+                <p data-en="AI assists in sowing & harvesting timing."
+                    data-hi="एआई बुवाई और कटाई के समय में सहायता करता है।">
+                    AI assists in sowing & harvesting timing.
+                </p>
+            </article>
+            <article class="card tilt premium">
+                <div class="icon">🌱</div>
+                <h3 data-en="Soil Health" data-hi="मृदा स्वास्थ्य">Soil Health</h3>
+                <p data-en="Use organic fertilizer for seasonal crops."
+                    data-hi="मौसमी फसलों के लिए जैविक खाद का उपयोग करें।">
+                    Use organic fertilizer for seasonal crops.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3><i class="fa-solid fa-seedling"></i> Plant Doctor</h3>
+                <p>Helping farmers with AI powered solutions for better crops.</p>
+            </div>
+
+            <div class="footer-contact">
+                <h4>📞 Helpline</h4>
+                <p><a href="tel:+918228858145">+91 8228858145</a></p>
+                <h4>📧 Email</h4>
+                <p><a href="mailto:support@plantdoctor.com">support@plantdoctor.com</a></p>
+            </div>
+
+            <div class="footer-links">
+                <h4>📘 Quick Links</h4>
+                <p><a href="index.html">Home</a> | <a href="medicines.html">Medicines</a> | <a
+                        href="gallery.html">Gallery</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 <span>Plant Doctor</span> | Made with <span class="heart">❤️</span> for Farmers</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

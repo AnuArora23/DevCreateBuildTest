@@ -1,0 +1,107 @@
+{
+    "Apple___Apple_scab": {
+        "symptoms_en": "Dark, olive-green to black spots on leaves, often velvety. Can cause leaves to curl and fruit to crack.",
+        "symptoms_hi": "पत्तियों पर गहरे जैतून-हरे से काले धब्बे, जो अक्सर मखमली होते हैं। पत्तियां मुड़ सकती हैं और फल फट सकते हैं।",
+        "treatment_en": "Spray fungicides containing Mancozeb or Captan. Remove infected leaves and fruits.",
+        "treatment_hi": "मैनकोजेब या कैप्टन युक्त फफूंदनाशी का छिड़काव करें। संक्रमित पत्ते और फल हटा दें।",
+        "prevention_en": "Use resistant apple varieties, prune for airflow, avoid overhead watering.",
+        "prevention_hi": "प्रतिरोधी सेब की किस्मों का उपयोग करें, हवा के प्रवाह के लिए छंटाई करें, ऊपर से पानी देने से बचें।",
+        "dosage_en": "Apply fungicide every 7–10 days during wet weather.",
+        "dosage_hi": "बरसात के मौसम में हर 7–10 दिन में फफूंदनाशी का छिड़काव करें।",
+        "summary_en": "Apple scab is a fungal disease; regular fungicide spray and pruning help control it.",
+        "summary_hi": "सेब स्कैब एक फफूंद रोग है; नियमित फफूंदनाशी छिड़काव और छंटाई से इसे नियंत्रित किया जा सकता है।",
+        "medicines": [
+            {
+                "name": "Mancozeb",
+                "dose_per_litre_g": 2.5
+            },
+            {
+                "name": "Captan",
+                "dose_per_litre_g": 2.0
+            }
+        ]
+    },
+    "Apple___healthy": {
+        "symptoms_en": "Leaves are green and fresh. No signs of disease.",
+        "symptoms_hi": "पत्तियां हरी और ताज़ा हैं। बीमारी का कोई लक्षण नहीं है।",
+        "treatment_en": "No treatment required.",
+        "treatment_hi": "कोई उपचार आवश्यक नहीं।",
+        "prevention_en": "Maintain regular irrigation, pruning, and fertilization.",
+        "prevention_hi": "नियमित सिंचाई, छंटाई और खाद डालना जारी रखें।",
+        "dosage_en": "Not applicable.",
+        "dosage_hi": "लागू नहीं।",
+        "summary_en": "Apple tree is healthy.",
+        "summary_hi": "सेब का पेड़ स्वस्थ है।",
+        "medicines": []
+    },
+    "Potato___Early_blight": {
+        "symptoms_en": "Brown concentric rings on older leaves, leading to leaf drop. Reduced yield if untreated.",
+        "symptoms_hi": "पुरानी पत्तियों पर भूरे गोल घेरे, जिससे पत्ते झड़ जाते हैं। उपचार न करने पर पैदावार घटती है।",
+        "treatment_en": "Use fungicides such as Chlorothalonil or Mancozeb. Remove affected leaves.",
+        "treatment_hi": "क्लोरोथालोनिल या मैनकोजेब जैसे फफूंदनाशी का उपयोग करें। प्रभावित पत्ते हटा दें।",
+        "prevention_en": "Crop rotation, proper irrigation, and resistant varieties.",
+        "prevention_hi": "फसल चक्र, उचित सिंचाई और प्रतिरोधी किस्मों का उपयोग करें।",
+        "dosage_en": "Spray fungicide every 7–14 days during humid conditions.",
+        "dosage_hi": "आर्द्र मौसम में हर 7–14 दिन में फफूंदनाशी का छिड़काव करें।",
+        "summary_en": "Early blight is caused by Alternaria fungus; managed by fungicides and crop care.",
+        "summary_hi": "अर्ली ब्लाइट अल्टरनेरिया फफूंद से होता है; इसे फफूंदनाशी और फसल देखभाल से नियंत्रित किया जाता है।",
+        "medicines": [
+            {
+                "name": "Chlorothalonil",
+                "dose_per_litre_ml": 2
+            },
+            {
+                "name": "Mancozeb",
+                "dose_per_litre_g": 2.5
+            }
+        ]
+    },
+    "Potato___healthy": {
+        "symptoms_en": "Green, upright leaves with no visible disease.",
+        "symptoms_hi": "हरी, सीधी पत्तियां जिनमें कोई बीमारी नहीं दिखती।",
+        "treatment_en": "No treatment required.",
+        "treatment_hi": "कोई उपचार आवश्यक नहीं।",
+        "prevention_en": "Maintain soil health and follow good irrigation practices.",
+        "prevention_hi": "मिट्टी की उर्वरता बनाए रखें और अच्छी सिंचाई पद्धतियों का पालन करें।",
+        "dosage_en": "Not applicable.",
+        "dosage_hi": "लागू नहीं।",
+        "summary_en": "Potato plant is healthy.",
+        "summary_hi": "आलू का पौधा स्वस्थ है।",
+        "medicines": []
+    },
+    "Tomato___Leaf_Mold": {
+        "symptoms_en": "Yellow spots on upper side of leaves with olive-green/brown mold on underside.",
+        "symptoms_hi": "पत्तियों के ऊपरी हिस्से पर पीले धब्बे और निचली सतह पर हरे-भूरे फफूंद।",
+        "treatment_en": "Spray fungicides like Chlorothalonil or Copper oxychloride. Improve ventilation.",
+        "treatment_hi": "क्लोरोथालोनिल या कॉपर ऑक्सी क्लोराइड जैसे फफूंदनाशी का छिड़काव करें। वेंटिलेशन बेहतर करें।",
+        "prevention_en": "Avoid overhead irrigation, use resistant varieties, ensure airflow.",
+        "prevention_hi": "ऊपर से सिंचाई से बचें, प्रतिरोधी किस्मों का उपयोग करें, हवा का प्रवाह बनाए रखें।",
+        "dosage_en": "Apply fungicide every 7–10 days when humidity is high.",
+        "dosage_hi": "अधिक आर्द्रता होने पर हर 7–10 दिन में फफूंदनाशी का छिड़काव करें।",
+        "summary_en": "Leaf mold is a fungal disease that thrives in humidity; fungicides and airflow reduce spread.",
+        "summary_hi": "लीफ मोल्ड एक फफूंद रोग है जो नमी में फैलता है; फफूंदनाशी और हवा का प्रवाह इसे कम करते हैं।",
+        "medicines": [
+            {
+                "name": "Chlorothalonil",
+                "dose_per_litre_ml": 2
+            },
+            {
+                "name": "Copper oxychloride",
+                "dose_per_litre_g": 3
+            }
+        ]
+    },
+    "Tomato___healthy": {
+        "symptoms_en": "Leaves are green, smooth, and free from fungal spots.",
+        "symptoms_hi": "पत्तियां हरी, चिकनी और फफूंद रहित हैं।",
+        "treatment_en": "No treatment required.",
+        "treatment_hi": "कोई उपचार आवश्यक नहीं।",
+        "prevention_en": "Maintain proper irrigation and soil nutrition.",
+        "prevention_hi": "उचित सिंचाई और मिट्टी की पोषण क्षमता बनाए रखें।",
+        "dosage_en": "Not applicable.",
+        "dosage_hi": "लागू नहीं।",
+        "summary_en": "Tomato plant is healthy.",
+        "summary_hi": "टमाटर का पौधा स्वस्थ है।",
+        "medicines": []
+    }
+}

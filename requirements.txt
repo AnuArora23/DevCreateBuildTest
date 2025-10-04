@@ -1,0 +1,11 @@
+flask
+flask-cors
+werkzeug
+requests
+numpy
+pillow
+python-dotenv
+openai>=1.40.0
+onnxruntime
+tensorflow-cpu
+opencv-python

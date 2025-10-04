@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title data-en="Gallery — Plant Doctor" data-hi="गैलरी — प्लांट डॉक्टर">Gallery — Plant Doctor</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <!-- Header -->
+    <header class="header glass" role="banner">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><i class="fa-solid fa-seedling"></i>&nbsp;Plant Doctor</a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link" data-en="Home" data-hi="होम">Home</a>
+                <a href="index.html#scan" class="nav-link" data-en="Scan" data-hi="स्कैन">Scan</a>
+                <!-- Removed Features ✅ -->
+                <a href="medicines.html" class="nav-link" data-en="Medicines" data-hi="दवाइयाँ">Medicines</a>
+                <a href="gallery.html" class="nav-link" data-en="Gallery" data-hi="गैलरी">Gallery</a>
+                <a href="soil-guide.html" class="nav-link" data-en="Soil Guide" data-hi="मृदा गाइड">Soil Guide</a>
+                <a href="weather.html" class="nav-link" data-en="Weather" data-hi="मौसम">Weather</a>
+                <a href="crop_calender.html" class="nav-link" data-en="Crop Calendar" data-hi="फसल कैलेंडर">Crop
+                    Calendar</a>
+
+                <!-- ✅ New Market link -->
+                <a href="market.html" class="nav-link" data-en="Market" data-hi="बाज़ार">Market</a>
+
+                <a href="admin.html" class="nav-link" data-en="Admin" data-hi="एडमिन">Admin</a>
+
+                <div class="nav-extra">
+                    <div id="navTime" class="nav-time">--:--</div>
+                    <div id="navTemp" class="nav-temp">🌡️ --°C</div>
+                    <button id="langToggle" class="chip">हिंदी</button>
+                    <button id="modeToggle" class="chip">🌙</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" style="height:40vh;">
+        <video autoplay muted loop playsinline preload="metadata" class="hero-video">
+            <source src="./3816531-uhd_3840_2160_30fps.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content glass rise">
+            <h1 data-en="🌿 Plant & Fruit Gallery" data-hi="🌿 पौधा और फल गैलरी">🌿 Plant & Fruit Gallery</h1>
+            <p data-en="Discover 50+ plants & fruits with easy details, uses & cultural value."
+                data-hi="50+ पौधे और फलों की आसान जानकारी — उपयोग, फायदे और सांस्कृतिक महत्व।">
+                Discover 50+ plants & fruits with easy details, uses & cultural value.
+            </p>
+        </div>
+    </section>
+    <!-- Gallery Grid Start -->
+    <section class="section glass reveal">
+        <div id="galleryGrid" class="card-grid">
+
+            <!-- 1 Neem -->
+            <article class="card tilt premium gallery-card" data-name="Neem" data-cat="medicinal"
+                data-file="articles/neem.html">
+                <img class="thumb" loading="lazy" src="neem.jpg" alt="Neem">
+                <h3>Neem</h3>
+                <p class="benefits">
+                    Neem is a powerful medicinal tree with antibacterial, antifungal and antiviral properties.
+                    It supports skin health, purifies blood and boosts immunity in Ayurveda.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/neem.html">Read More</a>
+            </article>
+
+            <!-- 2 Mango -->
+            <article class="card tilt premium gallery-card" data-name="Mango" data-cat="fruits"
+                data-file="articles/mango.html">
+                <img class="thumb" loading="lazy" src="mango.jpg" alt="Mango">
+                <h3>Mango</h3>
+                <p class="benefits">
+                    Known as the “King of Fruits”, mangoes are rich in vitamin A, C and fiber.
+                    They strengthen immunity, improve digestion and symbolize prosperity in traditions.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/mango.html">Read More</a>
+            </article>
+
+            <!-- 3 Banana -->
+            <article class="card tilt premium gallery-card" data-name="Banana" data-cat="fruits"
+                data-file="articles/banana.html">
+                <img class="thumb" loading="lazy" src="banana.jpg" alt="Banana">
+                <h3>Banana</h3>
+                <p class="benefits">
+                    Rich in potassium, fiber and natural sugars for instant energy.
+                    Bananas aid digestion, support heart health and are loved by athletes worldwide.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/banana.html">Read More</a>
+            </article>
+
+            <!-- 4 Apple -->
+            <article class="card tilt premium gallery-card" data-name="Apple" data-cat="fruits"
+                data-file="articles/apple.html">
+                <img class="thumb" loading="lazy" src="apple.jpg" alt="Apple">
+                <h3>Apple</h3>
+                <p class="benefits">
+                    Apples are crunchy fruits packed with dietary fiber, antioxidants and vitamin C.
+                    They help maintain heart health, regulate blood sugar and are known as a wholesome snack.
+                    "An apple a day keeps the doctor away."
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/apple.html">Read More</a>
+            </article>
+            <!-- 5 Orange -->
+            <article class="card tilt premium gallery-card" data-name="Orange" data-cat="fruits"
+                data-file="articles/orange.html">
+                <img class="thumb" loading="lazy" src="orange.jpg" alt="Orange">
+                <h3>Orange</h3>
+                <p class="benefits">
+                    Oranges are juicy citrus fruits abundant in vitamin C. They strengthen immunity, support skin
+                    health,
+                    and provide hydration. Their tangy flavor and refreshing juice are used worldwide.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/orange.html">Read More</a>
+            </article>
+
+            <!-- 6 Papaya -->
+            <article class="card tilt premium gallery-card" data-name="Papaya" data-cat="fruits"
+                data-file="articles/papaya.html">
+                <img class="thumb" loading="lazy" src="papaya.jpg" alt="Papaya">
+                <h3>Papaya</h3>
+                <p class="benefits">
+                    Papaya is rich in digestive enzymes like papain. Its orange flesh contains vitamins A & C.
+                    Seeds are used in detox remedies. A tropical fruit that grows abundantly.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/papaya.html">Read More</a>
+            </article>
+
+            <!-- 7 Grapes -->
+            <article class="card tilt premium gallery-card" data-name="Grapes" data-cat="fruits"
+                data-file="articles/grapes.html">
+                <img class="thumb" loading="lazy" src="grap[es.jpg" alt="Grapes">
+                <h3>Grapes</h3>
+                <p class="benefits">
+                    Grapes are rich in antioxidants like resveratrol that support heart health.
+                    Eaten fresh, as juice or wine, they are valued worldwide for taste and health.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/grapes.html">Read More</a>
+            </article>
+
+            <!-- 8 Guava -->
+            <article class="card tilt premium gallery-card" data-name="Guava" data-cat="fruits"
+                data-file="articles/guava.html">
+                <img class="thumb" loading="lazy" src="Guava.jpg" alt="Guava">
+                <h3>Guava</h3>
+                <p class="benefits">
+                    Guava is high in vitamin C, fiber and antioxidants. Supports digestion, immunity and blood sugar
+                    balance.
+                    Leaves are used in teas for gut health.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/guava.html">Read More</a>
+            </article>
+
+            <!-- 9 Tomato -->
+            <article class="card tilt premium gallery-card" data-name="Tomato" data-cat="vegetables"
+                data-file="articles/tomato.html">
+                <img class="thumb" loading="lazy" src="Tamato.jpg" alt="Tomato">
+                <h3>Tomato</h3>
+                <p class="benefits">
+                    Technically a fruit, tomatoes are rich in lycopene, vitamin C & potassium.
+                    They support heart health, skin health and are a cooking staple worldwide.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/tomato.html">Read More</a>
+            </article>
+
+            <!-- 10 Tulsi -->
+            <article class="card tilt premium gallery-card" data-name="Tulsi" data-cat="medicinal"
+                data-file="articles/tulsi.html">
+                <img class="thumb" loading="lazy" src="tulsi.jpg" alt="Tulsi">
+                <h3>Tulsi</h3>
+                <p class="benefits">
+                    Sacred herb in India, Tulsi boosts immunity, supports respiratory health and reduces stress.
+                    Used in Ayurveda & daily rituals.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/tulsi.html">Read More</a>
+            </article>
+
+            <!-- 11 Ashwagandha -->
+            <article class="card tilt premium gallery-card" data-name="Ashwagandha" data-cat="medicinal"
+                data-file="articles/ashwagandha.html">
+                <img class="thumb" loading="lazy" src="ashwagandha.jpg" alt="Ashwagandha">
+                <h3>Ashwagandha</h3>
+                <p class="benefits">
+                    A powerful adaptogen used to reduce stress, improve energy & strengthen immunity.
+                    Supports brain health, memory and physical endurance.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/ashwagandha.html">Read More</a>
+            </article>
+
+            <!-- 12 Ginger -->
+            <article class="card tilt premium gallery-card" data-name="Ginger" data-cat="herbs"
+                data-file="articles/ginger.html">
+                <img class="thumb" loading="lazy" src="ginger.jpg" alt="Ginger">
+                <h3>Ginger</h3>
+                <p class="benefits">
+                    Ginger aids digestion, relieves nausea and reduces inflammation. Contains gingerol with antioxidant
+                    effects.
+                    Used in teas, cooking & remedies.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/ginger.html">Read More</a>
+            </article>
+
+            <!-- 13 Turmeric -->
+            <article class="card tilt premium gallery-card" data-name="Turmeric" data-cat="herbs"
+                data-file="articles/turmeric.html">
+                <img class="thumb" loading="lazy" src="turmeric.jpg" alt="Turmeric">
+                <h3>Turmeric</h3>
+                <p class="benefits">
+                    Golden spice rich in curcumin with anti-inflammatory powers.
+                    Supports joints, immunity and digestion. Widely used in food & remedies.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/turmeric.html">Read More</a>
+            </article>
+
+            <!-- 14 Mango Tree -->
+            <article class="card tilt premium gallery-card" data-name="Mango Tree" data-cat="trees"
+                data-file="articles/mango-tree.html">
+                <img class="thumb" loading="lazy" src="mango.jpg" alt="Mango Tree">
+                <h3>Mango Tree</h3>
+                <p class="benefits">
+                    Valued for fruit, shade and cultural symbolism.
+                    Leaves used in rituals, wood in furniture. Represents prosperity across Asia.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/mango-tree.html">Read More</a>
+            </article>
+
+            <!-- 15 Coconut -->
+            <article class="card tilt premium gallery-card" data-name="Coconut" data-cat="trees"
+                data-file="articles/coconut.html">
+                <img class="thumb" loading="lazy" src="coconut.jpg" alt="Coconut">
+                <h3>Coconut</h3>
+                <p class="benefits">
+                    Known as the "Tree of Life". Provides water, flesh, oil and materials for rituals, cooking &
+                    skincare.
+                    Every part has a use.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/coconut.html">Read More</a>
+            </article>
+            <!-- 16 Pineapple -->
+            <article class="card tilt premium gallery-card" data-name="Pineapple" data-cat="fruits"
+                data-file="articles/pineapple.html">
+                <img class="thumb" loading="lazy" src="pineapple.jpg" alt="Pineapple">
+                <h3>Pineapple</h3>
+                <p class="benefits">
+                    Pineapple is rich in vitamin C & bromelain enzyme. Supports digestion, boosts immunity and offers
+                    anti-inflammatory benefits.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/pineapple.html">Read More</a>
+            </article>
+
+            <!-- 17 Lemon -->
+            <article class="card tilt premium gallery-card" data-name="Lemon" data-cat="fruits"
+                data-file="articles/lemon.html">
+                <img class="thumb" loading="lazy" src="lemon.jpg" alt="Lemon">
+                <h3>Lemon</h3>
+                <p class="benefits">
+                    Lemons are rich in vitamin C. Promote detox, improve digestion, and support immunity. Widely used in
+                    drinks & cooking.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/lemon.html">Read More</a>
+            </article>
+
+            <!-- 18 Strawberry -->
+            <article class="card tilt premium gallery-card" data-name="Strawberry" data-cat="fruits"
+                data-file="articles/strawberry.html">
+                <img class="thumb" loading="lazy" src="strawberry.jpg" alt="Strawberry">
+                <h3>Strawberry</h3>
+                <p class="benefits">
+                    Bright berries rich in vitamin C & antioxidants. Support heart health, skin health and are loved
+                    worldwide for taste.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/strawberry.html">Read More</a>
+            </article>
+
+            <!-- 19 Pear -->
+            <article class="card tilt premium gallery-card" data-name="Pear" data-cat="fruits"
+                data-file="articles/pear.html">
+                <img class="thumb" loading="lazy" src="pear.jpg" alt="Pear">
+                <h3>Pear</h3>
+                <p class="benefits">
+                    Juicy fruit high in fiber & vitamins. Gentle on digestion, hydrating & refreshing. Eaten fresh or
+                    cooked worldwide.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/pear.html">Read More</a>
+            </article>
+
+            <!-- 20 Avocado -->
+            <article class="card tilt premium gallery-card" data-name="Avocado" data-cat="fruits"
+                data-file="articles/avocado.html">
+                <img class="thumb" loading="lazy" src="avocado.jpg" alt="Avocado">
+                <h3>Avocado</h3>
+                <p class="benefits">
+                    Nutrient-dense fruit with healthy fats & vitamin E. Known as “nature’s butter”. Supports heart
+                    health & glowing skin.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/avocado.html">Read More</a>
+            </article>
+
+            <!-- 21 Olive -->
+            <article class="card tilt premium gallery-card" data-name="Olive" data-cat="fruits"
+                data-file="articles/olive.html">
+                <img class="thumb" loading="lazy" src="olive.jpg" alt="Olive">
+                <h3>Olive</h3>
+                <p class="benefits">
+                    Ancient fruit used for olive oil. Rich in antioxidants & healthy fats. Supports skin & heart health.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/olive.html">Read More</a>
+            </article>
+
+            <!-- 22 Rosemary -->
+            <article class="card tilt premium gallery-card" data-name="Rosemary" data-cat="herbs"
+                data-file="articles/rosemary.html">
+                <img class="thumb" loading="lazy" src="rosemary.jpg" alt="Rosemary">
+                <h3>Rosemary</h3>
+                <p class="benefits">
+                    Fragrant herb that enhances memory & circulation. Strong antioxidant, used in teas & cooking.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/rosemary.html">Read More</a>
+            </article>
+
+            <!-- 23 Mint -->
+            <article class="card tilt premium gallery-card" data-name="Mint" data-cat="herbs"
+                data-file="articles/mint.html">
+                <img class="thumb" loading="lazy" src="mint.jpg" alt="Mint">
+                <h3>Mint</h3>
+                <p class="benefits">
+                    Cooling herb used in teas & chutneys. Freshens breath, aids digestion & uplifts mood naturally.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/mint.html">Read More</a>
+            </article>
+
+            <!-- 24 Mustard -->
+            <article class="card tilt premium gallery-card" data-name="Mustard" data-cat="herbs"
+                data-file="articles/mustard.html">
+                <img class="thumb" loading="lazy" src="mustard.jpg" alt="Mustard">
+                <h3>Mustard</h3>
+                <p class="benefits">
+                    Seeds rich in oils & minerals. Used as spice, condiment & medicine for centuries. Supports heart
+                    health.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/mustard.html">Read More</a>
+            </article>
+
+            <!-- 25 Fig -->
+            <article class="card tilt premium gallery-card" data-name="Fig" data-cat="fruits"
+                data-file="articles/fig.html">
+                <img class="thumb" loading="lazy" src="fig.jpg" alt="Fig">
+                <h3>Fig</h3>
+                <p class="benefits">
+                    Sweet fruit packed with fiber, calcium & iron. Supports digestion & bone health. Enjoyed fresh or
+                    dried.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/fig.html">Read More</a>
+            </article>
+
+            <!-- 26 Walnut -->
+            <article class="card tilt premium gallery-card" data-name="Walnut" data-cat="fruits"
+                data-file="articles/walnut.html">
+                <img class="thumb" loading="lazy" src="walnut.jpg" alt="Walnut">
+                <h3>Walnut</h3>
+                <p class="benefits">
+                    Brain food rich in omega-3s. Supports memory, energy & heart health. Perfect as snack or in meals.
+                </p>
+                <a class="cta small open-article" href="#" data-file="articles/walnut.html">Read More</a>
+            </article>
+
+            <!-- Modal -->
+            <div id="articleModal" class="modal" aria-hidden="true">
+                <div class="modal-content glass">
+                    <button class="modal-close icon-btn" aria-label="Close">✕</button>
+                    <div id="modalInner"></div>
+                </div>
+            </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3><i class="fa-solid fa-seedling"></i> Plant Doctor</h3>
+                <p>Helping farmers with AI powered solutions for better crops.</p>
+            </div>
+
+            <div class="footer-contact">
+                <h4>📞 Helpline</h4>
+                <p><a href="tel:+918228858145">+91 8228858145</a></p>
+                <h4>📧 Email</h4>
+                <p><a href="mailto:support@plantdoctor.com">support@plantdoctor.com</a></p>
+            </div>
+
+            <div class="footer-links">
+                <h4>📘 Quick Links</h4>
+                <p><a href="index.html">Home</a> | <a href="medicines.html">Medicines</a> | <a
+                        href="gallery.html">Gallery</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 <span>Plant Doctor</span> | Made with <span class="heart">❤️</span> for Farmers</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>

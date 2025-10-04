@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Plant Doctor — AI Luxe</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header glass" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="logo"><i class="fa-solid fa-seedling"></i>&nbsp;Plant Doctor</a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link" data-en="Home" data-hi="होम">Home</a>
+        <a href="index.html#scan" class="nav-link" data-en="Scan" data-hi="स्कैन">Scan</a>
+        <!-- Removed Features ✅ -->
+        <a href="medicines.html" class="nav-link" data-en="Medicines" data-hi="दवाइयाँ">Medicines</a>
+        <a href="gallery.html" class="nav-link" data-en="Gallery" data-hi="गैलरी">Gallery</a>
+        <a href="soil-guide.html" class="nav-link" data-en="Soil Guide" data-hi="मृदा गाइड">Soil Guide</a>
+        <a href="weather.html" class="nav-link" data-en="Weather" data-hi="मौसम">Weather</a>
+        <a href="crop_calender.html" class="nav-link" data-en="Crop Calendar" data-hi="फसल कैलेंडर">Crop Calendar</a>
+
+        <!-- ✅ New Market link -->
+        <a href="market.html" class="nav-link" data-en="Market" data-hi="बाज़ार">Market</a>
+
+        <a href="admin.html" class="nav-link" data-en="Admin" data-hi="एडमिन">Admin</a>
+
+        <div class="nav-extra">
+          <div id="navTime" class="nav-time">--:--</div>
+          <div id="navTemp" class="nav-temp">🌡️ --°C</div>
+          <button id="langToggle" class="chip">हिंदी</button>
+          <button id="modeToggle" class="chip">🌙</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="Home" class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="poster.jpg">
+      <source src="./3195351-uhd_3840_2160_25fps.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+
+    <div class="hero-overlay"></div>
+    <canvas id="nucleus" aria-hidden="true"></canvas>
+    <div id="leafContainer" aria-hidden="true"></div>
+    <div class="floating-subtitle">Futurised AI for Plant Health</div>
+
+    <div class="hero-content glass rise">
+      <h1 data-en="Future Farming With AI" data-hi="एआई के साथ भविष्य की खेती">
+        Future Farming With AI
+      </h1>
+      <p data-en="Early Detection-Strong Protection" data-hi="जल्दी पहचान - मजबूत सुरक्षा">
+        Early Detection-Strong Protection
+      </p>
+      <div class="hero-cta">
+        <a href="#scan" class="cta">Start Scanning</a>
+        <a href="gallery.html" class="cta outline">Explore Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Features -->
+  <section id="features" class="section glass reveal">
+    <h2>Premium Features</h2>
+    <div class="card-grid">
+      <article class="card tilt">
+        <div class="icon"><i class="fa-solid fa-camera"></i></div>
+        <h3>Instant Diagnosis</h3>
+        <p>AI detects plant diseases from photos instantly.</p>
+      </article>
+      <article class="card tilt">
+        <div class="icon"><i class="fa-solid fa-flask"></i></div>
+        <h3>Smart Treatment</h3>
+        <p>Personalized medicine and dosage for your crop.</p>
+      </article>
+      <article class="card tilt">
+        <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Growth Insights</h3>
+        <p>Prevent diseases and improve yield.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 🌤 Live Updates Section -->
+  <section class="section glass">
+    <h2 data-en="🌤 Live Updates" data-hi="🌤 लाइव अपडेट">Live Updates</h2>
+    <div class="card-grid">
+
+      <!-- Time & Date -->
+      <article class="card tilt">
+        <div class="icon">⏰</div>
+        <h3 data-en="Time & Date" data-hi="समय और तारीख">Time & Date</h3>
+        <div id="wxTime">--<br>--:--</div>
+      </article>
+
+      <!-- Current Weather -->
+      <article class="card tilt">
+        <div class="icon">🌦️</div>
+        <div id="wxNow">
+          <p>🔄 Please search for a city...</p>
+        </div>
+        <div class="controls">
+          <input id="wxCityInput" type="text" placeholder="Enter city">
+          <button id="wxSearchBtn" class="chip">Search</button>
+        </div>
+      </article>
+
+      <!-- Weekly Rain Chances -->
+      <article class="card tilt">
+        <div class="icon">🌧</div>
+        <h3 data-en="Weekly Rain Chances" data-hi="साप्ताहिक वर्षा संभावनाएँ">Weekly Rain Chances</h3>
+        <div id="wxWeekly">--</div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Insights & Trends -->
+  <section id="insights" class="section glass reveal">
+    <h2 class="section-title">Insights & Trends</h2>
+    <div class="card-grid">
+      <div class="card stat-card">
+        <div class="stat-icon">📈</div>
+        <div class="stat-num" id="statAccuracy">99.9%</div>
+        <div class="stat-label">Diagnosis Accuracy</div>
+        <canvas id="accuracyChart" height="120"></canvas>
+      </div>
+      <div class="card stat-card">
+        <div class="stat-icon">🌍</div>
+        <div class="stat-num" id="statCountries">150+</div>
+        <div class="stat-label">Countries Served</div>
+        <canvas id="countriesChart" height="120"></canvas>
+      </div>
+      <div class="card stat-card">
+        <div class="stat-icon">💚</div>
+        <div class="stat-num" id="statSaved">1M+</div>
+        <div class="stat-label">Plants Saved</div>
+        <canvas id="plantsChart" height="140"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scan Section -->
+  <section id="scan" class="section glass reveal scan-section">
+    <div class="overlay"></div>
+    <h2>🌱 Scan Your Plant</h2>
+    <div class="scan card-3d tilt">
+      <div id="dropZone" class="drop-zone" tabindex="0">
+        <div class="dz-icon"><i class="fa-solid fa-cloud-arrow-up fa-bounce"></i></div>
+        <p>Drag & Drop or Click to Upload</p>
+        <input type="file" id="fileInput" accept="image/*" hidden />
+      </div>
+      <div class="preview" style="display:none">
+        <img id="preview" alt="preview image" />
+      </div>
+      <div class="inputs">
+        <label for="litres">💧 Water Quantity (L)</label>
+        <input id="litres" type="number" value="15" min="0" />
+      </div>
+      <button id="predictBtn" class="cta glow tilt"><i class="fa-solid fa-microscope"></i> Analyze</button>
+      <div id="status" class="status neon-text"></div>
+
+      <!-- 📄 Report Download Button -->
+      <button id="downloadReportBtn" class="cta outline tilt" style="margin-top:10px;">
+        📄 Download Smart Report
+      </button>
+
+    </div>
+  </section>
+
+  <!-- ===== Footer Start ===== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3><i class="fa-solid fa-seedling"></i> Plant Doctor</h3>
+        <p>Helping farmers with AI powered solutions for better crops.</p>
+      </div>
+
+      <div class="footer-contact">
+        <h4>📞 Helpline</h4>
+        <p><a href="tel:+918228858145">+91 8228858145</a></p>
+        <h4>📧 Email</h4>
+        <p><a href="mailto:support@plantdoctor.com">support@plantdoctor.com</a></p>
+      </div>
+
+      <div class="footer-links">
+        <h4>📘 Quick Links</h4>
+        <p><a href="index.html">Home</a> | <a href="medicines.html">Medicines</a> | <a href="gallery.html">Gallery</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 <span>Plant Doctor</span> | Made with <span class="heart">❤️</span> for Farmers</p>
+    </div>
+  </footer>
+  <!-- ===== Footer End ===== -->
+
+
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/4e5d7e5e8f.js" crossorigin="anonymous"></script>
+
+
+  <!-- 🌱 Chatbot -->
+  <div class="chatbot-container">
+    <button class="chat-toggle" id="chatToggle">
+      <i class="fa-solid fa-message"></i>
+    </button>
+
+    <div class="chatbox glass" id="chatBox">
+      <div class="chat-header">
+        <div class="ai-badge">AI</div>
+        <div>
+          Plant Doctor AI<br>
+          <small>Ask about plant care</small>
+        </div>
+        <button id="chatClose">✕</button>
+      </div>
+
+      <!-- Messages -->
+      <div class="chat-messages" id="chatMessages"></div>
+
+      <!-- Input + Controls -->
+      <div class="chat-input">
+        <input id="chatInput" type="text" placeholder="Type or speak..." />
+        <button id="micBtn"><i class="fa-solid fa-microphone"></i></button>
+        <select id="langSelect">
+          <option value="en">EN</option>
+          <option value="hi">हिंदी</option>
+        </select>
+        <button id="chatSend"><i class="fa-solid fa-paper-plane"></i></button>
+      </div>
+
+      <!-- ✅ Controls inside chatbox -->
+      <div class="chat-controls">
+        <button id="speakAgain">🔊 Speak Again</button>
+        <button id="stopSpeak">⏹ Stop</button>
+        <button id="autoSpeak">🎤 Auto Speak: ON</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script>
+    // Live Time in navbar
+    function updateNavTime() {
+      const now = new Date();
+      document.getElementById('navTime').textContent =
+        now.getHours().toString().padStart(2, '0') + ":" +
+        now.getMinutes().toString().padStart(2, '0');
+    }
+    setInterval(updateNavTime, 1000);
+    updateNavTime();
+
+    // Footer Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>

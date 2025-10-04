@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-en="Soil Guide — Plant Doctor" data-hi="मिट्टी गाइड — प्लांट डॉक्टर">Soil Guide — Plant Doctor</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body data-page="soil">
+    <!-- Header -->
+    <header class="header glass" role="banner">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><i class="fa-solid fa-seedling"></i>&nbsp;Plant Doctor</a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link" data-en="Home" data-hi="होम">Home</a>
+                <a href="index.html#scan" class="nav-link" data-en="Scan" data-hi="स्कैन">Scan</a>
+                <a href="medicines.html" class="nav-link" data-en="Medicines" data-hi="दवाइयाँ">Medicines</a>
+                <a href="gallery.html" class="nav-link" data-en="Gallery" data-hi="गैलरी">Gallery</a>
+                <a href="soil-guide.html" class="nav-link" data-en="Soil Guide" data-hi="मृदा गाइड">Soil Guide</a>
+                <a href="weather.html" class="nav-link" data-en="Weather" data-hi="मौसम">Weather</a>
+                <a href="crop_calender.html" class="nav-link" data-en="Crop Calendar" data-hi="फसल कैलेंडर">Crop
+                    Calendar</a>
+                <a href="market.html" class="nav-link" data-en="Market" data-hi="बाज़ार">Market</a>
+                <a href="admin.html" class="nav-link" data-en="Admin" data-hi="एडमिन">Admin</a>
+
+                <div class="nav-extra">
+                    <div id="navTime" class="nav-time">--:--</div>
+                    <div id="navTemp" class="nav-temp">🌡️ --°C</div>
+                    <button id="langToggle" class="chip">हिंदी</button>
+                    <button id="modeToggle" class="chip">🌙</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero hero-image hero-watermark">
+        <div class="hero-overlay"></div>
+        <div class="hero-content glass rise">
+            <h1 data-en="Soil Guide" data-hi="मिट्टी गाइड">Soil Guide</h1>
+            <p data-en="Know your soil, Grow better crops." data-hi="अपनी मिट्टी जानें, बेहतर फसल उगाएँ।">
+                Know your soil, grow better crops.
+            </p>
+            <a href="#soilGrid" class="btn glow">Explore Soil Types</a>
+        </div>
+    </section>
+
+
+    <!-- 🌍 Soil Types & Guidance -->
+    <section class="section glass reveal" style="margin: -3rem auto 2rem auto;">
+        <h2 data-en="🌍 Soil Types & Guidance" data-hi="🌍 मिट्टी के प्रकार और मार्गदर्शन">
+            🌍 Soil Types & Guidance
+        </h2>
+        <div id="soilGrid" class="card-grid">
+            <!-- JSON से dynamic soil cards यहाँ आएंगे -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3><i class="fa-solid fa-seedling"></i> Plant Doctor</h3>
+                <p>Helping farmers with AI powered solutions for better crops.</p>
+            </div>
+
+            <div class="footer-contact">
+                <h4>📞 Helpline</h4>
+                <p><a href="tel:+918228858145">+91 8228858145</a></p>
+                <h4>📧 Email</h4>
+                <p><a href="mailto:support@plantdoctor.com">support@plantdoctor.com</a></p>
+            </div>
+
+            <div class="footer-links">
+                <h4>📘 Quick Links</h4>
+                <p><a href="index.html">Home</a> | <a href="medicines.html">Medicines</a> | <a
+                        href="gallery.html">Gallery</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 <span>Plant Doctor</span> | Made with <span class="heart">❤️</span> for Farmers</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

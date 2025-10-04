@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-en="Admin — Plant Doctor" data-hi="एडमिन — प्लांट डॉक्टर">Admin — Plant Doctor</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header glass" role="banner">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><i class="fa-solid fa-seedling"></i>&nbsp;Plant Doctor</a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link" data-en="Home" data-hi="होम">Home</a>
+                <a href="index.html#scan" class="nav-link" data-en="Scan" data-hi="स्कैन">Scan</a>
+                <!-- Removed Features ✅ -->
+                <a href="medicines.html" class="nav-link" data-en="Medicines" data-hi="दवाइयाँ">Medicines</a>
+                <a href="gallery.html" class="nav-link" data-en="Gallery" data-hi="गैलरी">Gallery</a>
+                <a href="soil-guide.html" class="nav-link" data-en="Soil Guide" data-hi="मृदा गाइड">Soil Guide</a>
+                <a href="weather.html" class="nav-link" data-en="Weather" data-hi="मौसम">Weather</a>
+                <a href="crop_calender.html" class="nav-link" data-en="Crop Calendar" data-hi="फसल कैलेंडर">Crop
+                    Calendar</a>
+
+                <!-- ✅ New Market link -->
+                <a href="market.html" class="nav-link" data-en="Market" data-hi="बाज़ार">Market</a>
+
+                <a href="admin.html" class="nav-link" data-en="Admin" data-hi="एडमिन">Admin</a>
+
+                <div class="nav-extra">
+                    <div id="navTime" class="nav-time">--:--</div>
+                    <div id="navTemp" class="nav-temp">🌡️ --°C</div>
+                    <button id="langToggle" class="chip">हिंदी</button>
+                    <button id="modeToggle" class="chip">🌙</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner (subtle) -->
+    <section class="hero" style="height:44vh;">
+        <div class="hero-overlay"></div>
+        <div id="leafContainer"></div>
+        <div class="hero-content glass rise">
+
+            <h1 data-en="Admin Dashboard" data-hi="एडमिन डैशबोर्ड">Admin Dashboard</h1>
+
+        </div>
+    </section>
+
+    <!-- Dashboard Stats -->
+    <section class="section glass reveal" style="margin-top:-3rem">
+        <h1 data-en="Admin Dashboard" data-hi="एडमिन डैशबोर्ड">Admin Dashboard</h1>
+        <h2 data-en="Overview" data-hi="ओवरव्यू">Overview</h2>
+        <div class="card-grid">
+            <div class="card tilt">
+                <h3 data-en="Total Medicines" data-hi="कुल दवाइयाँ">Total Medicines</h3>
+                <p style="font-size:2rem;font-weight:800">128</p>
+            </div>
+            <div class="card tilt">
+                <h3 data-en="Out of Stock" data-hi="स्टॉक समाप्त">Out of Stock</h3>
+                <p style="font-size:2rem;font-weight:800">6</p>
+            </div>
+            <div class="card tilt">
+                <h3 data-en="New Uploads" data-hi="नए अपलोड">New Uploads</h3>
+                <p style="font-size:2rem;font-weight:800">12</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add / Edit Medicine -->
+    <section class="section glass reveal">
+        <h2 data-en="Add / Edit Medicine" data-hi="दवा जोड़ें / संपादित करें">Add / Edit Medicine</h2>
+
+        <div class="card-grid">
+            <form id="medForm" class="card tilt" style="grid-column:1/-1;display:grid;gap:1rem">
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem">
+                    <div>
+                        <label data-en="Name" data-hi="नाम">Name</label>
+                        <input required type="text" id="mName" placeholder="NeemX Pro"
+                            style="width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:inherit">
+                    </div>
+                    <div>
+                        <label data-en="Category" data-hi="श्रेणी">Category</label>
+                        <select id="mCat"
+                            style="width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:inherit">
+                            <option value="fungicide" data-en="Fungicide" data-hi="फफूंदनाशी">Fungicide</option>
+                            <option value="insecticide" data-en="Insecticide" data-hi="कीटनाशी">Insecticide</option>
+                            <option value="nutrient" data-en="Nutrients" data-hi="पोषक">Nutrients</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label data-en="Usage" data-hi="उपयोग">Usage</label>
+                        <select id="mUse"
+                            style="width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:inherit">
+                            <option value="leaf" data-en="Leaf" data-hi="पत्तियाँ">Leaf</option>
+                            <option value="root" data-en="Root" data-hi="जड़">Root</option>
+                            <option value="soil" data-en="Soil" data-hi="मिट्टी">Soil</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label data-en="Price (₹)" data-hi="कीमत (₹)">Price (₹)</label>
+                        <input type="number" id="mPrice" placeholder="499"
+                            style="width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:inherit">
+                    </div>
+                </div>
+
+                <!-- Media Uploads -->
+                <div class="card tilt" style="background:rgba(255,255,255,.05);border:1px dashed rgba(255,255,255,.3);">
+                    <h3 style="margin-bottom:.6rem" data-en="Media (Image / Video)" data-hi="मीडिया (इमेज / वीडियो)">
+                        Media (Image / Video)</h3>
+                    <div
+                        style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;align-items:start">
+                        <!-- Image -->
+                        <div>
+                            <label data-en="Image" data-hi="इमेज">Image</label>
+                            <div id="imgDrop" class="drop-zone" style="width:100%;height:160px">
+                                <div class="dz-icon">⬆</div>
+                                <p data-en="Drag & Drop or Click" data-hi="ड्रैग-ड्रॉप या क्लिक करें">Drag & Drop or
+                                    Click</p>
+                                <input type="file" accept="image/*" id="imgInput" hidden>
+                            </div>
+                            <div class="preview" style="display:none"><img id="imgPreview" alt="img preview" /></div>
+                        </div>
+                        <!-- Video -->
+                        <div>
+                            <label data-en="Video" data-hi="वीडियो">Video</label>
+                            <div id="vidDrop" class="drop-zone" style="width:100%;height:160px">
+                                <div class="dz-icon">⬆</div>
+                                <p data-en="Drag & Drop or Click" data-hi="ड्रैग-ड्रॉप या क्लिक करें">Drag & Drop or
+                                    Click</p>
+                                <input type="file" accept="video/*" id="vidInput" hidden>
+                            </div>
+                            <div class="preview" style="display:none">
+                                <video id="vidPreview" controls
+                                    style="max-width:280px;border-radius:12px;border:1px solid rgba(255,255,255,.3)"></video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+                    <button class="cta small" type="submit"><span data-en="Save Medicine" data-hi="दवा सहेजें">Save
+                            Medicine</span></button>
+                    <button class="chip" type="reset" data-en="Reset" data-hi="रीसेट">Reset</button>
+                </div>
+                <div id="saveMsg" class="status"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Inventory Table (simple mock) -->
+    <section class="section glass reveal">
+        <h2 data-en="Inventory" data-hi="इन्वेंटरी">Inventory</h2>
+        <div class="card tilt" style="overflow:auto">
+            <table style="width:100%;border-collapse:separate;border-spacing:0 10px;">
+                <thead style="opacity:.8">
+                    <tr>
+                        <th align="left">#</th>
+                        <th align="left" data-en="Name" data-hi="नाम">Name</th>
+                        <th align="left" data-en="Category" data-hi="श्रेणी">Category</th>
+                        <th align="left" data-en="Usage" data-hi="उपयोग">Usage</th>
+                        <th align="left" data-en="Price" data-hi="कीमत">Price</th>
+                        <th align="left" data-en="Status" data-hi="स्थिति">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="glass" style="border-radius:12px">
+                        <td>1</td>
+                        <td>NeemX Pro</td>
+                        <td data-en="Insecticide" data-hi="कीटनाशी">Insecticide</td>
+                        <td data-en="Leaf" data-hi="पत्तियाँ">Leaf</td>
+                        <td>₹499</td>
+                        <td data-en="Active" data-hi="सक्रिय">Active</td>
+                    </tr>
+                    <tr class="glass">
+                        <td>2</td>
+                        <td>TrichoGuard</td>
+                        <td data-en="Fungicide" data-hi="फफूंदनाशी">Fungicide</td>
+                        <td data-en="Soil" data-hi="मिट्टी">Soil</td>
+                        <td>₹349</td>
+                        <td data-en="Active" data-hi="सक्रिय">Active</td>
+                    </tr>
+                    <tr class="glass">
+                        <td>3</td>
+                        <td>GrowMax NPK</td>
+                        <td data-en="Nutrients" data-hi="पोषक">Nutrients</td>
+                        <td data-en="Root" data-hi="जड़">Root</td>
+                        <td>₹699</td>
+                        <td data-en="Active" data-hi="सक्रिय">Active</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3><i class="fa-solid fa-seedling"></i> Plant Doctor</h3>
+                <p>Helping farmers with AI powered solutions for better crops.</p>
+            </div>
+
+            <div class="footer-contact">
+                <h4>📞 Helpline</h4>
+                <p><a href="tel:+918228858145">+91 8228858145</a></p>
+                <h4>📧 Email</h4>
+                <p><a href="mailto:support@plantdoctor.com">support@plantdoctor.com</a></p>
+            </div>
+
+            <div class="footer-links">
+                <h4>📘 Quick Links</h4>
+                <p><a href="index.html">Home</a> | <a href="medicines.html">Medicines</a> | <a
+                        href="gallery.html">Gallery</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 <span>Plant Doctor</span> | Made with <span class="heart">❤️</span> for Farmers</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // --- Image drop ---
+        const imgDrop = document.getElementById('imgDrop');
+        const imgInput = document.getElementById('imgInput');
+        const imgPreview = document.getElementById('imgPreview');
+        imgDrop.addEventListener('click', () => imgInput.click());
+        imgDrop.addEventListener('dragover', e => { e.preventDefault(); });
+        imgDrop.addEventListener('drop', e => {
+            e.preventDefault(); const file = e.dataTransfer.files[0]; if (file) showImg(file);
+        });
+        imgInput.addEventListener('change', e => { const f = e.target.files[0]; if (f) showImg(f); });
+        function showImg(file) {
+            const url = URL.createObjectURL(file);
+            imgPreview.src = url; imgPreview.parentElement.style.display = 'block';
+        }
+
+        // --- Video drop ---
+        const vidDrop = document.getElementById('vidDrop');
+        const vidInput = document.getElementById('vidInput');
+        const vidPreview = document.getElementById('vidPreview');
+        vidDrop.addEventListener('click', () => vidInput.click());
+        vidDrop.addEventListener('dragover', e => { e.preventDefault(); });
+        vidDrop.addEventListener('drop', e => {
+            e.preventDefault(); const file = e.dataTransfer.files[0]; if (file) showVid(file);
+        });
+        vidInput.addEventListener('change', e => { const f = e.target.files[0]; if (f) showVid(f); });
+        function showVid(file) {
+            const url = URL.createObjectURL(file);
+            vidPreview.src = url; vidPreview.parentElement.style.display = 'block';
+        }
+
+        // --- Save form (mock) ---
+        document.getElementById('medForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('mName').value.trim();
+            const price = document.getElementById('mPrice').value.trim();
+            const msgEl = document.getElementById('saveMsg');
+            msgEl.textContent = document.getElementById('langToggle').textContent === 'EN'
+                ? `दवा "${name}" ₹${price} के साथ सेव हो गई (डेमो)।`
+                : `Medicine "${name}" saved with price ₹${price} (demo).`;
+            setTimeout(() => msgEl.textContent = '', 4000);
+            e.target.reset();
+            document.querySelectorAll('.preview').forEach(p => p.style.display = 'none');
+        });
+
+        // Update select option labels when language toggles
+        document.getElementById('langToggle')?.addEventListener('click', () => {
+            const lang = (document.getElementById('langToggle').textContent === 'EN') ? 'hi' : 'en';
+            document.querySelectorAll('option[data-en]').forEach(op => {
+                op.textContent = op.getAttribute(`data-${lang}`);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+{
+    "January": [
+        {
+            "crop": "🌾 Wheat",
+            "action_en": "💧 Light irrigation to protect from frost.",
+            "action_hi": "💧 पाले से बचाने के लिए हल्की सिंचाई करें।"
+        },
+        {
+            "crop": "🌻 Mustard",
+            "action_en": "🐛 Spray neem or pesticide if aphids seen.",
+            "action_hi": "🐛 अगर माहू दिखें तो नीम या कीटनाशक का छिड़काव करें।"
+        }
+    ],
+    "February": [
+        {
+            "crop": "🌾 Wheat",
+            "action_en": "🌱 Apply urea for better grain filling.",
+            "action_hi": "🌱 अच्छे दाने भरने के लिए यूरिया डालें।"
+        },
+        {
+            "crop": "🌿 Gram",
+            "action_en": "🔪 Check maturity, start harvesting.",
+            "action_hi": "🔪 पकने पर फसल की कटाई करें।"
+        }
+    ],
+    "March": [
+        {
+            "crop": "🌾 Wheat",
+            "action_en": "🔪 Harvest at golden yellow stage.",
+            "action_hi": "🔪 फसल सुनहरी पीली होते ही काटें।"
+        },
+        {
+            "crop": "🌾 Barley",
+            "action_en": "⚙️ Cut and thresh crop at maturity.",
+            "action_hi": "⚙️ फसल पकते ही काटें और मड़ाई करें।"
+        }
+    ],
+    "April": [
+        {
+            "crop": "🌱 Moong",
+            "action_en": "💧 Sow summer moong with irrigation.",
+            "action_hi": "💧 ग्रीष्म मूंग सिंचाई के साथ बोएं।"
+        },
+        {
+            "crop": "🌻 Sunflower",
+            "action_en": "🚜 Prepare land and sow sunflower.",
+            "action_hi": "🚜 भूमि तैयार करें और सूरजमुखी बोएं।"
+        }
+    ],
+    "May": [
+        {
+            "crop": "🍬 Sugarcane",
+            "action_en": "🌱 Keep field weed-free, irrigate timely.",
+            "action_hi": "🌱 खेत खरपतवार मुक्त रखें, समय पर सिंचाई करें।"
+        },
+        {
+            "crop": "🌿 Cotton",
+            "action_en": "🌧️ Sow cotton with first irrigation.",
+            "action_hi": "🌧️ पहली सिंचाई के साथ कपास बोएं।"
+        }
+    ],
+    "June": [
+        {
+            "crop": "🌾 Paddy (Rice)",
+            "action_en": "🌱 Transplant paddy seedlings.",
+            "action_hi": "🌱 धान की पौध की रोपाई करें।"
+        },
+        {
+            "crop": "🌽 Maize",
+            "action_en": "💧 Sow kharif maize with good moisture.",
+            "action_hi": "💧 खरीफ मक्का नमी वाली भूमि में बोएं।"
+        }
+    ],
+    "July": [
+        {
+            "crop": "🌾 Paddy (Rice)",
+            "action_en": "💧 Maintain water level in fields.",
+            "action_hi": "💧 खेत में पानी का स्तर बनाए रखें।"
+        },
+        {
+            "crop": "🌿 Cotton",
+            "action_en": "🐛 Protect from pink bollworm.",
+            "action_hi": "🐛 गुलाबी इल्ली से फसल बचाएं।"
+        }
+    ],
+    "August": [
+        {
+            "crop": "🌾 Paddy (Rice)",
+            "action_en": "🌱 Apply urea at tillering stage.",
+            "action_hi": "🌱 धान की कल्ले बनने पर यूरिया डालें।"
+        },
+        {
+            "crop": "🌽 Maize",
+            "action_en": "🌱 Give fertilizer at flowering stage.",
+            "action_hi": "🌱 फूल आने पर खाद डालें।"
+        }
+    ],
+    "September": [
+        {
+            "crop": "🌾 Paddy (Rice)",
+            "action_en": "🚜 Drain water before harvesting.",
+            "action_hi": "🚜 कटाई से पहले खेत से पानी निकालें।"
+        },
+        {
+            "crop": "🍬 Sugarcane",
+            "action_en": "💧 Irrigate before maturity stage.",
+            "action_hi": "💧 पकने से पहले सिंचाई करें।"
+        }
+    ],
+    "October": [
+        {
+            "crop": "🌾 Wheat",
+            "action_en": "🚜 Prepare land for wheat sowing.",
+            "action_hi": "🚜 गेहूं की बुवाई के लिए भूमि तैयार करें।"
+        },
+        {
+            "crop": "🌾 Barley",
+            "action_en": "🌱 Sow rabi barley crop.",
+            "action_hi": "🌱 रबी जौ की बुवाई करें।"
+        }
+    ],
+    "November": [
+        {
+            "crop": "🌾 Wheat",
+            "action_en": "🌧️ Sow wheat with timely irrigation.",
+            "action_hi": "🌧️ समय पर सिंचाई के साथ गेहूं बोएं।"
+        },
+        {
+            "crop": "🥬 Peas",
+            "action_en": "🌱 Sow peas for winter season.",
+            "action_hi": "🌱 सर्दियों के लिए मटर बोएं।"
+        }
+    ],
+    "December": [
+        {
+            "crop": "🌻 Mustard",
+            "action_en": "💧 Light irrigation if no rain.",
+            "action_hi": "💧 बारिश न हो तो हल्की सिंचाई करें।"
+        },
+        {
+            "crop": "🌾 Wheat",
+            "action_en": "💧 Irrigate at crown root stage.",
+            "action_hi": "💧 क्राउन रूट अवस्था पर सिंचाई करें।"
+        }
+    ]
+}
