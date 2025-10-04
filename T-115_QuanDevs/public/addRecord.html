@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Medical Record</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blue-200 min-h-screen flex items-center justify-center">
+
+  <div class="bg-white rounded-xl shadow-lg p-8 w-full max-w-lg">
+    <h1 class="text-3xl font-bold text-blue-600 text-center mb-6">Add Medical Record</h1>
+
+    <form id="medical-form" class="space-y-4">
+      <input type="text" id="name" placeholder="Full Name" required class="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      <input type="number" id="age" placeholder="Age" required class="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      <select id="gender" required class="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <option value="" disabled selected>Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+        <option value="Prefer not to say">Prefer not to say</option>
+      </select>
+      <input type="text" id="bloodGroup" placeholder="Blood Group" required class="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      <input type="text" id="allergies" placeholder="Allergies" required class="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      <input type="text" id="medicalHistory" placeholder="Medical History" required class="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      <input type="text" id="emergencyContact" placeholder="Emergency Contact" required class="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+
+      <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Update the record</button>
+    </form>
+
+    <div id="record-card" class="mt-8 p-4 border border-blue-500 rounded-lg bg-blue-50 hidden"></div>
+
+    <img id="qr-code" class="mt-6 mx-auto hidden w-40 h-40" />
+
+    <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition mb-6 mt-8"><a href="./main.html">Link to website</a></button>
+
+    
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('medical-form');
+      const recordCard = document.getElementById('record-card');
+      const qrImage = document.getElementById('qr-code');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const medicalRecord = {
+          healthId: Math.floor(Math.random() * (999999999 - 100000000 + 1)) + 100000000,
+          name: document.getElementById('name').value,
+          age: document.getElementById('age').value,
+          gender: document.getElementById('gender').value,
+          bloodGroup: document.getElementById('bloodGroup').value,
+          allergies: document.getElementById('allergies').value,
+          medicalHistory: document.getElementById('medicalHistory').value,
+          emergencyContact: document.getElementById('emergencyContact').value
+        };
+
+        // Display the record card
+        recordCard.classList.remove('hidden');
+        recordCard.innerHTML = `
+          <h2 class="text-xl font-bold text-blue-700 mb-2">Medical Record</h2>
+          <p><strong>Health ID:</strong> ${medicalRecord.healthId}</p>
+          <p><strong>Name:</strong> ${medicalRecord.name}</p>
+          <p><strong>Age:</strong> ${medicalRecord.age}</p>
+          <p><strong>Gender:</strong> ${medicalRecord.gender}</p>
+          <p><strong>Blood Group:</strong> ${medicalRecord.bloodGroup}</p>
+          <p><strong>Allergies:</strong> ${medicalRecord.allergies}</p>
+          <p><strong>Medical History:</strong> ${medicalRecord.medicalHistory}</p>
+          <p><strong>Emergency Contact:</strong> ${medicalRecord.emergencyContact}</p>
+        `;
+
+        // Generate QR Code with the record
+        const qrData = encodeURIComponent(`
+Health ID: ${medicalRecord.healthId}
+Name: ${medicalRecord.name}
+Age: ${medicalRecord.age}
+Gender: ${medicalRecord.gender}
+Blood Group: ${medicalRecord.bloodGroup}
+Allergies: ${medicalRecord.allergies}
+Medical History: ${medicalRecord.medicalHistory}
+Emergency Contact: ${medicalRecord.emergencyContact}
+        `);
+
+        qrImage.classList.remove('hidden');
+        qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?data=${qrData}&size=200x200`;
+      });
+    });
+  </script>
+
+<script src="hid.js"></script>
+</body>
+</html>

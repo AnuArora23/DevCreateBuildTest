@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+                       /* This is header part*/
+.header{
+    height: 80px;
+    background-color: white;
+}
+
+.line {
+    height: 1px;
+    background-color: rgb(168, 168, 168);
+}
+
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 650;
+    font-size: 16px;
+}
+
+
+.logo img{
+    height: 85px;
+    width: 260px;
+}
+
+.doctor #hn {
+    font-size: 14px;
+    font-weight: 550;
+}
+
+
+.get {
+    margin-right: 50px;
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+    width: 140px;
+    background-color: #58d5ff;
+    border-radius: 20px;
+    box-shadow: 2px 1px rgb(176, 176, 176);
+}
+
+.get:hover {
+    margin-right: 50px;
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+    width: 140px;
+    background-color: #00befd;
+    border-radius: 20px;
+    box-shadow: 2px 1px rgb(176, 176, 176);
+}
+
+.get p {
+    font-size: 15px;
+}
+
+.get #st {
+    align-self: flex-start;
+    padding-left:22px;
+}
+
+                               /* This is Search*/
+
+.search{
+    height: 90px;
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-box {
+    margin-right: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.search-box input {
+    padding: 12px;
+    padding-right:215px ;
+    border-radius: 5px;
+    margin-right: 4px;
+}
+
+
+.search-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+.view-cart .cart-link {
+    margin-left: 90px;
+    padding-left: 40px;
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    border: 1px solid #000000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.view-cart .cart-link:hover {
+    background-color: #007bff;
+}
+                               /* This is 1st Banner*/
+
+
+.banner{
+    height: 370px;
+    background-color: #27a086;
+    display: flex;
+}
+
+.banner img {
+    height: 310px;
+    padding-top: 60px;
+}
+
+.banner p{
+    font-size: 55px;
+    font-weight: 100;
+    padding-top: 110px;
+    padding-left: 60px;
+}
+
+                               /* Browse Section */
+
+.browse{
+    height: 350px;
+    background-color: #ffffff;
+}
+
+.browse #h{
+    padding-left:60px;
+    margin-top:40px;
+    padding-bottom:30px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.carts{
+    margin-top: 50px;
+    margin-bottom: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.cart {
+    height: 200px;
+    width: 200px;
+    background-color: #afe4f6;
+    border-radius: 20px;
+    
+}
+
+.cart:hover {
+    height: 200px;
+    width: 200px;
+    background-color: #13c1fa;
+    border-radius: 20px;
+    
+}
+
+.cart img {
+    height: 200px;
+    width: 200px;
+}
+
+.cart p{
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+}
+
+
+                               /* This is 2st Banner*/
+.banner2{
+    margin-top: 140px;
+    height: 340px;
+    background-color: #2DBAEB;
+    display: flex;
+}
+
+.banner2 img {
+    height: 310px;
+    padding-top: 60px;
+    padding-left: 150px;
+}
+
+.banner2 p{
+    font-size: 49px;
+    font-weight: 100;
+    padding-top: 130px;
+    padding-left: 130px;
+}

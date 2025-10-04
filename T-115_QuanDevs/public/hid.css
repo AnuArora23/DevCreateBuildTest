@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0081CF;
+    margin: 0;
+    padding: 0;
+    padding-top: 50px;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 40px 80px 80px 80px;
+    background-color: #fff;
+    border-radius: 9px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-size: 30px;
+    text-align: center;
+    color: #0081CF;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    text-align: center;
+    margin: 10px 0 50px 0;
+  }
+  
+  .id-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* space between input and QR */
+    margin-top: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input[type="text"] {
+    width: 250px;
+    height: 60px;
+    padding: 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    border: none;
+  }
+  
+  #qr-code {
+    width: 150px;
+    height: 150px;
+  }
+  
+  button {
+    display: block;
+    padding: 16px 24px;
+    background-color: #0004f5;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 60px auto 0 auto;
+    font-weight: bold;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

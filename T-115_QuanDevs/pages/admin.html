@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Login - HealthSpot</title>
+  <link rel="icon" type="image/png" href="/src/medical-report.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+  .loader {
+    border: 8px solid #e5e7eb;
+    border-top: 8px solid #3490dc;
+    border-radius: 9999px;
+    width: 6rem;
+    height: 6rem;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .delete-all-btn {
+    position: fixed;
+    top: 1rem;   /* distance from top */
+    right: 1rem; /* distance from right */
+    z-index: 1000; /* make sure it's on top */
+  }
+</style>
+
+</head>
+<body class="bg-blue-900 min-h-screen flex flex-col">
+
+    <!-- Header with logo -->
+    <header class="p-6 fixed top-0 left-0 w-full z-50">
+      <a href="/index.html" class="text-4xl font-bold text-white select-none pointer-events-auto">
+        🩺 HealthSpot
+      </a>
+    </header>
+
+
+  <button
+    id="deleteAllBtn"
+    class="delete-all-btn mb-6 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+    onclick="deleteAllUsers()"
+    style="display: none; position: fixed; top: 1rem; right: 1rem; z-index: 1000;"
+  >
+    Delete All Users
+  </button>
+
+    
+
+  <!-- Login Form Container -->
+  <main id="mainContent" class="flex-grow flex items-center justify-center pt-32 px-4">
+    <form class="bg-white rounded-xl shadow-lg p-8 max-w-md w-full" onsubmit="handleLogin(event)">
+      <h2 class="text-2xl font-semibold text-blue-900 mb-6 text-center">Admin Login</h2>
+
+      <label for="loginId" class="block text-blue-900 font-medium mb-2">Login ID</label>
+      <input 
+        type="text" 
+        id="loginId" 
+        name="loginId" 
+        required 
+        class="w-full mb-4 px-4 py-2 border border-blue-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Enter your login ID"
+      />
+
+      <label for="password" class="block text-blue-900 font-medium mb-2">Password</label>
+      <input 
+        type="password" 
+        id="password" 
+        name="password" 
+        required 
+        class="w-full mb-6 px-4 py-2 border border-blue-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Enter your password"
+      />
+
+      <button 
+        type="submit" 
+        class="w-full bg-blue-700 text-white font-semibold py-3 rounded hover:bg-blue-800 transition"
+      >
+        Login
+      </button>
+    </form>
+  </main>
+
+    <div id="editModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-6 rounded-xl shadow-lg w-full max-w-lg text-blue-900 relative">
+      <button onclick="closeEditModal()" class="absolute top-3 right-3 text-gray-600 hover:text-black">&times;</button>
+      <h2 class="text-2xl font-bold mb-4">Edit User</h2>
+      <form id="editForm" class="grid grid-cols-2 gap-4">
+        <input type="hidden" name="healthId" />
+        <input type="text" name="fullName" placeholder="Full Name" required class="col-span-2 border p-2 rounded" />
+        <input type="email" name="email" placeholder="Email" class="border p-2 rounded" />
+        <input type="text" name="phone" placeholder="Phone" class="border p-2 rounded" />
+        <input type="text" name="bloodGroup" placeholder="Blood Group" class="border p-2 rounded" />
+        <input type="text" name="allergies" placeholder="Allergies" class="border p-2 rounded" />
+        <input type="text" name="conditions" placeholder="Chronic Conditions" class="border p-2 rounded" />
+        <input type="text" name="medications" placeholder="Current Medications" class="border p-2 rounded" />
+        <textarea name="medicalHistory" placeholder="Medical History" class="col-span-2 border p-2 rounded"></textarea>
+        <button type="submit" class="col-span-2 bg-blue-600 text-white p-2 rounded hover:bg-blue-800">Save Changes</button>
+      </form>
+    </div>
+  </div>
+
+
+<script src="admin.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+                       /* This is header part*/
+                       .header{
+                        height: 80px;
+                        background-color: white;
+                    }
+                    
+                    .line {
+                        height: 1px;
+                        background-color: rgb(168, 168, 168);
+                    }
+                    
+                    a {
+                        color: rgb(0, 0, 0);
+                        text-decoration: none;
+                    }
+                    .header{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        font-weight: 650;
+                        font-size: 16px;
+                    }
+                    
+                    
+                    .logo img{
+                        height: 85px;
+                        width: 260px;
+                    }
+                    
+                    .doctor #hn {
+                        font-size: 14px;
+                        font-weight: 550;
+                    }
+                    
+                    
+                    .get {
+                        margin-right: 50px;
+                        margin-left: 40px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        height: 55px;
+                        width: 140px;
+                        background-color: #7bdeff;
+                        border-radius: 20px;
+                        box-shadow: 2px 1px rgb(176, 176, 176);
+                    }
+                    
+                    .get:hover {
+                        margin-right: 50px;
+                        margin-left: 40px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        height: 55px;
+                        width: 140px;
+                        background-color: #00befd;
+                        border-radius: 20px;
+                        box-shadow: 2px 1px rgb(176, 176, 176);
+                    }
+                    
+                    .get p {
+                        font-size: 15px;
+                    }
+                    
+                    .get #st {
+                        align-self: flex-start;
+                        padding-left:22px;
+}
+
+                               /* This is Search*/
+
+                               .search{
+                                height: 90px;
+                                background-color: rgb(245, 245, 245);
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                            
+                            .search-box {
+                                margin-right: 550px;
+                                display: flex;
+                                justify-content: space-around;
+                                align-items: center;
+                            }
+                            
+                            .search-box input {
+                                padding: 9px;
+                                padding-right:215px ;
+                                border-radius: 5px;
+                                margin-right: 4px;
+                            }
+                            
+                            
+                            .search-button {
+                                background-color: #007bff;
+                                color: #fff;
+                                border: none;
+                                border-radius: 5px;
+                                padding: 9px 20px;
+                                cursor: pointer;
+                                margin-left: 8px;
+                            }
+                            
+                            .search-button:hover {
+                                background-color: #0056b3;
+                            }
+                            
+
+.the-main-container{
+    padding: 40px;
+    background-color: #642fc7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main-container{
+    margin-top: 60px;
+    height: 33vh;
+    width: 80vw;
+    background-color: rgb(235, 253, 255);
+    border-radius: 20px;
+    margin: 12px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.home-article{
+    display: flex;
+    padding: 25px;
+}
+
+.home-article  img{
+    width: 380px;
+    border-radius: 13px;
+    
+}
+
+.home-article-content{
+    align-self: self-start;
+    margin-left: 34px;
+}
+
+
+.home-article-content h4{
+    margin-top: 35px;
+    font-size: 20px;
+}
+.btn-view{
+    display: flex;
+    margin-top: 40px;
+}
+.btn{
+    font-size: 14px;
+    border-radius: 14px;
+    padding: 4px 12px;
+    background-color: #75dcfe;
+    margin-top: 23px;
+}
+
+.btn:hover{
+    font-size: 15px;
+    border-radius: 14px;
+    padding: 8px 15px;
+    background-color: rgb(25, 182, 234);
+    margin-top: 23px;
+}
+.btn-view span{
+    font-size: 16px;
+    padding: 15px 41px;
+    color: rgb(25, 182, 234);
+    margin-top: 23px;
+    cursor: pointer;
+    
+}
+
+
+
+
+                    

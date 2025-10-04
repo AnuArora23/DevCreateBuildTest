@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HealthSpot - Aadhaar For Healthcare</title>
+  <link rel="icon" type="image/png" href="src\medical-report.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Hero Section Background */
+    #hero-section {
+      background:
+        radial-gradient(circle at 20% 30%, rgba(160, 214, 232, 0.1) 0%, transparent 60%),
+        radial-gradient(circle at 80% 70%, rgba(236, 160, 110, 0.697) 0%, transparent 40%),
+        radial-gradient(circle at center, #2a39a9 0%, #2e3b88 100%) !important;
+    }
+
+
+    /* Typing animation */
+    @keyframes typing {
+      from {
+        width: 0
+      }
+
+      to {
+        width: 100%
+      }
+    }
+
+    @keyframes blink-caret {
+      50% {
+        border-color: transparent
+      }
+    }
+
+    .typing {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid white;
+      width: 0;
+      animation:
+        typing 3s steps(30, end) forwards,
+        blink-caret 0.75s step-end infinite;
+    }
+
+    /* Floating animation */
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .floating {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    /* Spinner */
+    .spinner {
+      border: 2px solid transparent;
+      border-top: 2px solid #2563eb;
+      /* blue-600 */
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+      animation: spin 1s linear infinite;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg)
+      }
+
+      100% {
+        transform: rotate(360deg)
+      }
+    }
+
+    header {
+      background-color: rgba(10, 30, 80, 0.3);
+      /* semi-transparent blue */
+      backdrop-filter: blur(10px);
+      /* blur effect */
+      -webkit-backdrop-filter: blur(10px);
+      /* Safari support */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      z-index: 50;
+    }
+
+    #hero-section {
+      min-height: 100vh;
+      /* full screen height */
+      /* optional extra padding */
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  </style>
+
+</head>
+
+<body class="font-sans text-white bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600">
+
+  <!-- Navbar -->
+  <header id="header" class="bg-blue-900 bg-opacity-90 shadow">
+    <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
+      <!-- HealthSpot Text -->
+      <h1 class="text-3xl font-bold text-white"> 🩺 HealthSpot</h1>
+
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden text-blue-100 focus:outline-none" id="menu-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+
+      <!-- Nav Links -->
+      <nav class="hidden md:flex space-x-6 text-blue-100 font-medium text-lg mr-6" id="nav-links">
+        <a href="mailto:thearmaandeep@gmail.com" class="flex items-center space-x-2 hover:text-blue-600">
+          <!-- Small Icon (Example: message icon) -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.985 9.985 0 01-5.5-1.657L3 20l1.657-3.5A9.985 9.985 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+          </svg>
+          <span>Contact</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden" id="mobile-menu" style="display: none;">
+      <nav class="flex flex-col space-y-4 p-4 text-blue-100 font-medium text-lg">
+        <a href="mailto:thearmaandeep@gmail.com" class="flex items-center space-x-2 hover:text-blue-600">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.985 9.985 0 01-5.5-1.657L3 20l1.657-3.5A9.985 9.985 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+          </svg>
+          <span>Contact</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+
+
+  <!-- Hero Section -->
+  <section id="hero-section" class="py-16 px-5 md:px-10">
+    <div
+      class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center px-6 space-y-8 md:space-y-0 md:space-x-12">
+      <div class="flex-1 space-y-6">
+        <!-- Added typing animation class -->
+        <h1 id="hero-heading" class="text-4xl md:text-5xl font-bold text-white typing"> <span
+            class="text-info">A</span>adhaar For <span class="text-info">Healthcare</span></h1>
+        <p class="text-base md:text-lg text-blue-200">Simplify your medical records with HealthSpot’s secure,
+          Aadhaar-like Health ID. Access anytime, anywhere.</p>
+        <div>
+          <button id="getHealthIDBtn"
+            class="px-6 py-3 bg-white text-blue-800 font-semibold rounded-lg shadow hover:bg-blue-100 transition flex items-center justify-center space-x-2">
+            <span>Get Your Health ID ➡️</span>
+            <!-- Spinner hidden by default -->
+            <span id="spinner" class="spinner hidden"></span>
+          </button>
+        </div>
+      </div>
+      <div class="flex-1">
+        <!-- Floating animation added -->
+        <img src="src/doctors-removebg-preview.png" alt="Medical illustration" />
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Features Section -->
+  <section class="py-16 bg-blue-800 bg-opacity-80 px-8">
+    <div class="max-w-7xl mx-auto text-center space-y-12">
+      <h2 class="text-4xl font-bold text-white">Why Choose HealthSpot?</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div
+          class="bg-white text-blue-900 rounded-lg shadow p-6 space-y-4 transition-transform transform hover:scale-105 hover:shadow-2xl cursor-pointer">
+          <div class="text-blue-700 text-4xl">🆔</div>
+          <h3 class="text-xl font-semibold">Universal Health ID</h3>
+          <p>Carry your complete medical history in one secure digital HealthSpot ID.</p>
+        </div>
+        <div
+          class="bg-white text-blue-900 rounded-lg shadow p-6 space-y-4 transition-transform transform hover:scale-105 hover:shadow-2xl cursor-pointer">
+          <div class="text-blue-700 text-4xl">📱</div>
+          <h3 class="text-xl font-semibold">QR Code for Easy Sharing</h3>
+          <p>Generate a secure QR code to instantly share your health data with doctors, hospitals, or emergency
+            responders.</p>
+        </div>
+        <div
+          class="bg-white text-blue-900 rounded-lg shadow p-6 space-y-4 transition-transform transform hover:scale-105 hover:shadow-2xl cursor-pointer">
+          <div class="text-blue-700 text-4xl">⚡</div>
+          <h3 class="text-xl font-semibold">Instant Access</h3>
+          <p>Access your health data anytime, from any device, in seconds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application / Use Cases Section -->
+  <section class="py-12 bg-white px-4 md:px-8">
+    <div class="max-w-7xl mx-auto px-6 text-left">
+      <h2 class="text-3xl font-bold text-blue-900 mb-6">Applications & Use Cases</h2>
+      <ul class="flex flex-col gap-6">
+        <li
+          class="bg-blue-50 rounded-lg px-5 py-3 text-blue-900 text-lg font-semibold shadow-sm flex items-center space-x-3 transition-transform transform hover:scale-105 hover:shadow-md cursor-pointer">
+          <span>🏫</span>
+          <span>Colleges: Efficiently manage student health records for prompt emergency care.</span>
+        </li>
+        <li
+          class="bg-blue-50 rounded-lg px-5 py-3 text-blue-900 text-lg font-semibold shadow-sm flex items-center space-x-3 transition-transform transform hover:scale-105 hover:shadow-md cursor-pointer">
+          <span>🏥</span>
+          <span>Hospitals: Securely store patient histories to facilitate faster and accurate treatments.</span>
+        </li>
+        <li
+          class="bg-blue-50 rounded-lg px-5 py-3 text-blue-900 text-lg font-semibold shadow-sm flex items-center space-x-3 transition-transform transform hover:scale-105 hover:shadow-md cursor-pointer">
+          <span>📄</span>
+          <span>Insurance: Simplify claim processing with verified and trusted medical data.</span>
+        </li>
+        <li
+          class="bg-blue-50 rounded-lg px-5 py-3 text-blue-900 text-lg font-semibold shadow-sm flex items-center space-x-3 transition-transform transform hover:scale-105 hover:shadow-md cursor-pointer">
+          <span>👤</span>
+          <span>Individuals: Securely store and share your personal health information anytime.</span>
+        </li>
+        <li
+          class="bg-blue-50 rounded-lg px-5 py-3 text-blue-900 text-lg font-semibold shadow-sm flex items-center space-x-3 transition-transform transform hover:scale-105 hover:shadow-md cursor-pointer">
+          <span>🚑</span>
+          <span>Emergency Services: Provide first responders with instant access to critical health data.</span>
+        </li>
+        <li
+          class="bg-blue-50 rounded-lg px-5 py-3 text-blue-900 text-lg font-semibold shadow-sm flex items-center space-x-3 transition-transform transform hover:scale-105 hover:shadow-md cursor-pointer">
+          <span>🏢</span>
+          <span>Corporates: Monitor and promote wellness programs to enhance employee health.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="bg-blue-600 bg-opacity-90 h-18 font-semibold">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between p-6 text-base text-blue-100">
+      <p class="text-center md:text-left">© 2025 HealthSpot. All rights reserved.</p>
+      <div class="space-x-4 mt-3 md:mt-0 text-center md:text-right">
+        <p>
+          Coded with ❤️ by
+          <a href="https://linksbyarmaan.netlify.app/"
+            class="hover:text-blue-300 font-semibold text-yellow-300">Nikhil</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    // Button click spinner toggle
+    const btn = document.getElementById('getHealthIDBtn');
+    const spinner = document.getElementById('spinner');
+
+    btn.addEventListener('click', () => {
+      spinner.classList.remove('hidden');
+      btn.querySelector('span').textContent = 'Loading...';
+      btn.disabled = true;
+
+      // Simulate loading time (e.g., 2 seconds)
+      setTimeout(() => {
+        spinner.classList.add('hidden');
+        btn.querySelector('span').textContent = 'Get Your Health ID';
+        btn.disabled = false;
+      }, 2000);
+    });
+
+    document.getElementById("getHealthIDBtn").addEventListener("click", function () {
+      // Optionally, you can show the spinner here if you want:
+      document.getElementById("spinner").classList.remove("hidden");
+
+      setTimeout(function () {
+        window.location.href = "pages/entery.html";
+      }, 500); // 1.5 second delay
+    });
+
+    // JavaScript to toggle mobile menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+      if (mobileMenu.style.display === "none" || mobileMenu.style.display === "") {
+        mobileMenu.style.display = "block";
+      } else {
+        mobileMenu.style.display = "none";
+      }
+    });
+  </script>
+
+</body>
+
+</html>

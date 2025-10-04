@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+                       /* This is header part*/
+.header{
+    height: 80px;
+    background-color: white;
+}
+
+.line {
+    height: 1px;
+    background-color: rgb(168, 168, 168);
+}
+
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 650;
+    font-size: 16px;
+}
+
+
+.logo img{
+    height: 85px;
+    width: 260px;
+}
+
+.doctor #hn {
+    font-size: 14px;
+    font-weight: 550;
+}
+
+
+.get {
+    margin-right: 50px;
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+    width: 140px;
+    background-color: #7bdeff;
+    border-radius: 20px;
+    box-shadow: 2px 1px rgb(176, 176, 176);
+}
+
+.get:hover {
+    margin-right: 50px;
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+    width: 140px;
+    background-color: #00befd;
+    border-radius: 20px;
+    box-shadow: 2px 1px rgb(176, 176, 176);
+}
+
+.get p {
+    font-size: 15px;
+}
+
+.get #st {
+    align-self: flex-start;
+    padding-left:22px;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lobster&family=Roboto:wght@300;400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container{
+    min-height: 100vh;
+    background-color: #00befd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-image: url(images/back.jpg) ; */
+}
+.container form{
+    width: 700px;
+    height: 690px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 20px 20px 20px black;
+    border-radius:  16px;
+    background-color: #cff3ff;
+    backdrop-filter: blur(10px);
+    flex-wrap: wrap;
+}
+
+.container form h1{
+    padding-bottom: 20px;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    margin-top: 23px;
+    width: 505px;
+    text-align: center;
+}
+
+.container form input{
+    width: 300px;
+    height: 40px;
+    padding-left: 11px;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    margin-bottom: 12px;
+    background: none;
+    border-bottom: 2px solid #fff;
+}
+
+.container form input::placeholder{
+    color: #000000;
+}
+.container form #lastName,
+.container form #mobile{
+    margin-left: 23px;
+}
+
+.container form h4{
+    color: #000000;
+    font-weight: 300;
+    width: 600px;
+    margin-top: 22px;
+}
+
+.container form textarea{
+    background: none;
+    border-bottom: 2px solid #fff;
+    color: #000000;
+    font-weight: 200;
+    font-size: 15px;
+    padding: 10px;
+    outline: none;
+    min-width: 600px;
+    max-width: 600px;
+    min-height: 80px;
+    max-height: 80px;
+
+}
+textarea::-webkit-scrollbar{
+    width: 1em;
+}
+
+textarea::-webkit-scrollbar-thum{
+    background-color: rgba(194,194,194,0.713);
+}
+
+
+.container form #button{
+    border: none;
+    background: #fff;
+    border-radius: 5px;
+    margin-top: 21px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #000000;
+    padding: 0;
+    width: 100px;
+    margin-right: 500px;
+    margin-bottom: 30px;
+    transition: 0.3s;
+
+}
+
+.container form #button:hover{
+    opacity: 0.7;
+    background:#00befd;
+}
+
+.in {
+    margin-top: 20px;
+}
+
+#date {
+    margin-right: 250px;
+}
+
+
